@@ -1,158 +1,528 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corporate Strategy - Strategic Management Framework</title>
-    <!-- Tailwind CSS via CDN -->
+    <title>Corporate Strategy - Comprehensive Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #475569; }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 1);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0284c7, #4f46e5, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-border {
+            position: relative;
+        }
+        .gradient-border::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            border-radius: inherit;
+            background: linear-gradient(to right, #38bdf8, #c084fc);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Floating orbs */
+        .orb-1 { position: fixed; top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(56,189,248,0.2) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
+        .orb-2 { position: fixed; bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(192,132,252,0.15) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
+<body class="relative overflow-x-hidden antialiased selection:bg-fuchsia-200 selection:text-fuchsia-900">
 
-    <div class="max-w-4xl mx-auto px-4 py-12">
-        <!-- Breadcrumbs -->
-        <nav class="flex text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
-          <ol class="inline-flex items-center space-x-1 md:space-x-3">
-            <li class="inline-flex items-center">
-              <a href="index.html" class="hover:text-blue-600">Business Strategy & Management</a>
-            </li>
-            <li>
-              <div class="flex items-center">
-                <i class="fas fa-chevron-right text-xs mx-2"></i>
-                <a href="strategic-management.html" class="hover:text-blue-600">Strategic Management</a>
-              </div>
-            </li>
-            <li>
-              <div class="flex items-center">
-                <i class="fas fa-chevron-right text-xs mx-2"></i>
-                <a href="strategic-planning-direction.html" class="hover:text-blue-600">Strategic Planning & Direction</a>
-              </div>
-            </li>
-            <li aria-current="page">
-              <div class="flex items-center">
-                <i class="fas fa-chevron-right text-xs mx-2"></i>
-                <span class="text-slate-800 font-medium">Corporate Strategy</span>
-              </div>
-            </li>
-          </ol>
-        </nav>
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
 
-        <main class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-            <!-- Header Section -->
-            <div class="bg-blue-900 px-8 py-6 text-white border-b-4 border-blue-500">
-                <div class="flex items-center gap-3 mb-2">
-                    <span class="bg-blue-800 text-blue-100 text-xs px-2 py-1 rounded font-semibold tracking-wide uppercase">Layer 3 Node</span>
+    <!-- Floating Navigation -->
+    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+        <div class="glass-panel rounded-full px-4 sm:px-6 py-3 flex items-center gap-3 sm:gap-6 pointer-events-auto shadow-2xl overflow-x-auto max-w-full border border-slate-200/50">
+            <a href="strategic-planning-direction.html" class="text-slate-500 hover:text-slate-900 transition flex items-center gap-2 group flex-shrink-0">
+                <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> <span class="hidden sm:inline font-medium">Back</span>
+            </a>
+            <div class="w-px h-6 bg-slate-200 hidden sm:block"></div>
+            <a href="#intro" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">Intro</a>
+            <a href="#ansoff" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">Ansoff</a>
+            <a href="#bcg" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">BCG Matrix</a>
+            <a href="#value" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">Value</a>
+            <a href="#choices" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">Choices</a>
+            <a href="#cases" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">Cases</a>
+            <a href="#rules" class="text-xs sm:text-sm font-extrabold text-blue-600 hover:text-blue-800 transition uppercase tracking-widest ml-2 flex-shrink-0">Do's & Don'ts</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-24 sm:py-32 flex flex-col gap-32">
+
+        <!-- Hero -->
+        <section id="hero" class="min-h-[70vh] flex flex-col justify-center items-center text-center reveal">
+            <div class="inline-block px-4 py-1.5 rounded-full glass-panel border shadow-sm text-blue-600 text-xs sm:text-sm font-bold mb-6 tracking-widest uppercase">
+                 Layer 3 Strategic Asset
+            </div>
+            <h1 class="text-5xl md:text-8xl font-extrabold tracking-tight text-slate-900 mb-8 max-w-4xl">
+                Corporate <span class="gradient-text">Strategy</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-slate-500 max-w-3xl font-light leading-relaxed">
+                The architecture of a multi-business organization. Answering the fundamental question: "Which businesses should we be in, and how do they relate to each other?"
+            </p>
+        </section>
+
+        <!-- Intro -->
+        <section id="intro" class="reveal scroll-mt-32">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-black text-slate-900 mb-6">What is Corporate Strategy?</h2>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        Distinct from Business Strategy (how to compete within one business), Corporate Strategy is the set of decisions and actions at the holding company level.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                            <i class="fas fa-layer-group text-blue-500 text-xl mb-2"></i>
+                            <h4 class="font-bold text-slate-800">Portfolio</h4>
+                            <p class="text-xs text-slate-500">Which businesses to compete in.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                            <i class="fas fa-project-diagram text-fuchsia-500 text-xl mb-2"></i>
+                            <h4 class="font-bold text-slate-800">Relatedness</h4>
+                            <p class="text-xs text-slate-500">How they relate to each other.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                            <i class="fas fa-coins text-emerald-500 text-xl mb-2"></i>
+                            <h4 class="font-bold text-slate-800">Allocation</h4>
+                            <p class="text-xs text-slate-500">Distributing capital and talent.</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                            <i class="fas fa-landmark text-amber-500 text-xl mb-2"></i>
+                            <h4 class="font-bold text-slate-800">Governance</h4>
+                            <p class="text-xs text-slate-500">Managing multiple trade-offs.</p>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="text-3xl font-bold">Corporate Strategy</h1>
+                <div class="md:w-1/2 w-full">
+                    <div class="glass-panel p-8 rounded-3xl">
+                        <h3 class="font-bold text-slate-900 mb-4 border-b border-slate-200 pb-2">Corporate vs. Business</h3>
+                        <div class="space-y-4">
+                            <div class="bg-indigo-50/80 p-4 rounded-xl border border-indigo-100">
+                                <span class="text-xs font-bold text-indigo-500 uppercase">Corporate Level</span>
+                                <h4 class="text-slate-800 font-bold">Which businesses should we be in?</h4>
+                                <p class="text-sm text-slate-600">Timeframe: 5-10 years</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                <span class="text-xs font-bold text-slate-500 uppercase">Business Unit Level</span>
+                                <h4 class="text-slate-800 font-bold">How do we compete in this market?</h4>
+                                <p class="text-sm text-slate-600">Timeframe: 3-5 years</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ansoff Matrix -->
+        <section id="ansoff" class="reveal scroll-mt-32">
+            <div class="text-center mb-16">
+                <span class="text-sm font-bold text-blue-600 uppercase tracking-widest">Framework 1</span>
+                <h2 class="text-4xl font-black text-slate-900 mt-2">The Ansoff Matrix</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Evaluating four fundamental growth strategies based on identifying existing and new products and markets.</p>
             </div>
 
-            <!-- Content Section -->
-            <div class="p-8">
+            <div class="glass-panel rounded-3xl p-4 sm:p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Market Penetration -->
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-emerald-100 hover:shadow-md transition">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-emerald-700">Market Penetration</h3>
+                            <span class="text-xs font-bold bg-emerald-50 text-emerald-600 px-2 py-1 rounded">Low Risk</span>
+                        </div>
+                        <p class="font-mono text-xs text-slate-400 mb-4 bg-slate-50 inline-block px-2 py-1 rounded">Existing Products + Existing Markets</p>
+                        <p class="text-slate-600 text-sm mb-4">Grow within existing business (more customers, higher usage, taking share from competitors).</p>
+                        <div class="bg-emerald-50 p-3 rounded-lg border-l-2 border-emerald-500">
+                            <p class="text-xs text-emerald-800 font-medium"><i class="fas fa-check-circle mr-1"></i> Best when you have a strong market position and predictable business.</p>
+                        </div>
+                    </div>
+
+                    <!-- Product Development -->
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-blue-100 hover:shadow-md transition">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-blue-700">Product Development</h3>
+                            <span class="text-xs font-bold bg-blue-50 text-blue-600 px-2 py-1 rounded">Med Risk</span>
+                        </div>
+                        <p class="font-mono text-xs text-slate-400 mb-4 bg-slate-50 inline-block px-2 py-1 rounded">New Products + Existing Markets</p>
+                        <p class="text-slate-600 text-sm mb-4">Sell new or adjacent products to your existing customer base.</p>
+                        <div class="bg-blue-50 p-3 rounded-lg border-l-2 border-blue-500">
+                            <p class="text-xs text-blue-800 font-medium"><i class="fas fa-check-circle mr-1"></i> Best when you have deep customer relationships and leverageable infrastructure.</p>
+                        </div>
+                    </div>
+
+                    <!-- Market Development -->
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-fuchsia-100 hover:shadow-md transition">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-fuchsia-700">Market Development</h3>
+                            <span class="text-xs font-bold bg-fuchsia-50 text-fuchsia-600 px-2 py-1 rounded">Med Risk</span>
+                        </div>
+                        <p class="font-mono text-xs text-slate-400 mb-4 bg-slate-50 inline-block px-2 py-1 rounded">Existing Products + New Markets</p>
+                        <p class="text-slate-600 text-sm mb-4">Adapt and sell your current products to new geographies or new customer segments.</p>
+                        <div class="bg-fuchsia-50 p-3 rounded-lg border-l-2 border-fuchsia-500">
+                            <p class="text-xs text-fuchsia-800 font-medium"><i class="fas fa-check-circle mr-1"></i> Best when you have strong product-market fit and a scalable model.</p>
+                        </div>
+                    </div>
+
+                    <!-- Diversification -->
+                    <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-rose-100 hover:shadow-md transition">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold text-rose-700">Diversification</h3>
+                            <span class="text-xs font-bold bg-rose-50 text-rose-600 px-2 py-1 rounded">High Risk</span>
+                        </div>
+                        <p class="font-mono text-xs text-slate-400 mb-4 bg-slate-50 inline-block px-2 py-1 rounded">New Products + New Markets</p>
+                        <p class="text-slate-600 text-sm mb-4">Build/acquire new businesses. Highest risk, requires new operational competencies.</p>
+                        <div class="bg-rose-50 p-3 rounded-lg border-l-2 border-rose-500">
+                            <p class="text-xs text-rose-800 font-medium"><i class="fas fa-check-circle mr-1"></i> Best when core is declining and clear synergies (brand, channels) exist.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BCG Matrix -->
+        <section id="bcg" class="reveal scroll-mt-32">
+            <div class="text-center mb-16">
+                <span class="text-sm font-bold text-blue-600 uppercase tracking-widest">Framework 2</span>
+                <h2 class="text-4xl font-black text-slate-900 mt-2">BCG Portfolio Matrix</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Allocating resources across your business portfolio based on market growth and market share.</p>
+            </div>
+
+            <div class="glass-panel p-8 sm:p-12 rounded-3xl relative overflow-hidden">
+                <div class="absolute inset-0 bg-blue-50/30 -z-10"></div>
                 
-                <!-- Definition Box -->
-                <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-8 rounded-r-lg">
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <i class="fas fa-info-circle text-amber-500"></i>
+                <div class="grid grid-cols-2 gap-px bg-slate-200 border-4 border-slate-200 rounded-xl overflow-hidden shadow-lg">
+                    <!-- STARS -->
+                    <div class="bg-white p-6 sm:p-10 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-2xl font-black text-slate-900">STARS</h3>
+                                <i class="fas fa-star text-amber-400 text-3xl"></i>
+                            </div>
+                            <p class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-2">High Growth · High Share</p>
+                            <p class="text-slate-600 text-sm mb-4">Rapidly expanding market where you are winning. Future profit engine.</p>
                         </div>
-                        <div class="ml-3">
-                            <p class="text-sm text-amber-800 font-medium">
-                                Defines the portfolio of businesses and how they relate to each other.
-                            </p>
+                        <div class="mt-4 bg-slate-50 p-3 border-l-4 border-amber-400 rounded">
+                            <strong class="text-slate-800 text-sm">Action:</strong> <span class="text-sm text-slate-600">Invest aggressively to maintain share.</span>
+                        </div>
+                    </div>
+
+                    <!-- QUESTION MARKS -->
+                    <div class="bg-white p-6 sm:p-10 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-2xl font-black text-slate-900">QUESTION MARKS</h3>
+                                <i class="fas fa-question-circle text-blue-400 text-3xl"></i>
+                            </div>
+                            <p class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-2">High Growth · Low Share</p>
+                            <p class="text-slate-600 text-sm mb-4">Fast market, but you aren't winning yet. High uncertainty.</p>
+                        </div>
+                        <div class="mt-4 bg-slate-50 p-3 border-l-4 border-blue-400 rounded">
+                            <strong class="text-slate-800 text-sm">Action:</strong> <span class="text-sm text-slate-600">Invest heavily to turn into Star OR exit early.</span>
+                        </div>
+                    </div>
+
+                    <!-- CASH COWS -->
+                    <div class="bg-white p-6 sm:p-10 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-2xl font-black text-slate-900">CASH COWS</h3>
+                                <i class="fas fa-sack-dollar text-emerald-500 text-3xl"></i>
+                            </div>
+                            <p class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-2">Low Growth · High Share</p>
+                            <p class="text-slate-600 text-sm mb-4">Mature market where you dominate. Core profit generator today.</p>
+                        </div>
+                        <div class="mt-4 bg-slate-50 p-3 border-l-4 border-emerald-500 rounded">
+                            <strong class="text-slate-800 text-sm">Action:</strong> <span class="text-sm text-slate-600">Harvest profits, minimize investment, fund Stars.</span>
+                        </div>
+                    </div>
+
+                    <!-- DOGS -->
+                    <div class="bg-white p-6 sm:p-10 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-2xl font-black text-slate-900">DOGS</h3>
+                                <i class="fas fa-sad-cry text-slate-400 text-3xl"></i>
+                            </div>
+                            <p class="text-sm font-bold text-slate-500 uppercase tracking-wide mb-2">Low Growth · Low Share</p>
+                            <p class="text-slate-600 text-sm mb-4">Declining market where you aren't winning. Drags on resources.</p>
+                        </div>
+                        <div class="mt-4 bg-slate-50 p-3 border-l-4 border-slate-400 rounded">
+                            <strong class="text-slate-800 text-sm">Action:</strong> <span class="text-sm text-slate-600">Divest, shut down, or minimal harvest.</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Description -->
-                <div class="mb-8">
-                    <h2 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2"><i class="fas fa-align-left text-blue-600 mr-2"></i>Description</h2>
-                    <p class="text-slate-600 leading-relaxed">
-                        Multi-level decisions about which businesses/markets the organization will compete in (Diversification, Concentration, Vertical Integration, etc.). 
-                        For you: <em>Should we stay SIMRS-only or expand into adjacent healthcare segments?</em>
-                    </p>
-                </div>
-
-                <!-- Strategic Options for SIMRS -->
-                <div class="mb-8">
-                    <h2 class="text-xl font-bold text-slate-800 mb-4 border-b pb-2"><i class="fas fa-chess text-blue-600 mr-2"></i>Strategic Options for SIMRS</h2>
-                    
-                    <div class="grid gap-4 mt-6">
-                        <!-- Option: Related Diversification -->
-                        <div class="border border-slate-200 rounded-lg p-4 hover:bg-slate-50 transition">
-                            <div class="flex items-start">
-                                <div class="bg-emerald-100 text-emerald-600 p-2 rounded mr-4">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-slate-800">Related Diversification (Recommended)</h3>
-                                    <p class="text-sm text-slate-600 italic">Expand into complementary healthcare IT (pharmacy systems, clinic management, insurance platforms)</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Option: Unrelated Diversification -->
-                        <div class="border border-slate-200 rounded-lg p-4 hover:bg-slate-50 transition">
-                            <div class="flex items-start">
-                                <div class="bg-rose-100 text-rose-600 p-2 rounded mr-4">
-                                    <i class="fas fa-triangle-exclamation"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-slate-800">Unrelated Diversification (Risky)</h3>
-                                    <p class="text-sm text-slate-600 italic">Expand into non-healthcare software (not recommended given your expertise)</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Option: Vertical Integration -->
-                        <div class="border border-slate-200 rounded-lg p-4 hover:bg-slate-50 transition">
-                            <div class="flex items-start">
-                                <div class="bg-blue-100 text-blue-600 p-2 rounded mr-4">
-                                    <i class="fas fa-layer-group"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-slate-800">Vertical Integration</h3>
-                                    <p class="text-sm text-slate-600 italic">Build or acquire EHR data analytics, patient engagement layers</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Option: Concentration -->
-                        <div class="border border-slate-200 rounded-lg p-4 hover:bg-slate-50 transition">
-                            <div class="flex items-start">
-                                <div class="bg-slate-100 text-slate-600 p-2 rounded mr-4">
-                                    <i class="fas fa-bullseye"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-slate-800">Concentration</h3>
-                                    <p class="text-sm text-slate-600 italic">Deepen SIMRS dominance in hospital segment only (defensive)</p>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Value Creation Logic -->
+        <section id="value" class="reveal scroll-mt-32">
+            <h2 class="text-3xl font-bold text-slate-900 mb-10 text-center">Value Creation: Why Own Multiple Businesses?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-3xl hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">1. Operational Synergies</h3>
+                    <p class="text-slate-600 text-sm mb-4">Sharing infrastructure (IT, HR), manufacturing, distribution, or R&D to achieve cost reduction through scale.</p>
+                    <div class="bg-slate-50 border border-slate-100 rounded-xl p-4 text-xs text-slate-600">
+                        <strong>Beware:</strong> Sometimes "synergy" just results in a slow, bureaucratic headquarters instead of agility.
                     </div>
                 </div>
 
-                <!-- Academic Source -->
-                <div class="mt-8 pt-4 border-t border-slate-100">
-                    <p class="text-xs text-slate-500 italic leading-relaxed">
-                        <i class="fas fa-quote-left mr-1"></i> 
-                        Ansoff, H. I. (1957). "Strategies for Diversification." Harvard Business Review, 35(5), 113-124.
-                    </p>
+                <div class="glass-panel p-8 rounded-3xl hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">2. Portfolio Optimization</h3>
+                    <p class="text-slate-600 text-sm mb-4">Allocating capital to the highest-return businesses, diversifying risk, and optimizing debt and tax structures.</p>
+                    <div class="bg-slate-50 border border-slate-100 rounded-xl p-4 text-xs text-slate-600">
+                        <strong>Beware:</strong> Retail investors can diversify stock portfolios themselves; you must be a superior capital allocator (e.g. Warren Buffett).
+                    </div>
                 </div>
 
+                <div class="glass-panel p-8 rounded-3xl hover:shadow-lg transition">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">3. Strategic Linkages</h3>
+                    <p class="text-slate-600 text-sm mb-4">Transferring best practices and sharing capabilities/customer data to create network effects across all products.</p>
+                    <div class="bg-slate-50 border border-slate-100 rounded-xl p-4 text-xs text-slate-600">
+                        <strong>Beware:</strong> Forced linkages can severely damage distinct businesses that need divergent strategies.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trade-offs -->
+        <section id="choices" class="reveal scroll-mt-32">
+            <div class="glass-panel gradient-border p-10 sm:p-14 rounded-3xl bg-white/50">
+                <h2 class="text-3xl font-bold text-slate-900 mb-10">Strategic Choices & Trade-offs</h2>
+                
+                <div class="space-y-12">
+                    <!-- Focus vs Diversification -->
+                    <div class="border-b border-slate-200 pb-10">
+                        <h3 class="text-xl font-bold text-blue-700 mb-6 uppercase tracking-widest text-sm">1. Focus vs. Diversification</h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2"><i class="fas fa-compress-arrows-alt text-slate-400"></i> Focus Strategy</h4>
+                                <p class="text-sm text-slate-600 mb-3">Compete in a narrow space. Excellent for creating deep expertise and fast decision making, but vulnerable to disruption.</p>
+                                <p class="text-xs font-mono text-slate-500 bg-slate-100 inline-block px-2 py-1 rounded">Example: McDonald's (Food only)</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2"><i class="fas fa-expand-arrows-alt text-slate-400"></i> Diversification Strategy</h4>
+                                <p class="text-sm text-slate-600 mb-3">Compete across multiple businesses. Excellent for risk reduction and new growth engines, but raises management complexity.</p>
+                                <p class="text-xs font-mono text-slate-500 bg-slate-100 inline-block px-2 py-1 rounded">Example: Samsung (Everything)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Organic vs M&A -->
+                    <div class="border-b border-slate-200 pb-10">
+                        <h3 class="text-xl font-bold text-fuchsia-700 mb-6 uppercase tracking-widest text-sm">2. Organic Growth vs. M&A</h3>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2"><i class="fas fa-seedling text-slate-400"></i> Organic Growth (Build)</h4>
+                                <p class="text-sm text-slate-600">Develop internally. Ensues culture alignment and sustainable tech capabilities, but takes a huge amount of time.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2"><i class="fas fa-handshake text-slate-400"></i> M&A (Acquire)</h4>
+                                <p class="text-sm text-slate-600">Buy existing execution. Extremely fast to market and instant customer base, but astronomically expensive and carries massive integration risks.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vertical Integration -->
+                    <div>
+                        <h3 class="text-xl font-bold text-emerald-700 mb-6 uppercase tracking-widest text-sm">3. Vertical Integration</h3>
+                        <p class="text-slate-600 mb-4">Owning and controlling more aspects of your own supply chain.</p>
+                        <ul class="text-sm text-slate-600 space-y-2 list-disc list-inside ml-2">
+                            <li><strong class="text-slate-800">Backward Integration:</strong> Owning your own suppliers (e.g. Apple designing its own chips). Ensures quality, but removes flexibility.</li>
+                            <li><strong class="text-slate-800">Forward Integration:</strong> Owning your own distribution/dealerships (e.g. Tesla). Captures margins directly, but requires massive capital overlay.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Grid -->
+        <section id="cases" class="reveal scroll-mt-32">
+            <div class="flex items-center gap-4 mb-12">
+                <div class="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center text-slate-600 text-xl"><i class="fas fa-book-open"></i></div>
+                <h2 class="text-3xl font-bold text-slate-900">Major Case Studies</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Apple -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition hover:-translate-y-1">
+                    <h3 class="font-black text-xl text-slate-900 mb-1"><i class="fab fa-apple text-slate-400 mr-2"></i>Apple</h3>
+                    <p class="text-xs font-bold text-fuchsia-600 mb-4">Product Dev → Diversification</p>
+                    <p class="text-sm text-slate-600">Moved decisively away from computer cash cows to mobile. Did not pursue cost synergy, but shared user experience DNA and platform lock-in across products.</p>
+                </div>
+                
+                <!-- Amazon -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition hover:-translate-y-1">
+                    <h3 class="font-black text-xl text-slate-900 mb-1"><i class="fab fa-amazon text-amber-500 mr-2"></i>Amazon</h3>
+                    <p class="text-xs font-bold text-blue-600 mb-4">Market Dev → Ecosystem</p>
+                    <p class="text-sm text-slate-600">Diversified into Cloud (AWS) to monetize huge internal infrastructure. Built unshakeable ecosystem lock-in (Prime + AWS + Retail) and ruthlessly eliminated failing initiatives.</p>
+                </div>
+
+                <!-- Google -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition hover:-translate-y-1">
+                    <h3 class="font-black text-xl text-slate-900 mb-1"><i class="fab fa-google text-blue-500 mr-2"></i>Google (Alphabet)</h3>
+                    <p class="text-xs font-bold text-emerald-600 mb-4">Conglomerate via M&A</p>
+                    <p class="text-sm text-slate-600">Acquired YouTube & Android early to secure distribution for Search/Ads. Organized under Alphabet to attempt unrelated diversification (Healthcare, Auto), with mixed success.</p>
+                </div>
+
+                <!-- Kodak -->
+                <div class="bg-white border border-red-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition hover:-translate-y-1 bg-red-50/30">
+                    <h3 class="font-black text-xl text-slate-900 mb-1"><i class="fas fa-camera text-red-500 mr-2"></i>Kodak</h3>
+                    <p class="text-xs font-bold text-red-600 mb-4">Portfolio Failure</p>
+                    <p class="text-sm text-slate-600">Invented digital photography but refused to fund it to protect their film Cash Cow. Failure to cannibalize their own product allowed competitors to destroy them entirely.</p>
+                </div>
+
+                <!-- Toyota -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition hover:-translate-y-1">
+                    <h3 class="font-black text-xl text-slate-900 mb-1"><i class="fas fa-car text-slate-700 mr-2"></i>Toyota</h3>
+                    <p class="text-xs font-bold text-sky-600 mb-4">Related Diversification</p>
+                    <p class="text-sm text-slate-600">Launched Lexus and Hino Trucks. Stayed strongly inside their competence core (transportation manufacturing) yielding enormous operational synergy without risking brand dilution.</p>
+                </div>
+
+                <!-- Berkshire -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-lg transition hover:-translate-y-1">
+                    <h3 class="font-black text-xl text-slate-900 mb-1"><i class="fas fa-chart-line text-green-600 mr-2"></i>Berkshire Hathaway</h3>
+                    <p class="text-xs font-bold text-emerald-600 mb-4">Conglomerate Done Right</p>
+                    <p class="text-sm text-slate-600">A deliberate, entirely unrelated portfolio strategy based solely on having Warren Buffett's super-allocator skill. Acquired operations are granted 100% autonomy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Do's and Don'ts -->
+        <section id="rules" class="reveal scroll-mt-32 mb-32">
+            <h2 class="text-3xl font-black text-center text-slate-900 mb-12">The Cardinal Rules</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- DO'S -->
+                <div class="glass-panel bg-white p-8 sm:p-10 rounded-3xl border-t-8 border-t-emerald-500 shadow-md">
+                    <h3 class="text-2xl font-black text-emerald-600 mb-8 flex items-center gap-3"><i class="fas fa-check-circle"></i> DO'S</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-arrow-right text-emerald-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Clarify the Strategy</h4>
+                                <p class="text-sm text-slate-600">Explicitly decide exactly what businesses you will compete in and document the boundaries.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-arrow-right text-emerald-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Leverage REAL Synergy</h4>
+                                <p class="text-sm text-slate-600">Ensure synergies are mathematically measurable before acting. Avoid theoretical spreadsheet synergies.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-arrow-right text-emerald-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Build Ecosystem Lock-in</h4>
+                                <p class="text-sm text-slate-600">Make businesses interlock naturally so customers incur massive switching costs trying to leave.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-arrow-right text-emerald-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Allocate Capital Differently</h4>
+                                <p class="text-sm text-slate-600">Stars need investment; Cows need harvesting. Never treat them with identical growth KPIs.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- DON'TS -->
+                <div class="glass-panel bg-white p-8 sm:p-10 rounded-3xl border-t-8 border-t-rose-500 shadow-md">
+                    <h3 class="text-2xl font-black text-rose-600 mb-8 flex items-center gap-3"><i class="fas fa-times-circle"></i> DON'TS</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-arrow-right text-rose-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Pursue False Synergies</h4>
+                                <p class="text-sm text-slate-600">Forced integrations ruin the uniqueness of acquired assets and drive talented staff away immediately.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-arrow-right text-rose-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Blind Unrelated Diversification</h4>
+                                <p class="text-sm text-slate-600">Entering foreign domains without a superior capital allocator leads to severe "conglomerate discounts".</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-arrow-right text-rose-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Protect the Cash Cow to Death</h4>
+                                <p class="text-sm text-slate-600">Cannibalize your own products before competitors do. Respect that all products eventually become Dogs.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-arrow-right text-rose-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Assume Competence Transfers</h4>
+                                <p class="text-sm text-slate-600">Success in software doesn't mean success in hardware. Always assume adjacent segments are 80% divergent.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
             
-            <!-- Footer Actions -->
-            <div class="bg-slate-50 px-8 py-4 border-t border-slate-200 flex justify-between items-center">
-                <a href="strategic-planning-direction.html" class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center">
-                    <i class="fas fa-arrow-left mr-2"></i> Back to Strategic Planning
-                </a>
-                <a href="#" class="text-slate-400 font-medium text-sm flex items-center cursor-not-allowed">
-                    Next: Portfolio Strategy <i class="fas fa-arrow-right ml-2"></i>
+            <div class="mt-16 text-center">
+                <a href="strategic-planning-direction.html" class="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition group border border-slate-200 rounded-full px-8 py-4 bg-white shadow-sm hover:shadow-md">
+                    <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Return to Strategic Hub
                 </a>
             </div>
-        </main>
-    </div>
+        </section>
 
+    </main>
+
+    <script>
+        // Reveal elements on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
