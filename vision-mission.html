@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision & Mission - A Strategic Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #475569; }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 1);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0284c7, #4f46e5, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-border {
+            position: relative;
+        }
+        .gradient-border::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            border-radius: inherit;
+            background: linear-gradient(to right, #38bdf8, #c084fc);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Floating orbs */
+        .orb-1 { position: fixed; top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(56,189,248,0.2) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
+        .orb-2 { position: fixed; bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(192,132,252,0.15) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
+    </style>
+</head>
+<body class="relative overflow-x-hidden antialiased selection:bg-fuchsia-200 selection:text-fuchsia-900">
+
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+
+    <!-- Floating Navigation -->
+    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+        <div class="glass-panel rounded-full px-4 sm:px-6 py-3 flex items-center gap-3 sm:gap-6 pointer-events-auto shadow-2xl overflow-x-auto max-w-full border border-slate-200/50">
+            <a href="strategic-planning-direction.html" class="text-slate-500 hover:text-slate-900 transition flex items-center gap-2 group flex-shrink-0">
+                <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> <span class="hidden sm:inline font-medium">Back</span>
+            </a>
+            <div class="w-px h-6 bg-slate-200 hidden sm:block"></div>
+            <a href="#hero" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">00</a>
+            <a href="#bhag" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">01</a>
+            <a href="#drucker" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">02</a>
+            <a href="#senge" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">03</a>
+            <a href="#kaplan" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">04</a>
+            <a href="#sinek" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">05</a>
+            <a href="#northstar" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">06</a>
+            <a href="#synthesis" class="text-xs sm:text-sm font-extrabold text-blue-600 hover:text-blue-800 transition uppercase tracking-widest ml-2 flex-shrink-0">Synthesis</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 py-24 sm:py-32 flex flex-col gap-32">
+
+        <!-- Hero -->
+        <section id="hero" class="min-h-[70vh] flex flex-col justify-center items-center text-center reveal">
+            <div class="inline-block px-4 py-1.5 rounded-full glass-panel border shadow-sm text-blue-600 text-xs sm:text-sm font-bold mb-6 tracking-widest uppercase">
+                 Layer 3 Strategic Asset
+            </div>
+            <h1 class="text-5xl md:text-8xl font-extrabold tracking-tight text-slate-900 mb-8">
+                Vision & <span class="gradient-text">Mission</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-slate-500 max-w-3xl font-light leading-relaxed">
+                A transcendent exploration into organizational purpose, identity, and the driving force behind SIMRS.
+            </p>
+        </section>
+
+        <!-- 01 Collins -->
+        <section id="bhag" class="reveal scroll-mt-32">
+            <div class="flex items-center gap-4 mb-10">
+                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">01</span>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">BHAG & Hedgehog Concept</h2>
+                    <p class="text-blue-600 font-medium">Jim Collins & Jerry Porras</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-panel rounded-3xl p-8 sm:p-10 hover:bg-white transition duration-500 hover:shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3 text-slate-900"><i class="fas fa-mountain text-fuchsia-500"></i> The Audacious Goal</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">A Big Hairy Audacious Goal spans 10-30 years. It must be universally understood and compelling.</p>
+                    <div class="bg-fuchsia-50/50 rounded-xl p-6 border-l-4 border-fuchsia-500 shadow-sm">
+                        <p class="text-fuchsia-950 font-semibold text-lg italic">
+                            "By 2034, be the backbone of healthcare delivery for 10,000+ facilities across Southeast Asia, serving 100M+ patients."
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="glass-panel rounded-3xl p-8 sm:p-10 hover:bg-white transition duration-500 hover:shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3 text-slate-900"><i class="fas fa-bullseye text-blue-500"></i> Hedgehog Focus</h3>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600"><i class="fas fa-star"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Can be best at</h4>
+                                <p class="text-sm text-slate-500">Healthcare digitization in emerging markets</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 text-emerald-600"><i class="fas fa-chart-line"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Drives economics</h4>
+                                <p class="text-sm text-slate-500">Licensing + integration premiums</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0 text-rose-600"><i class="fas fa-heart"></i></div>
+                            <div>
+                                <h4 class="font-bold text-slate-900">Passionate about</h4>
+                                <p class="text-sm text-slate-500">Healthcare access & efficiency</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 Drucker -->
+        <section id="drucker" class="reveal scroll-mt-32">
+            <div class="flex items-center gap-4 mb-10">
+                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">02</span>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Management by Objectives</h2>
+                    <p class="text-blue-600 font-medium">Peter Drucker</p>
+                </div>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-8 sm:p-10">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                        <h4 class="text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">What is our business?</h4>
+                        <p class="text-slate-800 font-semibold">Healthcare information platform</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                        <h4 class="text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">Who are customers?</h4>
+                        <p class="text-slate-800 font-semibold">Hospitals, clinics, pharmacies</p>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                        <h4 class="text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">What do they value?</h4>
+                        <p class="text-slate-800 font-semibold">Efficiency, compliance, support</p>
+                    </div>
+                    <div class="bg-blue-50/50 rounded-2xl p-6 border-2 border-blue-200">
+                        <h4 class="text-xs uppercase tracking-widest text-blue-600 font-bold mb-2">What will it be?</h4>
+                        <p class="text-blue-900 font-bold">Universal SE Asian ecosystem</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03 Senge -->
+        <section id="senge" class="reveal scroll-mt-32 relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-transparent rounded-3xl -z-10"></div>
+            <div class="flex items-center gap-4 mb-10">
+                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">03</span>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Shared Vision</h2>
+                    <p class="text-indigo-600 font-medium">Peter Senge</p>
+                </div>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row gap-10 items-center">
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold mb-4 text-slate-900">It's a Dialogue, Not a Decree.</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">Shared vision emerges through continual conversation. It is an iterative synthesis of individual aspirations combined into a collective living purpose.</p>
+                    <div class="flex items-center justify-between text-xs sm:text-sm font-mono text-indigo-700 bg-indigo-50/80 border border-indigo-100 px-4 py-3 rounded-xl overflow-x-auto shadow-sm">
+                        <span class="font-bold">1:1 Interviews</span> <span class="mx-2 text-indigo-300">→</span> <span class="font-bold">Synthesis</span> <span class="mx-2 text-indigo-300">→</span> <span class="font-bold">Refinement</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <blockquote class="text-xl sm:text-2xl font-medium italic leading-snug text-slate-800 border-l-4 border-indigo-500 pl-6 py-2">
+                        "We are building a world where healthcare workers have the tools they need to make decisions with confidence..."
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 Kaplan -->
+        <section id="kaplan" class="reveal scroll-mt-32">
+            <div class="flex items-center gap-4 mb-10">
+                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">04</span>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Balanced Scorecard</h2>
+                    <p class="text-blue-600 font-medium">Kaplan & Norton</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="glass-panel gradient-border rounded-2xl p-8 hover:-translate-y-2 transition duration-500 bg-white/40">
+                    <h3 class="text-lg font-black text-emerald-600 mb-2 uppercase tracking-wide">Financial</h3>
+                    <p class="text-slate-800 md:text-lg font-medium">Maximize hospital profitability; Build new revenue streams.</p>
+                    <p class="text-sm text-slate-500 mt-4 font-mono bg-white inline-block px-2 py-1 rounded shadow-sm border border-slate-100">Metrics: MRR, Margin</p>
+                </div>
+                
+                <div class="glass-panel gradient-border rounded-2xl p-8 hover:-translate-y-2 transition duration-500 bg-white/40">
+                    <h3 class="text-lg font-black text-blue-600 mb-2 uppercase tracking-wide">Customer</h3>
+                    <p class="text-slate-800 md:text-lg font-medium">Deliver superior value; Win the clinic market footprint.</p>
+                    <p class="text-sm text-slate-500 mt-4 font-mono bg-white inline-block px-2 py-1 rounded shadow-sm border border-slate-100">Metrics: NPS, Adoption</p>
+                </div>
+
+                <div class="glass-panel gradient-border rounded-2xl p-8 hover:-translate-y-2 transition duration-500 bg-white/40">
+                    <h3 class="text-lg font-black text-fuchsia-600 mb-2 uppercase tracking-wide">Internal Processes</h3>
+                    <p class="text-slate-800 md:text-lg font-medium">Deliver products fast; Integrate seamlessly across providers.</p>
+                    <p class="text-sm text-slate-500 mt-4 font-mono bg-white inline-block px-2 py-1 rounded shadow-sm border border-slate-100">Metrics: Velocity, Uptime</p>
+                </div>
+
+                <div class="glass-panel gradient-border rounded-2xl p-8 hover:-translate-y-2 transition duration-500 bg-white/40">
+                    <h3 class="text-lg font-black text-amber-500 mb-2 uppercase tracking-wide">Learning & Growth</h3>
+                    <p class="text-slate-800 md:text-lg font-medium">Foster an innovation culture with dynamic capabilities.</p>
+                    <p class="text-sm text-slate-500 mt-4 font-mono bg-white inline-block px-2 py-1 rounded shadow-sm border border-slate-100">Metrics: Psych. Safety</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 Sinek -->
+        <section id="sinek" class="reveal scroll-mt-32">
+            <div class="flex items-center gap-4 mb-10">
+                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">05</span>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">The Golden Circle</h2>
+                    <p class="text-blue-600 font-medium">Simon Sinek</p>
+                </div>
+            </div>
+
+            <div class="glass-panel rounded-3xl p-8 sm:p-10 flex flex-col items-center">
+                
+                <div class="w-full max-w-2xl space-y-4 relative">
+                    <!-- Concentric feeling stacked layout -->
+                    <div class="bg-amber-100/50 border border-amber-200 p-8 rounded-2xl text-center relative z-30 shadow-xl backdrop-blur-md">
+                        <h3 class="text-amber-600 font-black text-3xl mb-2">WHY</h3>
+                        <p class="text-slate-800 font-medium">Healthcare is a fundamental right. Technology should empower workers to make better decisions.</p>
+                    </div>
+                    
+                    <div class="bg-blue-50/80 border border-blue-100 p-8 pt-12 rounded-2xl text-center -mt-8 relative z-20 shadow-md">
+                        <h3 class="text-blue-600 font-bold text-xl mb-2">HOW</h3>
+                        <p class="text-slate-700">Deep local expertise, simple & reliable systems, connected data.</p>
+                    </div>
+
+                    <div class="bg-white border border-slate-200 p-8 pt-12 rounded-2xl text-center -mt-8 relative z-10 shadow-sm">
+                        <h3 class="text-slate-500 font-bold text-lg mb-2">WHAT</h3>
+                        <p class="text-slate-600">SIMRS, Clinic software, Data platform.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 06 North Star Metric -->
+        <section id="northstar" class="reveal scroll-mt-32">
+            <div class="flex items-center gap-4 mb-10">
+                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">06</span>
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">North Star Metric</h2>
+                    <p class="text-blue-600 font-medium">Sean Ellis / Growth Framework</p>
+                </div>
+            </div>
+
+            <div class="glass-panel gradient-border rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden bg-white/60">
+                <!-- Inner glow -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-blue-400/10 blur-[100px] rounded-full z-0 pointer-events-none"></div>
+                
+                <div class="relative z-10">
+                    <i class="fas fa-star text-4xl text-amber-400 mb-6 drop-shadow-md"></i>
+                    <h3 class="text-3xl md:text-5xl font-black text-slate-900 mb-8">Dual North Stars</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                        <div class="bg-white rounded-xl p-8 border border-slate-100 shadow-sm">
+                            <i class="fas fa-hospital text-3xl text-blue-500 mb-4"></i>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Facility Adoption</h4>
+                            <p class="text-slate-600">10,000+ Health Facilities actively using the ecosystem.</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-8 border border-slate-100 shadow-sm">
+                            <i class="fas fa-chart-line text-3xl text-emerald-500 mb-4"></i>
+                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Monthly Revenue</h4>
+                            <p class="text-slate-600">$10M+ MRR validating sustainable value creation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Synthesis -->
+        <section id="synthesis" class="reveal scroll-mt-32 mb-32">
+            <div class="relative rounded-3xl overflow-hidden p-[2px] shadow-2xl">
+                <!-- Animated border effect -->
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 animate-[spin_4s_linear_infinite] blur-md opacity-30"></div>
+                
+                <div class="relative bg-white rounded-3xl p-8 sm:p-10 md:p-16 h-full border border-slate-200 z-10">
+                    <h2 class="text-3xl md:text-5xl font-black mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500">
+                        Final Strategy Synthesis
+                    </h2>
+
+                    <div class="space-y-12">
+                        <div>
+                            <h3 class="text-xs sm:text-sm uppercase tracking-widest text-blue-600 font-bold mb-4 flex items-center gap-2">
+                                <i class="fas fa-eye"></i> Vision Statement
+                            </h3>
+                            <p class="text-xl md:text-3xl font-light text-slate-900 leading-tight">
+                                "A world where healthcare workers in Southeast Asia have the <span class="font-semibold text-blue-700">data and tools</span> they need to deliver excellent care, where administrative burden is minimized, and where healthcare is accessible and effective for all."
+                            </p>
+                        </div>
+
+                        <div class="h-px bg-slate-200 w-full"></div>
+
+                        <div>
+                            <h3 class="text-xs sm:text-sm uppercase tracking-widest text-fuchsia-600 font-bold mb-4 flex items-center gap-2">
+                                <i class="fas fa-bullseye"></i> Mission Statement
+                            </h3>
+                            <p class="text-lg sm:text-xl font-light text-slate-700 leading-relaxed">
+                                "We empower healthcare organizations across Southeast Asia with integrated, intelligent systems that <span class="font-medium text-slate-900">reduce administrative burden, improve decision-making, and enable better patient care</span>. We do this through deep local expertise, unwavering focus on usability and reliability, and commitment to connecting healthcare for greater impact."
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-8 pt-8">
+                            <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                                <h3 class="text-xs sm:text-sm uppercase tracking-widest text-emerald-600 font-bold mb-4"><i class="fas fa-heart mr-2"></i> Core Values</h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-center gap-3 text-slate-700 font-medium"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Patient-centricity</li>
+                                    <li class="flex items-center gap-3 text-slate-700 font-medium"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Local Excellence</li>
+                                    <li class="flex items-center gap-3 text-slate-700 font-medium"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Ethical Stewardship</li>
+                                    <li class="flex items-center gap-3 text-slate-700 font-medium"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Operational Reliability</li>
+                                    <li class="flex items-center gap-3 text-slate-700 font-medium"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Continuous Learning</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50/50 rounded-2xl p-6 border border-blue-100">
+                                <h3 class="text-xs sm:text-sm uppercase tracking-widest text-amber-600 font-bold mb-4"><i class="fas fa-bolt mr-2"></i> 3-Year Priorities</h3>
+                                <ul class="space-y-3">
+                                    <li class="text-slate-800 font-medium flex items-center justify-between text-sm sm:text-base"><span>Dominate Hospitals</span> <span class="text-xs font-mono font-bold text-blue-600 bg-white px-2 py-1 rounded shadow-sm">70% DEV</span></li>
+                                    <li class="h-px bg-slate-200 w-full"></li>
+                                    <li class="text-slate-800 font-medium flex items-center justify-between text-sm sm:text-base"><span>Validate Clinics</span> <span class="text-xs font-mono font-bold text-emerald-600 bg-white px-2 py-1 rounded shadow-sm">20% DEV</span></li>
+                                    <li class="h-px bg-slate-200 w-full"></li>
+                                    <li class="text-slate-800 font-medium flex items-center justify-between text-sm sm:text-base"><span>Explore Pharmacies</span> <span class="text-xs font-mono font-bold text-amber-600 bg-white px-2 py-1 rounded shadow-sm">10% DEV</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="strategic-planning-direction.html" class="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition group border border-slate-200 rounded-full px-8 py-4 bg-white shadow-sm hover:shadow-md">
+                    <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Return to Hub
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Reveal elements on scroll using Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: stop observing once revealed
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
