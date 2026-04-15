@@ -1,392 +1,624 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vision & Mission - A Strategic Journey</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
-        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #475569; }
-        
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 1);
-            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #0284c7, #4f46e5, #9333ea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .gradient-border {
-            position: relative;
-        }
-        .gradient-border::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            padding: 2px;
-            border-radius: inherit;
-            background: linear-gradient(to right, #38bdf8, #c084fc);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
-        }
-
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* Floating orbs */
-        .orb-1 { position: fixed; top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(56,189,248,0.2) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
-        .orb-2 { position: fixed; bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(192,132,252,0.15) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vision & Mission</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #f9f9f8; color: #222; font-size: 15px; line-height: 1.7; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+  nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+  nav a { color: #2563eb; text-decoration: none; font-size: 13px; font-weight: 600; }
+  nav a:hover { text-decoration: underline; }
+  #toggleAll { background: none; border: 1px solid #ddd; border-radius: 4px; padding: 4px 10px; font-size: 12px; cursor: pointer; color: #666; }
+  #toggleAll:hover { background: #f0f0f0; }
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; color: #111; }
+  .section { border-bottom: 1px solid #e5e5e5; }
+  .section-toggle {
+    width: 100%; background: none; border: none; text-align: left;
+    padding: 14px 0; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    font-family: inherit; font-size: 1rem; font-weight: 600; color: #111;
+  }
+  .section-toggle:hover { background: #fafafa; color: #2563eb; }
+  .section-toggle .arrow { font-size: 10px; color: #999; transition: transform 0.2s; display: inline-block; }
+  .section-toggle.open .arrow { transform: rotate(90deg); }
+  .section-body { padding: 0 0 16px 20px; display: none; }
+  .section-body.open { display: block; border-left: 2px solid #f0f0f0; }
+  h3 { font-size: 0.95rem; font-weight: 700; color: #444; margin: 20px 0 8px; }
+  h4 { font-size: 0.9rem; font-weight: 700; color: #555; margin: 16px 0 6px; }
+  h5, h6 { font-size: 0.85rem; font-weight: 700; color: #666; margin: 12px 0 4px; }
+  p { margin: 8px 0 12px; color: #333; }
+  ul, ol { margin: 8px 0 12px 24px; }
+  li { margin: 4px 0; }
+  hr { border: none; border-top: 1px solid #eee; margin: 24px 0; }
+  code { background: #f0f0f0; padding: 2px 4px; border-radius: 3px; font-size: 0.85em; font-family: monospace; }
+  pre { background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 4px; padding: 14px; overflow-x: auto; margin: 14px 0; }
+  pre code { background: none; padding: 0; font-size: 0.82em; }
+  strong { font-weight: 600; }
+  a { color: #2563eb; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.9em; }
+  th { background: #f0f0f0; font-weight: 600; padding: 8px 12px; border: 1px solid #ddd; text-align: left; }
+  td { padding: 8px 12px; border: 1px solid #e5e5e5; vertical-align: top; }
+</style>
 </head>
-<body class="relative overflow-x-hidden antialiased selection:bg-fuchsia-200 selection:text-fuchsia-900">
+<body>
+<div class="wrap">
+  <nav>
+    <a href="index.html">← Back to Dashboard</a>
+    <button id="toggleAll">Collapse All</button>
+  </nav>
+  <div id="content"><h1>Vision & Mission: Comprehensive Framework Guide with Practical Tools</h1>
+<h2>Overview</h2>
+<p>Vision & Mission are foundational strategic artifacts that define organizational purpose, direction, and identity. This guide covers 6 major frameworks + North Star Metric, with practical templates for SIMRS.</p>
+<hr>
+<h2>1. COLLINS & PORRAS: BHAG & HEDGEHOG CONCEPT</h2>
+<h4>Framework Overview</h4>
+<p><strong>Jim Collins & Jerry Porras</strong> (<em>Built to Last, 2002</em>) distinguish between:</p>
+<h5>Vision</h5>
+<ul>
+<li><strong>Core Purpose</strong> (timeless reason for existence, never fully achieved)</li>
+<li><strong>Core Values</strong> (what we stand for, don't change)</li>
+<li><strong>Big Hairy Audacious Goal (BHAG)</strong> (10-30 year target, audacious but achievable)</li>
+</ul>
+<h5>Hedgehog Concept (Focus)</h5>
+<p>The intersection of:</p>
+<ol>
+<li><strong>What you can be best at</strong> (core competencies)</li>
+<li><strong>What drives your economics</strong> (what makes money)</li>
+<li><strong>What you're passionate about</strong> (what energizes the team)</li>
+</ol>
+<h4>BHAG Characteristics</h4>
+<ul>
+<li>Stands for 10-30 years</li>
+<li>Clear and compelling</li>
+<li>Focuses efforts and investments</li>
+<li>Universally understood</li>
+<li>Audacious (seems unrealistic but achievable with effort)</li>
+</ul>
+<h4>Example BHAGs from History</h4>
+<ul>
+<li><strong>Nike (1960s):</strong> "Crush Adidas"</li>
+<li><strong>Intel (1970s):</strong> "Put a computer on every desk and in every home"</li>
+<li><strong>Amazon (2000s):</strong> "Earth's most customer-centric company"</li>
+</ul>
+<h4>For SIMRS: Potential BHAG</h4>
+<p><strong>Current (too vague):</strong></p>
+<p>"Become the leading healthcare digital ecosystem in Southeast Asia"</p>
+<p><strong>Better BHAG (Collins & Porras style):</strong></p>
+<p>"By 2034, be the backbone of healthcare delivery for 10,000+ healthcare facilities across Southeast Asia, serving 100M+ patients annually through integrated data platform"</p>
+<p><strong>Why this works:</strong></p>
+<ul>
+<li>✅ Audacious (10,000 facilities vs. current ~100s)</li>
+<li>✅ Measurable (specific numbers)</li>
+<li>✅ Long-term (10 years)</li>
+<li>✅ Compelling (enables better patient care at scale)</li>
+<li>✅ Clear (everyone understands the target)</li>
+</ul>
+<h4>Hedgehog Concept for SIMRS</h4>
+<p><strong>What you can be best at:</strong></p>
+<ul>
+<li>Healthcare process digitization in emerging markets</li>
+<li>Local expertise (Indonesia regulatory, workflows, relationships)</li>
+<li>Systems integration (connecting disparate healthcare organizations)</li>
+</ul>
+<p><strong>What drives your economics:</strong></p>
+<ul>
+<li>Licensing/subscription from hospitals, clinics, pharmacies</li>
+<li>Premium for integration services and customization</li>
+<li>Data analytics as revenue stream (anonymized, aggregated healthcare insights)</li>
+</ul>
+<p><strong>What you're passionate about:</strong></p>
+<ul>
+<li>Improving healthcare access and quality in Indonesia</li>
+<li>Reducing administrative burden on healthcare workers</li>
+<li>Making healthcare data usable for better decisions</li>
+</ul>
+<p><strong>→ Hedgehog Focus for SIMRS:</strong></p>
+<p>Build integrated healthcare platform for emerging markets where local expertise + integration capabilities + passion for healthcare access converge</p>
+<h4>Practical Application</h4>
+<p>Document for SIMRS:</p>
+<pre><code>
+CORE PURPOSE (timeless):
+Make healthcare more efficient and accessible through technology
 
-    <div class="orb-1"></div>
-    <div class="orb-2"></div>
+CORE VALUES (don&#x27;t change):
+1. Patient-centricity
+2. Local expertise &amp; relationships
+3. Ethical data stewardship
+4. Operational excellence
 
-    <!-- Floating Navigation -->
-    <nav class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-        <div class="glass-panel rounded-full px-4 sm:px-6 py-3 flex items-center gap-3 sm:gap-6 pointer-events-auto shadow-2xl overflow-x-auto max-w-full border border-slate-200/50">
-            <a href="strategic-planning-direction.html" class="text-slate-500 hover:text-slate-900 transition flex items-center gap-2 group flex-shrink-0">
-                <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> <span class="hidden sm:inline font-medium">Back</span>
-            </a>
-            <div class="w-px h-6 bg-slate-200 hidden sm:block"></div>
-            <a href="#hero" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">00</a>
-            <a href="#bhag" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">01</a>
-            <a href="#drucker" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">02</a>
-            <a href="#senge" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">03</a>
-            <a href="#kaplan" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">04</a>
-            <a href="#sinek" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">05</a>
-            <a href="#northstar" class="text-xs sm:text-sm font-bold text-slate-400 hover:text-slate-800 transition flex-shrink-0">06</a>
-            <a href="#synthesis" class="text-xs sm:text-sm font-extrabold text-blue-600 hover:text-blue-800 transition uppercase tracking-widest ml-2 flex-shrink-0">Synthesis</a>
-        </div>
-    </nav>
+BHAG (10-30 year target):
+[Use the SIMRS example above]
 
-    <main class="max-w-6xl mx-auto px-6 py-24 sm:py-32 flex flex-col gap-32">
+HEDGEHOG CONCEPT:
+[Best at: Local healthcare digitization]
+[Drives economics: Healthcare licensing + integration premiums]
+[Passionate about: Healthcare access in emerging markets]
+</code></pre>
+<hr>
+<h2>2. DRUCKER'S MANAGEMENT BY OBJECTIVES (MBO)</h2>
+<h4>Framework Overview</h4>
+<p><strong>Peter Drucker</strong> (<em>The Practice of Management, 1954</em>) argues mission should answer:</p>
+<ol>
+<li><strong>What is our business?</strong> (What do customers see us doing?)</li>
+<li><strong>Who are our customers?</strong> (Not who we want, but who actually buys)</li>
+<li><strong>What do customers value?</strong> (What problem do we solve?)</li>
+<li><strong>What will our business be?</strong> (Where are we heading?)</li>
+<li><strong>What should our business be?</strong> (Where do we <em>want</em> to go?)</li>
+</ol>
+<h4>Mission Template (Drucker-style)</h4>
+<pre><code>
+What is our business?
+- SIMRS: Healthcare information system for hospital operations management
 
-        <!-- Hero -->
-        <section id="hero" class="min-h-[70vh] flex flex-col justify-center items-center text-center reveal">
-            <div class="inline-block px-4 py-1.5 rounded-full glass-panel border shadow-sm text-blue-600 text-xs sm:text-sm font-bold mb-6 tracking-widest uppercase">
-                 Layer 3 Strategic Asset
-            </div>
-            <h1 class="text-5xl md:text-8xl font-extrabold tracking-tight text-slate-900 mb-8">
-                Vision & <span class="gradient-text">Mission</span>
-            </h1>
-            <p class="text-lg md:text-2xl text-slate-500 max-w-3xl font-light leading-relaxed">
-                A transcendent exploration into organizational purpose, identity, and the driving force behind SIMRS.
-            </p>
-        </section>
+Who are our customers?
+- Primary: Hospital administrators, IT directors, clinical staff
+- Secondary: Clinics, pharmacies, insurers (emerging)
 
-        <!-- 01 Collins -->
-        <section id="bhag" class="reveal scroll-mt-32">
-            <div class="flex items-center gap-4 mb-10">
-                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">01</span>
-                <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">BHAG & Hedgehog Concept</h2>
-                    <p class="text-blue-600 font-medium">Jim Collins & Jerry Porras</p>
-                </div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass-panel rounded-3xl p-8 sm:p-10 hover:bg-white transition duration-500 hover:shadow-lg">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3 text-slate-900"><i class="fas fa-mountain text-fuchsia-500"></i> The Audacious Goal</h3>
-                    <p class="text-slate-600 leading-relaxed mb-6">A Big Hairy Audacious Goal spans 10-30 years. It must be universally understood and compelling.</p>
-                    <div class="bg-fuchsia-50/50 rounded-xl p-6 border-l-4 border-fuchsia-500 shadow-sm">
-                        <p class="text-fuchsia-950 font-semibold text-lg italic">
-                            "By 2034, be the backbone of healthcare delivery for 10,000+ facilities across Southeast Asia, serving 100M+ patients."
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="glass-panel rounded-3xl p-8 sm:p-10 hover:bg-white transition duration-500 hover:shadow-lg">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3 text-slate-900"><i class="fas fa-bullseye text-blue-500"></i> Hedgehog Focus</h3>
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 text-blue-600"><i class="fas fa-star"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Can be best at</h4>
-                                <p class="text-sm text-slate-500">Healthcare digitization in emerging markets</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0 text-emerald-600"><i class="fas fa-chart-line"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Drives economics</h4>
-                                <p class="text-sm text-slate-500">Licensing + integration premiums</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0 text-rose-600"><i class="fas fa-heart"></i></div>
-                            <div>
-                                <h4 class="font-bold text-slate-900">Passionate about</h4>
-                                <p class="text-sm text-slate-500">Healthcare access & efficiency</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+What do customers value?
+- Operational efficiency (faster billing, inventory management)
+- Data accessibility (better clinical decision-making)
+- Regulatory compliance (hospital accreditation requirements)
+- Local support (not dependent on US vendor)
 
-        <!-- 02 Drucker -->
-        <section id="drucker" class="reveal scroll-mt-32">
-            <div class="flex items-center gap-4 mb-10">
-                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">02</span>
-                <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Management by Objectives</h2>
-                    <p class="text-blue-600 font-medium">Peter Drucker</p>
-                </div>
-            </div>
+What will our business be? (3-5 year horizon)
+- Integrated healthcare platform serving hospitals + clinics + pharmacies
+- Connected data ecosystem (patient flows between facilities)
+- Emerging: Data analytics, telemedicine, insurance claims
 
-            <div class="glass-panel rounded-3xl p-8 sm:p-10">
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-                        <h4 class="text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">What is our business?</h4>
-                        <p class="text-slate-800 font-semibold">Healthcare information platform</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-                        <h4 class="text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">Who are customers?</h4>
-                        <p class="text-slate-800 font-semibold">Hospitals, clinics, pharmacies</p>
-                    </div>
-                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-                        <h4 class="text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">What do they value?</h4>
-                        <p class="text-slate-800 font-semibold">Efficiency, compliance, support</p>
-                    </div>
-                    <div class="bg-blue-50/50 rounded-2xl p-6 border-2 border-blue-200">
-                        <h4 class="text-xs uppercase tracking-widest text-blue-600 font-bold mb-2">What will it be?</h4>
-                        <p class="text-blue-900 font-bold">Universal SE Asian ecosystem</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+What should our business be? (10+ year aspirational)
+- Universal healthcare data platform for emerging markets
+- Trusted intermediary between patients, providers, payers
+- Standard infrastructure for healthcare digitalization in SE Asia
+</code></pre>
+<h4>Why Drucker's Approach Works</h4>
+<ul>
+<li>✅ Forces clarity on <em>who you actually serve</em> (not who you wish to serve)</li>
+<li>✅ Links business definition to customer value, not internal capability</li>
+<li>✅ Distinguishes "will be" (realistic projection) vs. "should be" (aspirational)</li>
+<li>✅ Encourages periodic reassessment ("What will our business be?")</li>
+</ul>
+<hr>
+<h2>3. SENGE'S SYSTEMS THINKING & SHARED VISION</h2>
+<h4>Framework Overview</h4>
+<p><strong>Peter Senge</strong> (<em>The Fifth Discipline, 1990</em>) emphasizes:</p>
+<p><strong>Shared Vision</strong> is not a single statement, but:</p>
+<ul>
+<li>Individual visions + aspirations</li>
+<li>Collective agreement on desired future</li>
+<li>Continual conversation and refinement</li>
+<li>Living document that evolves with learning</li>
+</ul>
+<h4>Senge's Distinction</h4>
+<ul>
+<li><strong>Vision Statement</strong> (words on paper) ≠ <strong>Shared Vision</strong> (lived experience)</li>
+<li>Shared vision emerges through dialogue, not top-down decree</li>
+</ul>
+<h4>For SIMRS: Shared Vision Process</h4>
+<p>Rather than executives writing mission in isolation:</p>
+<ol>
+<li><strong>Individual Conversations (1:1s)</strong></li>
+</ol>
+<ul>
+<li>Ask each leader/team: "What impact do you want to have? What does success look like?"</li>
+<li>SIMRS developer: "I want to build systems that actually reduce nurses' workload"</li>
+<li>Hospital customer: "I want data that helps me make better decisions about patient care"</li>
+<li>Product manager: "I want to build products that matter in healthcare"</li>
+</ul>
+<ol>
+<li><strong>Synthesis</strong> (find common threads)</li>
+</ol>
+<ul>
+<li>Themes emerge: reducing burden on healthcare workers, enabling better decisions, improving patient care</li>
+<li>Articulate collective vision from these themes</li>
+</ul>
+<ol>
+<li><strong>Iterative Refinement</strong> (shared dialogue)</li>
+</ol>
+<ul>
+<li>Present back to organization</li>
+<li>Invite feedback, challenge, refinement</li>
+<li>Live document (revisit quarterly)</li>
+</ul>
+<h4>Senge Vision Statement Structure</h4>
+<p><strong>Not:</strong> "We will be the largest healthcare IT vendor in SE Asia by 2034"</p>
+<p><strong>Instead:</strong> </p>
+<p>"We are building a world where healthcare workers have the data and tools they need to make decisions with confidence, where administrative burden is minimized, and where patient care is improved through intelligent systems. This journey is shared with our customers, partners, and team."</p>
+<h4>Why Senge's Approach Matters</h4>
+<ul>
+<li>✅ Drives deeper engagement (everyone contributed)</li>
+<li>✅ More adaptable (shared vision evolves with learning)</li>
+<li>✅ Links personal purpose to organizational purpose</li>
+<li>✅ Builds psychological safety (your voice was heard)</li>
+</ul>
+<hr>
+<h2>4. KAPLAN & NORTON: STRATEGY MAP & BALANCED SCORECARD</h2>
+<h4>Framework Overview</h4>
+<p><strong>Robert Kaplan & David Norton</strong> (<em>The Balanced Scorecard, 1992</em>) connect vision to execution through four perspectives:</p>
+<h5>Four Perspectives:</h5>
+<ol>
+<li><strong>Financial</strong> (How do we sustain profitability?)</li>
+<li><strong>Customer</strong> (What value do customers perceive?)</li>
+<li><strong>Internal Processes</strong> (What processes must we excel at?)</li>
+<li><strong>Learning & Growth</strong> (How do we build capabilities?)</li>
+</ol>
+<h4>Strategy Map Structure</h4>
+<pre><code>
+VISION: [Articulated BHAG or mission]
+        ↓
+FINANCIAL PERSPECTIVE
+- Revenue growth from new products (clinic, pharmacy)
+- Margin expansion (reduce support cost per customer)
+- Profitability targets (% gross margin)
+        ↓ (enabled by)
+CUSTOMER PERSPECTIVE
+- Hospital retention (low churn)
+- Clinic/pharmacy adoption (new segments)
+- Customer satisfaction (NPS &gt; 50)
+        ↓ (enabled by)
+INTERNAL PROCESSES
+- Faster product delivery (time to MVP)
+- Seamless integrations (clinic ↔ hospital ↔ pharmacy)
+- Scalable operations (support more hospitals without linear cost increase)
+        ↓ (enabled by)
+LEARNING &amp; GROWTH
+- Talent development (hiring for new product domains)
+- Innovation culture (psychological safety, experimentation)
+- Knowledge management (learning from failures, successes)
+</code></pre>
+<h4>For SIMRS: Balanced Scorecard Example</h4>
+<pre><code>
+VISION: &quot;By 2034, backbone of healthcare delivery for 10,000+ SE Asian facilities&quot;
 
-        <!-- 03 Senge -->
-        <section id="senge" class="reveal scroll-mt-32 relative">
-            <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/5 to-transparent rounded-3xl -z-10"></div>
-            <div class="flex items-center gap-4 mb-10">
-                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">03</span>
-                <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Shared Vision</h2>
-                    <p class="text-indigo-600 font-medium">Peter Senge</p>
-                </div>
-            </div>
+FINANCIAL OBJECTIVES &amp; METRICS
+├─ Objective: Maximize hospital profitability
+│  └─ Metrics: Revenue per hospital, gross margin %, churn rate
+├─ Objective: Build new healthcare product revenue streams
+│  └─ Metrics: Clinic product MRR, pharmacy product MRR, time to revenue
+└─ Objective: Achieve economies of scale
+   └─ Metrics: Support cost per customer, % revenue from self-serve
 
-            <div class="glass-panel rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row gap-10 items-center">
-                <div class="md:w-1/2">
-                    <h3 class="text-2xl font-bold mb-4 text-slate-900">It's a Dialogue, Not a Decree.</h3>
-                    <p class="text-slate-600 leading-relaxed mb-6">Shared vision emerges through continual conversation. It is an iterative synthesis of individual aspirations combined into a collective living purpose.</p>
-                    <div class="flex items-center justify-between text-xs sm:text-sm font-mono text-indigo-700 bg-indigo-50/80 border border-indigo-100 px-4 py-3 rounded-xl overflow-x-auto shadow-sm">
-                        <span class="font-bold">1:1 Interviews</span> <span class="mx-2 text-indigo-300">→</span> <span class="font-bold">Synthesis</span> <span class="mx-2 text-indigo-300">→</span> <span class="font-bold">Refinement</span>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <blockquote class="text-xl sm:text-2xl font-medium italic leading-snug text-slate-800 border-l-4 border-indigo-500 pl-6 py-2">
-                        "We are building a world where healthcare workers have the tools they need to make decisions with confidence..."
-                    </blockquote>
-                </div>
-            </div>
-        </section>
+CUSTOMER OBJECTIVES &amp; METRICS
+├─ Objective: Deliver superior value to hospitals
+│  └─ Metrics: NPS, feature adoption rate, training completion %
+├─ Objective: Win clinic market
+│  └─ Metrics: Clinic NPS, implementation time, ROI realization
+└─ Objective: Expand to pharmacy/insurer segments
+   └─ Metrics: Partner acquisition cost, ecosystem adoption
 
-        <!-- 04 Kaplan -->
-        <section id="kaplan" class="reveal scroll-mt-32">
-            <div class="flex items-center gap-4 mb-10">
-                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">04</span>
-                <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Balanced Scorecard</h2>
-                    <p class="text-blue-600 font-medium">Kaplan & Norton</p>
-                </div>
-            </div>
+INTERNAL PROCESS OBJECTIVES &amp; METRICS
+├─ Objective: Deliver products fast with high quality
+│  └─ Metrics: Sprint velocity, bug escape rate, time to MVP
+├─ Objective: Integrate seamlessly across healthcare providers
+│  └─ Metrics: Integration coverage (% of healthcare transactions), API uptime
+└─ Objective: Scale operations without proportional cost increase
+   └─ Metrics: Support tickets per person, customer onboarding efficiency
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div class="glass-panel gradient-border rounded-2xl p-8 hover:-translate-y-2 transition duration-500 bg-white/40">
-                    <h3 class="text-lg font-black text-emerald-600 mb-2 uppercase tracking-wide">Financial</h3>
-                    <p class="text-slate-800 md:text-lg font-medium">Maximize hospital profitability; Build new revenue streams.</p>
-                    <p class="text-sm text-slate-500 mt-4 font-mono bg-white inline-block px-2 py-1 rounded shadow-sm border border-slate-100">Metrics: MRR, Margin</p>
-                </div>
-                
-                <div class="glass-panel gradient-border rounded-2xl p-8 hover:-translate-y-2 transition duration-500 bg-white/40">
-                    <h3 class="text-lg font-black text-blue-600 mb-2 uppercase tracking-wide">Customer</h3>
-                    <p class="text-slate-800 md:text-lg font-medium">Deliver superior value; Win the clinic market footprint.</p>
-                    <p class="text-sm text-slate-500 mt-4 font-mono bg-white inline-block px-2 py-1 rounded shadow-sm border border-slate-100">Metrics: NPS, Adoption</p>
-                </div>
+LEARNING &amp; GROWTH OBJECTIVES &amp; METRICS
+├─ Objective: Build dynamic capabilities (sensing, seizing, transforming)
+│  └─ Metrics: # of new market experiments, time to validate, learning velocity
+├─ Objective: Foster innovation culture
+│  └─ Metrics: % time on experimentation, psychological safety score, ideas generated
+└─ Objective: Develop talent for new healthcare segments
+   └─ Metrics: Retention of key talent, cross-functional collaboration, external hiring success
+</code></pre>
+<h4>Why Balanced Scorecard Works</h4>
+<ul>
+<li>✅ Connects vision → strategy → execution</li>
+<li>✅ Balances short-term (financial, customer) with long-term (learning, growth)</li>
+<li>✅ Forces clarity on cause-and-effect (processes enable customer value, which drives financial)</li>
+<li>✅ Provides metrics to track progress</li>
+</ul>
+<hr>
+<h2>5. SIMON SINEK: GOLDEN CIRCLE (WHY/HOW/WHAT)</h2>
+<h4>Framework Overview</h4>
+<p><strong>Simon Sinek</strong> (<em>Start With Why, 2009</em>) argues most organizations communicate backwards:</p>
+<p><strong>Most organizations say:</strong></p>
+<pre><code>
+WHAT: We build hospital management software
+HOW: Using integrated architecture, local expertise
+WHY: [Unclear or weak - &quot;to make money&quot; isn&#x27;t inspiring]
+</code></pre>
+<p><strong>Inspiring organizations say:</strong></p>
+<pre><code>
+WHY: We believe healthcare workers should have the tools and data they need to make better decisions
+HOW: By building integrated systems that reduce administrative burden
+WHAT: Therefore, we build SIMRS and healthcare platforms
+</code></pre>
+<h4>Why/How/What for SIMRS</h4>
+<p><strong>WHY (Belief/Purpose):</strong></p>
+<p>"We believe that healthcare is a fundamental right, and that technology can make healthcare better by reducing burden on healthcare workers and enabling better decisions for patients. We believe emerging markets deserve the same quality digital infrastructure as wealthy countries."</p>
+<p><strong>HOW (Values/Approach):</strong></p>
+<p>"We achieve this by:</p>
+<ul>
+<li>Deeply understanding local healthcare workflows (not importing Western solutions)</li>
+<li>Building systems that are simple, reliable, and locally supported</li>
+<li>Connecting healthcare facilities so data flows where it's needed</li>
+<li>Being relentless about usability (healthcare workers don't have time for complicated software)"</li>
+</ul>
+<p><strong>WHAT (Products/Services):</strong></p>
+<p>"Therefore, we build:</p>
+<ul>
+<li>SIMRS (Hospital Management System)</li>
+<li>Clinic management software</li>
+<li>Pharmacy networks</li>
+<li>Healthcare data platform</li>
+<li>All integrated, all local, all reliable"</li>
+</ul>
+<h4>Why Sinek's Approach Resonates</h4>
+<ul>
+<li>✅ Inspires employees ("I'm not coding, I'm improving healthcare")</li>
+<li>✅ Attracts customers with shared values (hospitals that care about data integrity)</li>
+<li>✅ Differentiates in crowded market (not competing on features, competing on mission)</li>
+<li>✅ Survives commodity competition (if product becomes commoditized, mission keeps customers)</li>
+</ul>
+<hr>
+<h2>6. NORTH STAR METRIC</h2>
+<h4>Framework Overview</h4>
+<p><strong>North Star Metric</strong> (popularized by Sean Ellis, Reforge) is the single most important metric that represents long-term value creation and sustainable growth.</p>
+<h4>Characteristics of a Good North Star</h4>
+<ul>
+<li>✅ Leads to revenue and profitability long-term</li>
+<li>✅ Reflects core customer value</li>
+<li>✅ Measurable and trackable</li>
+<li>✅ Single metric (not composite)</li>
+<li>✅ Influenced by product and team actions</li>
+<li>✅ Accessible (not trailing indicator like annual revenue)</li>
+</ul>
+<h4>Common North Star Metrics by Business Model</h4>
+<table>
+<thead><tr><th>Business Model</th><th>North Star</th></tr></thead><tbody>
+<tr><td>SaaS (enterprise)</td><td>Monthly Recurring Revenue (MRR) or # of active paying customers</td></tr>
+<tr><td>SaaS (marketplace)</td><td>Gross Merchandise Volume (GMV) or # of transactions</td></tr>
+<tr><td>Social network</td><td>Daily/Monthly Active Users</td></tr>
+<tr><td>E-commerce</td><td>Revenue or customer lifetime value</td></tr>
+<tr><td>Healthcare</td><td>Patient outcomes or provider satisfaction</td></tr>
+</tbody></table>
+<h4>For SIMRS: North Star Metric Options</h4>
+<p><strong>Option 1: Healthcare Facility Coverage</strong></p>
+<ul>
+<li><strong>Metric:</strong> Number of healthcare facilities actively using SIMRS ecosystem</li>
+<li><strong>Why:</strong> Reflects market penetration, ecosystem adoption, long-term durability</li>
+<li><strong>Drawback:</strong> Doesn't distinguish hospital vs. clinic vs. pharmacy</li>
+<li><strong>Target:</strong> 10,000 facilities by 2034 (connects to BHAG)</li>
+</ul>
+<p><strong>Option 2: Healthcare Transactions Processed</strong></p>
+<ul>
+<li><strong>Metric:</strong> Number of monthly healthcare transactions (patient visits, prescriptions, claims, referrals) flowing through SIMRS platform</li>
+<li><strong>Why:</strong> Reflects ecosystem density, data value, network effects</li>
+<li><strong>Drawback:</strong> Large number, hard to track</li>
+<li><strong>Target:</strong> 100M transactions/month by 2034</li>
+</ul>
+<p><strong>Option 3: Healthcare Workers Enabled</strong></p>
+<ul>
+<li><strong>Metric:</strong> Number of active healthcare workers using SIMRS daily</li>
+<li><strong>Why:</strong> Direct measure of impact (improving work for healthcare workers)</li>
+<li><strong>Drawback:</strong> Trailing indicator (hard to predict)</li>
+<li><strong>Target:</strong> 500K healthcare workers daily active</li>
+</ul>
+<p><strong>Option 4: Monthly Recurring Revenue (MRR)</strong></p>
+<ul>
+<li><strong>Metric:</strong> Total monthly subscription revenue from all SIMRS products</li>
+<li><strong>Why:</strong> Reflects business sustainability, customer value perception, growth</li>
+<li><strong>Drawback:</strong> Pure financial, doesn't reflect healthcare impact</li>
+<li><strong>Target:</strong> $10M+ MRR by 2034</li>
+</ul>
+<p><strong>Recommendation for SIMRS:</strong></p>
+<p>Use <strong>dual North Stars</strong>:</p>
+<ol>
+<li><strong>Healthcare Facility Adoption</strong> (reflects mission, market penetration)</li>
+<li><strong>Monthly Recurring Revenue</strong> (reflects sustainability, profitability)</li>
+</ol>
+<p>Both should grow in tandem (more facilities = more revenue). If MRR grows but facility adoption stalls, you're extracting more from fewer customers (unsustainable). If facility adoption grows but MRR stagnates, you're not creating value customers will pay for.</p>
+<h4>North Star Metric Cascade</h4>
+<p>Once you define North Star, cascade it down:</p>
+<pre><code>
+NORTH STAR: 10,000 healthcare facilities + $10M MRR by 2034
 
-                <div class="glass-panel gradient-border rounded-2xl p-8 hover:-translate-y-2 transition duration-500 bg-white/40">
-                    <h3 class="text-lg font-black text-fuchsia-600 mb-2 uppercase tracking-wide">Internal Processes</h3>
-                    <p class="text-slate-800 md:text-lg font-medium">Deliver products fast; Integrate seamlessly across providers.</p>
-                    <p class="text-sm text-slate-500 mt-4 font-mono bg-white inline-block px-2 py-1 rounded shadow-sm border border-slate-100">Metrics: Velocity, Uptime</p>
-                </div>
+YEARLY MILESTONES:
+- 2025: 500 facilities, $500K MRR
+- 2026: 1,000 facilities, $2M MRR
+- 2027: 2,500 facilities, $5M MRR
+- 2028: 5,000 facilities, $8M MRR
+- 2029: 10,000 facilities, $15M MRR
 
-                <div class="glass-panel gradient-border rounded-2xl p-8 hover:-translate-y-2 transition duration-500 bg-white/40">
-                    <h3 class="text-lg font-black text-amber-500 mb-2 uppercase tracking-wide">Learning & Growth</h3>
-                    <p class="text-slate-800 md:text-lg font-medium">Foster an innovation culture with dynamic capabilities.</p>
-                    <p class="text-sm text-slate-500 mt-4 font-mono bg-white inline-block px-2 py-1 rounded shadow-sm border border-slate-100">Metrics: Psych. Safety</p>
-                </div>
-            </div>
-        </section>
+QUARTERLY TARGETS (for 2025):
+- Q1: 450 facilities, $400K MRR
+- Q2: 475 facilities, $450K MRR
+- Q3: 500 facilities, $500K MRR
+- Q4: 530 facilities (ahead of plan), $550K MRR
 
-        <!-- 05 Sinek -->
-        <section id="sinek" class="reveal scroll-mt-32">
-            <div class="flex items-center gap-4 mb-10">
-                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">05</span>
-                <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">The Golden Circle</h2>
-                    <p class="text-blue-600 font-medium">Simon Sinek</p>
-                </div>
-            </div>
+MONTHLY TARGETS:
+- Facility growth: +20-30 new facilities/month
+- MRR growth: +$30-50K/month
+- Churn: &lt;2% monthly (critical—losing customers hurts both metrics)
 
-            <div class="glass-panel rounded-3xl p-8 sm:p-10 flex flex-col items-center">
-                
-                <div class="w-full max-w-2xl space-y-4 relative">
-                    <!-- Concentric feeling stacked layout -->
-                    <div class="bg-amber-100/50 border border-amber-200 p-8 rounded-2xl text-center relative z-30 shadow-xl backdrop-blur-md">
-                        <h3 class="text-amber-600 font-black text-3xl mb-2">WHY</h3>
-                        <p class="text-slate-800 font-medium">Healthcare is a fundamental right. Technology should empower workers to make better decisions.</p>
-                    </div>
-                    
-                    <div class="bg-blue-50/80 border border-blue-100 p-8 pt-12 rounded-2xl text-center -mt-8 relative z-20 shadow-md">
-                        <h3 class="text-blue-600 font-bold text-xl mb-2">HOW</h3>
-                        <p class="text-slate-700">Deep local expertise, simple & reliable systems, connected data.</p>
-                    </div>
+LEADING INDICATORS (predict North Star):
+- # of product trials started
+- # of clinics/pharmacies in discovery phase
+- # of new healthcare segments explored
+- Customer onboarding time (faster onboarding = faster revenue realization)
+- Feature adoption (better adoption = better retention = sustained revenue)
+</code></pre>
+<h4>Alignment Example: If North Star is "10K Facilities + $10M MRR"</h4>
+<p><strong>What does this mean for Product decisions?</strong></p>
+<ul>
+<li>✅ Build features that other facility types (clinic, pharmacy) want → facilities growth</li>
+<li>✅ Improve implementation process → faster customer onboarding → faster MRR</li>
+<li>✅ Expand integrations → more valuable to customers → lower churn</li>
+<li>❌ Build features only 1 hospital wants → doesn't move North Star</li>
+<li>❌ Spend engineering on cost reduction if it sacrifices growth</li>
+</ul>
+<p><strong>What does this mean for Sales?</strong></p>
+<ul>
+<li>✅ Target clinics and pharmacies (new facility types) → facilities growth</li>
+<li>✅ Increase pricing for mature hospitals (if value-justified) → MRR growth</li>
+<li>✅ Reduce churn through customer success → sustained MRR</li>
+<li>❌ Focus on features discounting if it hurts perceived value</li>
+</ul>
+<hr>
+<h3>COMPARISON TABLE: Which Framework for What?</h3>
+<table>
+<thead><tr><th>Framework</th><th>Best For</th><th>Focus</th><th>Timeframe</th></tr></thead><tbody>
+<tr><td>**Collins &amp; Porras (BHAG)**</td><td>Long-term strategic alignment</td><td>Audacious, measurable goal</td><td>10-30 years</td></tr>
+<tr><td>**Drucker (MBO)**</td><td>Clarity on business definition</td><td>What, who, value</td><td>3-5 years + aspirational</td></tr>
+<tr><td>**Senge (Shared Vision)**</td><td>Engagement, organizational alignment</td><td>Living dialogue, evolution</td><td>Ongoing</td></tr>
+<tr><td>**Kaplan &amp; Norton (Balanced Scorecard)**</td><td>Connect vision to execution</td><td>Four perspectives, cause-effect</td><td>1-3 years with long-term view</td></tr>
+<tr><td>**Sinek (Golden Circle)**</td><td>Inspiration, differentiation</td><td>Why/How/What narrative</td><td>Timeless</td></tr>
+<tr><td>**North Star Metric**</td><td>Focus product/business decisions</td><td>Single key metric</td><td>Annual + quarterly targets</td></tr>
+</tbody></table>
+<hr>
+<h2>PRACTICAL TEMPLATE: Vision & Mission for SIMRS</h2>
+<h4>Step 1: Apply Multiple Frameworks</h4>
+<p><strong>Collins & Porras (BHAG + Hedgehog):</strong></p>
+<pre><code>
+BHAG: By 2034, be the backbone of healthcare delivery for 10,000+ SE Asian facilities
 
-                    <div class="bg-white border border-slate-200 p-8 pt-12 rounded-2xl text-center -mt-8 relative z-10 shadow-sm">
-                        <h3 class="text-slate-500 font-bold text-lg mb-2">WHAT</h3>
-                        <p class="text-slate-600">SIMRS, Clinic software, Data platform.</p>
-                    </div>
-                </div>
+Hedgehog:
+- Best at: Healthcare digitization in emerging markets
+- Drives economics: Licensing + integration premiums + data analytics
+- Passionate about: Healthcare access + efficiency
+</code></pre>
+<p><strong>Drucker (MBO):</strong></p>
+<pre><code>
+What is our business? Healthcare information platform
 
-            </div>
-        </section>
+Who are our customers? Hospitals, clinics, pharmacies, insurers (primary → secondary)
 
-        <!-- 06 North Star Metric -->
-        <section id="northstar" class="reveal scroll-mt-32">
-            <div class="flex items-center gap-4 mb-10">
-                <span class="text-4xl sm:text-5xl font-black text-slate-900/10">06</span>
-                <div>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">North Star Metric</h2>
-                    <p class="text-blue-600 font-medium">Sean Ellis / Growth Framework</p>
-                </div>
-            </div>
+What do they value? Efficiency, data accessibility, compliance, local support
 
-            <div class="glass-panel gradient-border rounded-3xl p-8 sm:p-10 text-center relative overflow-hidden bg-white/60">
-                <!-- Inner glow -->
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-blue-400/10 blur-[100px] rounded-full z-0 pointer-events-none"></div>
-                
-                <div class="relative z-10">
-                    <i class="fas fa-star text-4xl text-amber-400 mb-6 drop-shadow-md"></i>
-                    <h3 class="text-3xl md:text-5xl font-black text-slate-900 mb-8">Dual North Stars</h3>
-                    
-                    <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                        <div class="bg-white rounded-xl p-8 border border-slate-100 shadow-sm">
-                            <i class="fas fa-hospital text-3xl text-blue-500 mb-4"></i>
-                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Facility Adoption</h4>
-                            <p class="text-slate-600">10,000+ Health Facilities actively using the ecosystem.</p>
-                        </div>
-                        <div class="bg-white rounded-xl p-8 border border-slate-100 shadow-sm">
-                            <i class="fas fa-chart-line text-3xl text-emerald-500 mb-4"></i>
-                            <h4 class="text-2xl font-bold text-slate-900 mb-2">Monthly Revenue</h4>
-                            <p class="text-slate-600">$10M+ MRR validating sustainable value creation.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+What will our business be? Integrated healthcare ecosystem (3-5 yrs)
 
-        <!-- Final Synthesis -->
-        <section id="synthesis" class="reveal scroll-mt-32 mb-32">
-            <div class="relative rounded-3xl overflow-hidden p-[2px] shadow-2xl">
-                <!-- Animated border effect -->
-                <div class="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 animate-[spin_4s_linear_infinite] blur-md opacity-30"></div>
-                
-                <div class="relative bg-white rounded-3xl p-8 sm:p-10 md:p-16 h-full border border-slate-200 z-10">
-                    <h2 class="text-3xl md:text-5xl font-black mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500">
-                        Final Strategy Synthesis
-                    </h2>
+What should our business be? Universal SE Asian healthcare platform (10+ yrs)
+</code></pre>
+<p><strong>Sinek (Golden Circle):</strong></p>
+<pre><code>
+WHY: Healthcare workers deserve tools to make better decisions; emerging markets deserve quality infrastructure
 
-                    <div class="space-y-12">
-                        <div>
-                            <h3 class="text-xs sm:text-sm uppercase tracking-widest text-blue-600 font-bold mb-4 flex items-center gap-2">
-                                <i class="fas fa-eye"></i> Vision Statement
-                            </h3>
-                            <p class="text-xl md:text-3xl font-light text-slate-900 leading-tight">
-                                "A world where healthcare workers in Southeast Asia have the <span class="font-semibold text-blue-700">data and tools</span> they need to deliver excellent care, where administrative burden is minimized, and where healthcare is accessible and effective for all."
-                            </p>
-                        </div>
+HOW: Deep local expertise, simple reliable systems, connected data flows
 
-                        <div class="h-px bg-slate-200 w-full"></div>
+WHAT: SIMRS, clinic software, pharmacy networks, healthcare data platform
+</code></pre>
+<p><strong>Kaplan & Norton (Balanced Scorecard):</strong></p>
+<p>[Use the example above]</p>
+<p><strong>North Star Metric:</strong></p>
+<pre><code>
+10,000 healthcare facilities actively using SIMRS ecosystem +
+$10M monthly recurring revenue
+</code></pre>
+<h4>Step 2: Synthesize Into Vision & Mission Statements</h4>
+<p><strong>VISION STATEMENT (10-30 years, aspirational):</strong></p>
+<pre><code>
+A world where healthcare workers in Southeast Asia have the data and tools they need 
+to deliver excellent care, where administrative burden is minimized, and where healthcare 
+is accessible and effective for all. SIMRS is the trusted digital backbone enabling this.
+</code></pre>
+<p><strong>MISSION STATEMENT (Current purpose, guiding decisions):</strong></p>
+<pre><code>
+We empower healthcare organizations across Southeast Asia with integrated, intelligent systems 
+that reduce administrative burden, improve decision-making, and enable better patient care. 
+We do this through deep local expertise, unwavering focus on usability and reliability, and 
+commitment to connecting healthcare for greater impact.
+</code></pre>
+<p><strong>VALUES (don't change):</strong></p>
+<pre><code>
+1. Patient-centricity: Every decision ultimately serves patient care and outcomes
+2. Local Excellence: We understand and deeply serve Southeast Asian healthcare
+3. Ethical Stewardship: Data is sacred; we protect privacy and use it responsibly
+4. Operational Reliability: Healthcare depends on us; we are relentlessly reliable
+5. Continuous Learning: We learn from customers, competitors, and failures
+</code></pre>
+<p><strong>NORTH STAR METRIC:</strong></p>
+<pre><code>
+10,000+ healthcare facilities actively using SIMRS ecosystem (covering 100M+ patients)
+$10M+ monthly recurring revenue (proves sustainable value creation)
+</code></pre>
+<p><strong>STRATEGIC PRIORITIES (next 3 years):</strong></p>
+<pre><code>
+1. Dominate hospital segment (Indonesia) - maintain 70% of engineering resources
+2. Validate clinic management as viable second product - 20% engineering resources
+3. Explore pharmacy networks and insurer integrations - 10% engineering resources
 
-                        <div>
-                            <h3 class="text-xs sm:text-sm uppercase tracking-widest text-fuchsia-600 font-bold mb-4 flex items-center gap-2">
-                                <i class="fas fa-bullseye"></i> Mission Statement
-                            </h3>
-                            <p class="text-lg sm:text-xl font-light text-slate-700 leading-relaxed">
-                                "We empower healthcare organizations across Southeast Asia with integrated, intelligent systems that <span class="font-medium text-slate-900">reduce administrative burden, improve decision-making, and enable better patient care</span>. We do this through deep local expertise, unwavering focus on usability and reliability, and commitment to connecting healthcare for greater impact."
-                            </p>
-                        </div>
+Success: Hospital business sustainable ($5M+ MRR), clinic product validated (500+ users), 
+pharmacy/insurer partnerships established
+</code></pre>
+<hr>
+<h2>IMPLEMENTATION CHECKLIST</h2>
+<ul>
+<li>[ ] <strong>Define BHAG</strong> (10-30 year audacious goal)</li>
+<li>[ ] <strong>Clarify Hedgehog Concept</strong> (best at, drives economics, passionate about)</li>
+<li>[ ] <strong>Answer Drucker's Questions</strong> (what, who, value, will be, should be)</li>
+<li>[ ] <strong>Facilitate Shared Vision Dialogue</strong> (gather team/customer inputs)</li>
+<li>[ ] <strong>Map Strategy</strong> (Balanced Scorecard: financial, customer, process, learning)</li>
+<li>[ ] <strong>Articulate Golden Circle</strong> (Why/How/What narrative)</li>
+<li>[ ] <strong>Define North Star Metric</strong> (single most important metric)</li>
+<li>[ ] <strong>Write Vision Statement</strong> (long-term, aspirational, 1-2 paragraphs)</li>
+<li>[ ] <strong>Write Mission Statement</strong> (current purpose, guiding decisions, 1-2 paragraphs)</li>
+<li>[ ] <strong>Articulate Core Values</strong> (5-7 timeless values, not trendy)</li>
+<li>[ ] <strong>Cascade North Star</strong> (yearly, quarterly, monthly targets)</li>
+<li>[ ] <strong>Communicate Widely</strong> (all hands, handbook, onboarding, decision-making)</li>
+<li>[ ] <strong>Revisit Annually</strong> (Senge: shared vision evolves with learning)</li>
+</ul>
+<hr>
+<h2>ACADEMIC REFERENCES</h2>
+<ul>
+<li>Collins, J. C., & Porras, J. I. (2002). <em>Built to Last: Successful Habits of Visionary Companies</em> (Revised Edition)</li>
+<li>Drucker, P. F. (1954). <em>The Practice of Management</em></li>
+<li>Senge, P. M. (1990). <em>The Fifth Discipline: The Art & Practice of The Learning Organization</em></li>
+<li>Kaplan, R. S., & Norton, D. P. (1992). "The Balanced Scorecard—Measures That Drive Performance." <em>Harvard Business Review</em>, 70(1), 71-79.</li>
+<li>Sinek, S. (2009). <em>Start With Why: How Great Leaders Inspire Everyone to Take Action</em></li>
+<li>Ellis, S. (Reforge). "North Star Metric" course material</li></div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const content = document.getElementById('content');
+  const nodes = Array.from(content.childNodes);
+  const fragment = document.createDocumentFragment();
+  let sections = [];
+  let cur = null;
 
-                        <div class="grid md:grid-cols-2 gap-8 pt-8">
-                            <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-                                <h3 class="text-xs sm:text-sm uppercase tracking-widest text-emerald-600 font-bold mb-4"><i class="fas fa-heart mr-2"></i> Core Values</h3>
-                                <ul class="space-y-3">
-                                    <li class="flex items-center gap-3 text-slate-700 font-medium"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Patient-centricity</li>
-                                    <li class="flex items-center gap-3 text-slate-700 font-medium"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Local Excellence</li>
-                                    <li class="flex items-center gap-3 text-slate-700 font-medium"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Ethical Stewardship</li>
-                                    <li class="flex items-center gap-3 text-slate-700 font-medium"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Operational Reliability</li>
-                                    <li class="flex items-center gap-3 text-slate-700 font-medium"><div class="w-2 h-2 rounded-full bg-emerald-500"></div> Continuous Learning</li>
-                                </ul>
-                            </div>
-                            <div class="bg-blue-50/50 rounded-2xl p-6 border border-blue-100">
-                                <h3 class="text-xs sm:text-sm uppercase tracking-widest text-amber-600 font-bold mb-4"><i class="fas fa-bolt mr-2"></i> 3-Year Priorities</h3>
-                                <ul class="space-y-3">
-                                    <li class="text-slate-800 font-medium flex items-center justify-between text-sm sm:text-base"><span>Dominate Hospitals</span> <span class="text-xs font-mono font-bold text-blue-600 bg-white px-2 py-1 rounded shadow-sm">70% DEV</span></li>
-                                    <li class="h-px bg-slate-200 w-full"></li>
-                                    <li class="text-slate-800 font-medium flex items-center justify-between text-sm sm:text-base"><span>Validate Clinics</span> <span class="text-xs font-mono font-bold text-emerald-600 bg-white px-2 py-1 rounded shadow-sm">20% DEV</span></li>
-                                    <li class="h-px bg-slate-200 w-full"></li>
-                                    <li class="text-slate-800 font-medium flex items-center justify-between text-sm sm:text-base"><span>Explore Pharmacies</span> <span class="text-xs font-mono font-bold text-amber-600 bg-white px-2 py-1 rounded shadow-sm">10% DEV</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-16 text-center">
-                <a href="strategic-planning-direction.html" class="inline-flex items-center gap-2 text-slate-600 hover:text-slate-900 transition group border border-slate-200 rounded-full px-8 py-4 bg-white shadow-sm hover:shadow-md">
-                    <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Return to Hub
-                </a>
-            </div>
-        </section>
+  nodes.forEach(node => {
+    if (node.nodeType !== 1) return;
+    if (node.tagName === 'H1') { fragment.appendChild(node); return; }
+    if (node.tagName === 'H2') {
+      cur = { heading: node, children: [] };
+      sections.push(cur);
+    } else if (cur) {
+      cur.children.push(node);
+    } else {
+      fragment.appendChild(node);
+    }
+  });
 
-    </main>
+  sections.forEach(sec => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'section';
+    const btn = document.createElement('button');
+    btn.className = 'section-toggle open';
+    btn.innerHTML = '<span class="arrow">&#9658;</span>' + sec.heading.innerHTML;
+    const body = document.createElement('div');
+    body.className = 'section-body open';
+    sec.children.forEach(c => body.appendChild(c));
+    btn.addEventListener('click', () => { btn.classList.toggle('open'); body.classList.toggle('open'); });
+    wrapper.appendChild(btn); wrapper.appendChild(body); fragment.appendChild(wrapper);
+  });
 
-    <script>
-        // Reveal elements on scroll using Intersection Observer
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
+  content.innerHTML = ''; content.appendChild(fragment);
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    // Optional: stop observing once revealed
-                    // observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
-    </script>
+  let allCollapsed = false;
+  document.getElementById('toggleAll').addEventListener('click', function() {
+    allCollapsed = !allCollapsed;
+    document.querySelectorAll('.section-toggle').forEach(btn => {
+      const b = btn.nextElementSibling;
+      if (allCollapsed) { btn.classList.remove('open'); b.classList.remove('open'); }
+      else { btn.classList.add('open'); b.classList.add('open'); }
+    });
+    this.textContent = allCollapsed ? 'Expand All' : 'Collapse All';
+  });
+});
+</script>
 </body>
 </html>
