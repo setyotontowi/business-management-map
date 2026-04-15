@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Value Stream Mapping</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --bg: #f9f9f8;
+    --text: #222;
+    --nav-border: #eee;
+    --section-border: #e5e5e5;
+    --h1: #111;
+    --h-sub: #444;
+    --p: #333;
+    --code-bg: #f0f0f0;
+    --pre-bg: #f5f5f5;
+    --table-th: #f0f0f0;
+    --link: #2563eb;
+  }
+
+  body.dark-mode {
+    --bg: #0f172a;
+    --text: #f1f5f9;
+    --nav-border: #1e293b;
+    --section-border: #1e293b;
+    --h1: #f8fafc;
+    --h-sub: #cbd5e1;
+    --p: #94a3b8;
+    --code-bg: #1e293b;
+    --pre-bg: #1e293b;
+    --table-th: #1e293b;
+    --link: #60a5fa;
+  }
+
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; transition: background 0.3s, color 0.3s; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+  nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid var(--nav-border); padding-bottom: 20px; }
+  nav a { color: var(--link); text-decoration: none; font-size: 13px; font-weight: 600; }
+  nav a:hover { text-decoration: underline; }
+  #toggleAll { background: none; border: 1px solid #ddd; border-radius: 4px; padding: 4px 10px; font-size: 12px; cursor: pointer; color: #666; }
+  #toggleAll:hover { background: #f0f0f0; }
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; color: var(--h1); }
+  .section { border-bottom: 1px solid var(--section-border); }
+  .section-toggle {
+    width: 100%; background: none; border: none; text-align: left;
+    padding: 14px 0; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    font-family: inherit; font-size: 1rem; font-weight: 600; color: var(--h1);
+  }
+  .section-toggle:hover { background: rgba(0,0,0,0.02); color: var(--link); }
+  .dark-mode .section-toggle:hover { background: rgba(255,255,255,0.02); }
+  .section-toggle .arrow { font-size: 10px; color: #999; transition: transform 0.2s; display: inline-block; }
+  .section-toggle.open .arrow { transform: rotate(90deg); }
+  .section-body { padding: 0 0 16px 20px; display: none; }
+  .section-body.open { display: block; border-left: 2px solid var(--nav-border); }
+  h3 { font-size: 0.95rem; font-weight: 700; color: var(--h-sub); margin: 20px 0 8px; }
+  h4 { font-size: 0.9rem; font-weight: 700; color: var(--h-sub); margin: 16px 0 6px; }
+  h5, h6 { font-size: 0.85rem; font-weight: 700; color: var(--h-sub); margin: 12px 0 4px; }
+  p { margin: 8px 0 12px; color: var(--p); }
+  ul, ol { margin: 8px 0 12px 24px; }
+  li { margin: 4px 0; }
+  hr { border: none; border-top: 1px solid var(--nav-border); margin: 24px 0; }
+  code { background: var(--code-bg); padding: 2px 4px; border-radius: 3px; font-size: 0.85em; font-family: monospace; }
+  pre { background: var(--pre-bg); border: 1px solid var(--nav-border); border-radius: 4px; padding: 14px; overflow-x: auto; margin: 14px 0; }
+  pre code { background: none; padding: 0; font-size: 0.82em; }
+  strong { font-weight: 600; }
+  a { color: var(--link); }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.9em; }
+  th { background: var(--table-th); font-weight: 600; padding: 8px 12px; border: 1px solid var(--nav-border); text-align: left; }
+  td { padding: 8px 12px; border: 1px solid var(--nav-border); vertical-align: top; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a href="index.html">← Back to Dashboard</a>
+    <button id="toggleAll">Collapse All</button>
+  </nav>
+  <div id="content"><p>Value Stream Mapping: A Strategic Architecture for Operational Excellence</p>
+<h2>1. Fundamentals of Value Stream Mapping (VSM)</h2>
+<p>Definition and Purpose</p>
+<p>Value Stream Mapping (VSM) is a specialized Lean methodology designed to visualize the sequence of activities and information flows required to deliver a product or service. From an architectural perspective, VSM is a Neo-Schumpeterian approach to organizational design. It moves beyond static market positioning by enabling a business to sense, shape, and seize opportunities through the continuous reconfiguration of its asset base. It provides the "big picture" necessary for asset orchestration, allowing leaders to see how individual process steps cohere into a functional system.</p>
+<p>Core Objectives</p>
+<p>Lean practitioners and systems architects use VSM to achieve three critical outcomes:</p>
+<ul>
+<li>Identification of Non-Value-Added (NVA) Time: Pinpointing specific wastes and delays that compromise throughput.</li>
+<li>Envisioning Future States: Designing a redesigned "pull" system that optimizes flow and creates "evolutionary fitness" in shifting markets.</li>
+<li>Developing Implementation Plans: Creating a roadmap for Kaizen events and structural changes to bridge the gap between current reality and the idealized state.</li>
+</ul>
+<p>The "Ground Truth" Approach</p>
+<p>The integrity of a value stream map depends on "walking the floor." Accurate mapping requires direct observation of actual production—the ground truth—rather than relying on idealized reports or office-bound assumptions. Architects must engage with workers at the "Gemba" to ensure the map reflects the true flow of materials and information.</p>
+<h2>2. The Visual Language: Core Elements and Symbols</h2>
+<p>Standardized symbology facilitates cross-functional communication, allowing teams to identify systemic waste through a shared lexicon.</p>
+<h4>Standard VSM Symbology</h4>
+<table>
+<thead><tr><th>Symbol Category</th><th>Specific Icon</th><th>Functional Meaning</th><th>Waste Association</th></tr></thead><tbody>
+<tr><td>**Process Flow**</td><td>Customer / Supplier</td><td>Factory icon representing the external start or end of the stream.</td><td>-</td></tr>
+<tr><td></td><td>Process Box</td><td>A rectangle representing a step where value is added or work occurs.</td><td>Over-processing (if NVA)</td></tr>
+<tr><td></td><td>Workcell</td><td>Notation indicating multiple operations in a single physical location.</td><td>Motion</td></tr>
+<tr><td>**Material Flow**</td><td>Inventory Triangle</td><td>Points where material accumulates or waits between steps.</td><td>Inventory Waste</td></tr>
+<tr><td></td><td>Push Arrow</td><td>Movement occurring without downstream demand; production is not capped.</td><td>Overproduction</td></tr>
+<tr><td></td><td>Pull Arrow</td><td>Downstream demand triggering upstream production (e.g., Kanban).</td><td>-</td></tr>
+<tr><td></td><td>FIFO Lane</td><td>Controlled sequential flow (First-In, First-Out).</td><td>Waiting</td></tr>
+<tr><td></td><td>Supermarket</td><td>A controlled inventory buffer where downstream pulls consumed items.</td><td>Inventory</td></tr>
+<tr><td>**Information Flow**</td><td>Electronic Flow</td><td>Lightning bolt line showing automated data exchange (ERP, EDI).</td><td>-</td></tr>
+<tr><td></td><td>Manual Flow</td><td>Straight line representing paper-based or verbal instructions.</td><td>Defect/Delay potential</td></tr>
+<tr><td></td><td>Production Control</td><td>Central box coordinating planning and scheduling functions.</td><td>-</td></tr>
+</tbody></table>
+<h4>Data Boxes and Timelines</h4>
+<ul>
+<li><strong>Data Boxes</strong>: Positioned beneath process steps to house quantitative metrics: Cycle Time (C/T), Changeover Time (C/O), Batch Size, and Uptime.</li>
+<li><strong>Timelines</strong>: Located at the bottom of the map, the timeline explicitly separates Value-Added (VA) Time (the "peaks") from Non-Value-Added (NVA) Time or Wait Time (the "valleys"). This allows for the calculation of the Total Lead Time versus actual processing time.</li>
+</ul>
+<h2>3. The Standard Mapping Process</h2>
+<p>Current State Mapping Steps</p>
+<p>The architect follows a rigorous six-step sequence to map a specific work increment:</p>
+<ol>
+<li>Identify Actions: Map all activities involved in building one specific work increment.</li>
+<li>Specify Calendar Time: Note the total duration (hours/days) over which the increment moves.</li>
+<li>Calculate Actual Work vs. Wait Time: Distinguish between "hands-on" time and idle time.</li>
+<li>Specify Time Between Steps: Identify queue times and delays between hand-offs.</li>
+<li>Denote Loop Backs: Mark areas where defects or unread requirements force rework.</li>
+<li>Total Average Project Time: Aggregate the data to determine the Total Lead Time vs. Value-Added Time, establishing the baseline for improvement.</li>
+</ol>
+<p>Transitioning to the Future State</p>
+<p>Future state design uses Kaizen Starbursts on the map to target high-waste areas. Critical questions include:</p>
+<ul>
+<li>Can we establish a "pull" system to eliminate overproduction?</li>
+<li>Where can we create cospecialization between assets to enhance value?</li>
+<li>How do we achieve an ideal state of zero waste and zero safety/environmental risk?</li>
+</ul>
+<h2>4. Overcoming VSM Adoption Challenges</h2>
+<ul>
+<li>Resistance to Change: Ingrained traditional practices often hinder VSM.</li>
+<li>Solution: Use pilot programs to demonstrate "evolutionary fitness."</li>
+<li>Silos and Lack of Collaboration: Fragmented departments lack a holistic view of the value stream.</li>
+<li>Solution: Deploy integrated VSM platforms (like ValueOps) for real-time transparency. For example, Tyson Foods successfully broke down silos by using ValueOps to align executive leadership and make data-driven decisions across departments.</li>
+<li>Poor Data Visibility: Manual data gathering often results in outdated "truth."</li>
+<li>Solution: Utilize automated tracking of throughput and cycle time to identify bottlenecks instantly.</li>
+<li>Goal Misalignment: Teams focusing on local optimization rather than end-to-end flow.</li>
+<li>Solution: Link VSM outcomes directly to business OKRs and customer value delivery.</li>
+</ul>
+<h2>5. Advanced Framework: Sustainability-Focused VSM (S-VSM)</h2>
+<p>The Triple Bottom Line Integration</p>
+<p>S-VSM expands the architectural scope to include environmental and social impacts. This uncovers hidden resource wastes and anticipates regulatory hurdles.</p>
+<p>Environmental Enhancements</p>
+<ol>
+<li>EHS Icons: Use red dots to identify processes with Environmental, Health, and Safety (EHS) risks or high pollution potential.</li>
+<li>10 Common Processes with Opportunities: Metal finishing, parts cleaning, painting/coating, printing, metal milling, welding, electronic assembly, smelting, and petroleum refining are high-priority targets.</li>
+<li>The "Materials Line": A line below the timeline comparing Material Use vs. Need. Example: In a milling/welding process, data might show 135 lbs of material consumed while only 85 lbs are needed for the final product, exposing 50 lbs of waste.</li>
+<li>Natural Resource Flow: Tracking water, energy, or hazardous waste streams (e.g., hazardous waste per shift).</li>
+<li>Green Kaizen Starbursts: Identifying future-state opportunities to eliminate environmental waste.</li>
+</ol>
+<p>EHS Professional Integration</p>
+<p>EHS staff must be co-architects in Lean events. Their involvement ensures that "leaner" processes do not inadvertently create new hazards or violate environmental regulations.</p>
+<h2>6. VSM for Knowledge Work and Software (DA/SAFe Context)</h2>
+<p>From Numbers to Conversations</p>
+<p>In manufacturing, VSM is driven by numeric precision. In knowledge work, the primary benefit is visibility and conversations. Since knowledge work is often "invisible," VSM creates a shared mental model to identify systemic delays.</p>
+<p>Value Stream Types</p>
+<ul>
+<li>Development Value Streams: Activities that create the systems and operational flows.</li>
+<li>Operational Value Streams: The sequence that delivers value directly to the customer (linked to OKRs).</li>
+<li>Support Value Streams: Internal functions (Legal, Security, HR) that enable the primary streams.</li>
+</ul>
+<p>Knowledge Work Pain Points</p>
+<p>Architects must map specific knowledge-work wastes, such as:</p>
+<ul>
+<li>Unread requirements causing late-stage rework.</li>
+<li>Under-utilized talent and skills (knowledge not used).</li>
+<li>Multitasking and overloaded cognitive capacity.</li>
+<li>Wait times for information or approvals.</li>
+</ul>
+<p>Evolutionary vs. Technical Fitness</p>
+<p>Dynamic capabilities allow an enterprise to achieve Technical Fitness (efficiency in current tasks) while pursuing Evolutionary Fitness (the ability to adapt and survive). In knowledge work, it is often more pragmatic to use Idealized Development Patterns—applying a Pareto (80/20) analysis to address the most significant constraints—rather than seeking 100% accuracy in "as-is" mapping.</p>
+<h2>7. Process Mining and Data Integration</h2>
+<p>The manual 6-step VSM process is the foundation, but the evolution of the discipline lies in Process Mining. Integrated tools replace static maps with real-time transparency by utilizing Event Logs. These logs act as the automated version of "walking the floor," providing a single source of truth for throughput, bottleneck detection, and cycle time variation without the lag of manual audits.</p>
+<h2>8. Complementary Tools and Frameworks</h2>
+<ul>
+<li>The 5 Whys: A root-cause analysis tool used to drill into wastes identified on the VSM.</li>
+<li>The 7S/6S Framework: Extends 5S to include Safety (6S) and Sustainability (7S). Architects should consult the "First Steps to Green Competitiveness Guidebook" for integrating these into the Lean environment.</li>
+<li>SIPOC and Kanban: SIPOC defines high-level process boundaries, while Kanban provides the mechanical "pull" control to regulate the flow designed in the VSM.</li>
+</ul>
+<h2>9. Further Reading and Foundational References</h2>
+<ul>
+<li>Rother, M. and Shook, J. Learning to See: The foundational guide for traditional VSM.</li>
+<li>Teece, D. J. Explicating Dynamic Capabilities: Strategic management of asset orchestration and evolutionary fitness.</li>
+<li>US EPA. Lean & Environment Toolkit: Guidance for S-VSM and the "Materials Line."</li>
+<li>Disciplined Agile/SAFe Resources: VSM applications for software delivery and knowledge-work systems.</li>
+<li>Lean Teams. First Steps to Green Competitiveness Guidebook: Framework for 7S integration.</li>
+</ul></div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Dark mode persistence
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+  }
+
+  const content = document.getElementById('content');
+  const nodes = Array.from(content.childNodes);
+  const fragment = document.createDocumentFragment();
+  let sections = [];
+  let cur = null;
+
+  nodes.forEach(node => {
+    if (node.nodeType !== 1) return;
+    if (node.tagName === 'H1') { fragment.appendChild(node); return; }
+    if (node.tagName === 'H2') {
+      cur = { heading: node, children: [] };
+      sections.push(cur);
+    } else if (cur) {
+      cur.children.push(node);
+    } else {
+      fragment.appendChild(node);
+    }
+  });
+
+  sections.forEach(sec => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'section';
+    const btn = document.createElement('button');
+    btn.className = 'section-toggle open';
+    btn.innerHTML = '<span class="arrow">&#9658;</span>' + sec.heading.innerHTML;
+    const body = document.createElement('div');
+    body.className = 'section-body open';
+    sec.children.forEach(c => body.appendChild(c));
+    btn.addEventListener('click', () => { btn.classList.toggle('open'); body.classList.toggle('open'); });
+    wrapper.appendChild(btn); wrapper.appendChild(body); fragment.appendChild(wrapper);
+  });
+
+  content.innerHTML = ''; content.appendChild(fragment);
+
+  let allCollapsed = false;
+  document.getElementById('toggleAll').addEventListener('click', function() {
+    allCollapsed = !allCollapsed;
+    document.querySelectorAll('.section-toggle').forEach(btn => {
+      const b = btn.nextElementSibling;
+      if (allCollapsed) { btn.classList.remove('open'); b.classList.remove('open'); }
+      else { btn.classList.add('open'); b.classList.add('open'); }
+    });
+    this.textContent = allCollapsed ? 'Expand All' : 'Collapse All';
+  });
+});
+</script>
+</body>
+</html>
