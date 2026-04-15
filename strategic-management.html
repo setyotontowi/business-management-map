@@ -1,1067 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strategic Management</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  
-  :root {
-    --bg: #f9f9f8;
-    --text: #222;
-    --nav-border: #eee;
-    --section-border: #e5e5e5;
-    --h1: #111;
-    --h-sub: #444;
-    --p: #333;
-    --code-bg: #f0f0f0;
-    --pre-bg: #f5f5f5;
-    --table-th: #f0f0f0;
-    --link: #2563eb;
-  }
-
-  body.dark-mode {
-    --bg: #0f172a;
-    --text: #f1f5f9;
-    --nav-border: #1e293b;
-    --section-border: #1e293b;
-    --h1: #f8fafc;
-    --h-sub: #cbd5e1;
-    --p: #94a3b8;
-    --code-bg: #1e293b;
-    --pre-bg: #1e293b;
-    --table-th: #1e293b;
-    --link: #60a5fa;
-  }
-
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; transition: background 0.3s, color 0.3s; }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
-  nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid var(--nav-border); padding-bottom: 20px; }
-  nav a { color: var(--link); text-decoration: none; font-size: 13px; font-weight: 600; }
-  nav a:hover { text-decoration: underline; }
-  #toggleAll { background: none; border: 1px solid #ddd; border-radius: 4px; padding: 4px 10px; font-size: 12px; cursor: pointer; color: #666; }
-  #toggleAll:hover { background: #f0f0f0; }
-  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; color: var(--h1); }
-  .section { border-bottom: 1px solid var(--section-border); }
-  .section-toggle {
-    width: 100%; background: none; border: none; text-align: left;
-    padding: 14px 0; cursor: pointer;
-    display: flex; align-items: center; gap: 8px;
-    font-family: inherit; font-size: 1rem; font-weight: 600; color: var(--h1);
-  }
-  .section-toggle:hover { background: rgba(0,0,0,0.02); color: var(--link); }
-  .dark-mode .section-toggle:hover { background: rgba(255,255,255,0.02); }
-  .section-toggle .arrow { font-size: 10px; color: #999; transition: transform 0.2s; display: inline-block; }
-  .section-toggle.open .arrow { transform: rotate(90deg); }
-  .section-body { padding: 0 0 16px 20px; display: none; }
-  .section-body.open { display: block; border-left: 2px solid var(--nav-border); }
-  h3 { font-size: 0.95rem; font-weight: 700; color: var(--h-sub); margin: 20px 0 8px; }
-  h4 { font-size: 0.9rem; font-weight: 700; color: var(--h-sub); margin: 16px 0 6px; }
-  h5, h6 { font-size: 0.85rem; font-weight: 700; color: var(--h-sub); margin: 12px 0 4px; }
-  p { margin: 8px 0 12px; color: var(--p); }
-  ul, ol { margin: 8px 0 12px 24px; }
-  li { margin: 4px 0; }
-  hr { border: none; border-top: 1px solid var(--nav-border); margin: 24px 0; }
-  code { background: var(--code-bg); padding: 2px 4px; border-radius: 3px; font-size: 0.85em; font-family: monospace; }
-  pre { background: var(--pre-bg); border: 1px solid var(--nav-border); border-radius: 4px; padding: 14px; overflow-x: auto; margin: 14px 0; }
-  pre code { background: none; padding: 0; font-size: 0.82em; }
-  strong { font-weight: 600; }
-  a { color: var(--link); }
-  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.9em; }
-  th { background: var(--table-th); font-weight: 600; padding: 8px 12px; border: 1px solid var(--nav-border); text-align: left; }
-  td { padding: 8px 12px; border: 1px solid var(--nav-border); vertical-align: top; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Management - Business Strategy Framework</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-<body>
-<div class="wrap">
-  <nav>
-    <a href="index.html">← Back to Dashboard</a>
-    <button id="toggleAll">Collapse All</button>
-  </nav>
-  <div id="content"><h1>1. STRATEGIC MANAGEMENT - Content & HTML Presentation Guide</h1>
-<h2>Overview</h2>
-<p>Strategic Management is the organizational discipline that defines how a company competes long-term, identifies competitive advantages, and positions itself in the market. For SIMRS diversification into healthcare, this layer addresses: <em>Where are we going? How do we win? What opportunities should we pursue?</em></p>
-<hr>
-<h2>LAYER 1: STRATEGIC MANAGEMENT</h2>
-<h4>Title</h4>
-<p><strong>Strategic Management</strong></p>
-<h4>Description (Main Tooltip)</h4>
-<p>"The comprehensive process of formulating and implementing strategies to achieve long-term competitive advantage. It encompasses strategic direction, market positioning, and organizational capability development. Essential for healthcare companies diversifying across multiple product lines."</p>
-<h4>Academic Reference</h4>
-<ul>
-<li>Hitt, M. A., Ireland, R. D., & Hoskisson, R. E. (2016). <em>Strategic Management: Competitiveness and Globalization</em></li>
-</ul>
-<hr>
-<h2>LAYER 2 NODES</h2>
-<h4>1. STRATEGIC PLANNING & DIRECTION</h4>
-<h5>Title</h5>
-<p>Strategic Planning & Direction</p>
-<h5>Description (Tooltip)</h5>
-<p>"The process of defining organizational vision, mission, and long-term strategic direction. Establishes the roadmap for where the organization is headed and what it aims to achieve within a defined timeframe."</p>
-<h5>Why It Matters for SIMRS</h5>
-<p>For a healthcare software company expanding into new segments, strategic planning clarifies:</p>
-<ul>
-<li>Core purpose (e.g., "Empower healthcare delivery across Southeast Asia")</li>
-<li>Long-term vision (5-10 year horizon)</li>
-<li>Portfolio priorities (which healthcare segments to enter)</li>
-</ul>
-<h5>Academic Reference</h5>
-<ul>
-<li>Mintzberg, H., Ahlstrand, B., & Lampel, J. (1998). <em>Strategy Safari: A Guided Tour Through the Wilds of Strategic Management</em></li>
-</ul>
-<hr>
-<h4>2. COMPETITIVE ADVANTAGE</h4>
-<h5>Title</h5>
-<p>Competitive Advantage</p>
-<h5>Description (Tooltip)</h5>
-<p>"The unique attributes, capabilities, and resources that enable an organization to outperform competitors and deliver superior value to customers. The core focus of strategic management."</p>
-<h5>Why It Matters for SIMRS</h5>
-<p>This is the centerpiece of your diversification strategy. It answers: What makes SIMRS different in the healthcare market? How can we sustain advantage as we expand into new areas?</p>
-<h5>Academic Reference</h5>
-<ul>
-<li>Porter, M. E. (1985). <em>Competitive Advantage: Creating and Sustaining Superior Performance</em></li>
-</ul>
-<h5>Key Subdomain Explanation</h5>
-<p>Competitive advantage operates across three mechanisms:</p>
-<ol>
-<li><strong>Resource-Based View (RBV)</strong> – Advantage from internal capabilities and competencies</li>
-<li><strong>Market Positioning</strong> – Advantage from external market dynamics and customer perception</li>
-<li><strong>Ambidexterity & Exploration</strong> – Advantage from balancing current optimization with new opportunity discovery</li>
-</ol>
-<hr>
-<h4>3. BUSINESS MODEL & INNOVATION</h4>
-<h5>Title</h5>
-<p>Business Model & Innovation</p>
-<h5>Description (Tooltip)</h5>
-<p>"The architecture of how an organization creates, delivers, and captures value. Business model innovation explores new ways to generate revenue and serve customers, essential for healthcare companies entering new markets."</p>
-<h5>Why It Matters for SIMRS</h5>
-<p>SIMRS currently operates as:</p>
-<ul>
-<li><strong>Revenue Model:</strong> Licensing + subscription + implementation services</li>
-<li><strong>Value Proposition:</strong> Hospital information system for operational efficiency</li>
-<li><strong>Customer:</strong> Hospital administrators/IT departments</li>
-</ul>
-<p>Diversification requires new business models:</p>
-<ul>
-<li>B2B2C platforms (hospital → patient facing)</li>
-<li>Marketplace ecosystems (pharmacy networks, insurance integration)</li>
-<li>Data/analytics-as-a-service</li>
-<li>SaaS for specialized healthcare segments (clinics, imaging centers, labs)</li>
-</ul>
-<h5>Academic Reference</h5>
-<ul>
-<li>Osterwalder, A., & Pigneur, Y. (2010). <em>Business Model Generation: A Handbook for Visionaries, Game Changers, and Challengers</em></li>
-<li>Chesbrough, H. (2007). "Business Model Innovation: It's not just about technology anymore." <em>Strategy & Leadership</em>, 35(6), 12-17.</li>
-</ul>
-<hr>
-<h4>4. ECOSYSTEM & PLATFORM STRATEGY</h4>
-<h5>Title</h5>
-<p>Ecosystem & Platform Strategy</p>
-<h5>Description (Tooltip)</h5>
-<p>"A strategic approach where organizations create value by orchestrating a network of partners, platforms, and complementary services. Enables network effects and multi-sided markets."</p>
-<h5>Why It Matters for SIMRS</h5>
-<p>Your current SIMRS integrations (VClaim, PACS/RIS) hint at an emerging platform strategy. Full ecosystem development could include:</p>
-<ul>
-<li><strong>Healthcare data platform</strong> connecting hospitals, clinics, pharmacies, insurers</li>
-<li><strong>App marketplace</strong> where third-party healthcare vendors build on SIMRS</li>
-<li><strong>Integration hub</strong> for healthcare interoperability (HL7, FHIR standards)</li>
-<li><strong>Governance APIs</strong> for policy, compliance, and analytics</li>
-</ul>
-<h5>Academic Reference</h5>
-<ul>
-<li>Gawer, A., & Cusumano, M. A. (2014). <em>Platforms and Innovation: How Software Platforms Drive Change, Disruption, and Growth in Business, Politics, and Society</em></li>
-<li>Parker, G. G., Van Alstyne, M. W., & Choudary, S. P. (2016). <em>Platform Revolution: How Networked Markets Are Transforming the Economy and How to Make Them Work</em></li>
-</ul>
-<hr>
-<h2>LAYER 3 NODES (Under Each Layer 2 Domain)</h2>
-<h4>LAYER 2.1: STRATEGIC PLANNING & DIRECTION → LAYER 3</h4>
-<h5>3.1.1 Vision & Mission</h5>
-<p><strong>Title:</strong> Vision & Mission</p>
-<p><strong>Description:</strong></p>
-<p>"Long-term aspirational statement (Vision) and current purpose/values (Mission). For SIMRS: Vision might be 'Become the leading healthcare digital ecosystem in Southeast Asia'; Mission is 'Empower healthcare organizations with integrated, intelligent systems.'"</p>
-<p><strong>Tooltip:</strong></p>
-<p>The North Star that guides all strategic decisions. Keeps diverse product initiatives aligned.</p>
-<p><strong>Example for SIMRS:</strong></p>
-<ul>
-<li><strong>Vision (10 years):</strong> "Digital backbone of Southeast Asian healthcare, serving 1,000+ institutions"</li>
-<li><strong>Mission:</strong> "Make healthcare more efficient, accessible, and data-driven through software"</li>
-<li><strong>Values:</strong> Patient-centricity, operational excellence, innovation, ethical data stewardship</li>
-</ul>
-<hr>
-<h5>3.1.2 Corporate Strategy</h5>
-<p><strong>Title:</strong> Corporate Strategy</p>
-<p><strong>Description:</strong></p>
-<p>"Multi-level decisions about which businesses/markets the organization will compete in (Diversification, Concentration, Vertical Integration, etc.). For you: <em>Should we stay SIMRS-only or expand into adjacent healthcare segments?</em>"</p>
-<p><strong>Tooltip:</strong></p>
-<p>Defines the portfolio of businesses and how they relate to each other.</p>
-<p><strong>Strategic Options for SIMRS:</strong></p>
-<ul>
-<li><strong>Related Diversification</strong> (recommended): Expand into complementary healthcare IT (pharmacy systems, clinic management, insurance platforms)</li>
-<li><strong>Unrelated Diversification</strong> (risky): Expand into non-healthcare software (not recommended given your expertise)</li>
-<li><strong>Vertical Integration</strong>: Build or acquire EHR data analytics, patient engagement layers</li>
-<li><strong>Concentration</strong>: Deepen SIMRS dominance in hospital segment only (defensive)</li>
-</ul>
-<p><strong>Academic Reference:</strong></p>
-<ul>
-<li>Ansoff, H. I. (1957). "Strategies for Diversification." <em>Harvard Business Review</em>, 35(5), 113-124.</li>
-</ul>
-<hr>
-<h5>3.1.3 Portfolio Strategy</h5>
-<p><strong>Title:</strong> Portfolio Strategy</p>
-<p><strong>Description:</strong></p>
-<p>"How to allocate resources across the portfolio of businesses/products to maximize overall organizational returns. Answers: Which opportunities get funding? Which mature businesses sustain themselves?"</p>
-<p><strong>Tooltip:</strong></p>
-<p>Resource allocation across multiple initiatives (SIMRS, new healthcare products, experiments).</p>
-<p><strong>Framework for SIMRS:</strong></p>
-<p>Use <strong>BCG Matrix (Growth-Share Matrix):</strong></p>
-<ul>
-<li><strong>Stars</strong> (High Growth, High Share): Telemedicine platform, patient engagement modules</li>
-<li><strong>Cash Cows</strong> (Low Growth, High Share): Current SIMRS core system (fund others with profits)</li>
-<li><strong>Question Marks</strong> (High Growth, Low Share): New healthcare markets (clinic management, lab info systems)</li>
-<li><strong>Dogs</strong> (Low Growth, Low Share): Legacy modules or failed experiments (consider divesting or consolidating)</li>
-</ul>
-<p><strong>Practical Decision:</strong></p>
-<p>Allocate 70% of engineering capacity to optimizing SIMRS (exploit), 30% to new healthcare products (explore). Adjust quarterly based on market response.</p>
-<hr>
-<h4>LAYER 2.2: COMPETITIVE ADVANTAGE → LAYER 3</h4>
-<h5>3.2.1 Resource-Based View (RBV)</h5>
-<p><strong>Title:</strong> Resource-Based View (RBV)</p>
-<p><strong>Description:</strong></p>
-<p>"A theory that competitive advantage comes from internal resources and capabilities that are valuable, rare, inimitable, and non-substitutable (VRIN framework). Organizations win by leveraging unique capabilities, not just market positioning."</p>
-<p><strong>Tooltip:</strong></p>
-<p>"Advantage comes from what you own/can do, not just where you compete."</p>
-<p><strong>VRIN Framework for SIMRS:</strong></p>
-<ul>
-<li><strong>Valuable:</strong> Hospital procurement expertise, integration with VClaim/PACS/RIS</li>
-<li><strong>Rare:</strong> Deep pharmacy inventory algorithms, specific healthcare regulatory knowledge (Indonesia compliance)</li>
-<li><strong>Inimitable:</strong> Institutional knowledge of 10+ years serving Indonesian hospitals</li>
-<li><strong>Non-substitutable:</strong> Relationships with hospital administrators, change management expertise</li>
-</ul>
-<p><strong>Your SIMRS Assets (RBV perspective):</strong></p>
-<ul>
-<li>Codebase (PHP CodeIgniter, mature system)</li>
-<li>Customer relationships (existing hospital clients)</li>
-<li>Domain expertise in healthcare operations</li>
-<li>Compliance certifications (hospital standards)</li>
-</ul>
-<p><strong>Leveraging RBV for Diversification:</strong></p>
-<p>Don't build new healthcare products from scratch. Leverage existing capabilities:</p>
-<ul>
-<li>Pharmacy expertise → Standalone pharmacy networks</li>
-<li>Integration expertise → Data interoperability hub</li>
-<li>Hospital relationships → Clinics, clinics → Pharmacies, etc.</li>
-</ul>
-<hr>
-<h5>3.2.2 Core Competencies</h5>
-<p><strong>Title:</strong> Core Competencies</p>
-<p><strong>Description:</strong></p>
-<p>"Critical capabilities that create competitive advantage and are difficult for competitors to imitate. Often span across products and evolve over time."</p>
-<p><strong>Tooltip:</strong></p>
-<p>"What we do uniquely well that competitors can't easily replicate."</p>
-<p><strong>SIMRS Core Competencies (to protect & expand):</strong></p>
-<ol>
-<li><strong>Healthcare Process Digitization</strong></li>
-</ol>
-<ul>
-<li>Understanding of hospital workflows, billing, procurement, pharmacy</li>
-<li>Ability to translate complex healthcare operations into software</li>
-</ul>
-<ol>
-<li><strong>Healthcare Systems Integration</strong></li>
-</ol>
-<ul>
-<li>Experience integrating with multiple third-party systems (VClaim, PACS, RIS)</li>
-<li>Knowledge of healthcare standards (HL7, FHIR, ICD-10)</li>
-</ul>
-<ol>
-<li><strong>Regulatory & Compliance Navigation</strong></li>
-</ol>
-<ul>
-<li>Deep knowledge of Indonesian hospital regulations, accreditation requirements</li>
-<li>Experience with data privacy, patient safety standards</li>
-</ul>
-<ol>
-<li><strong>Customer-Centric Implementation</strong></li>
-</ol>
-<ul>
-<li>Change management skills (deploying to hospitals, training staff)</li>
-<li>Long-term customer relationship management</li>
-</ul>
-<ol>
-<li><strong>Scalable Architecture</strong></li>
-</ol>
-<ul>
-<li>Ability to scale SIMRS from small clinics to large hospital networks</li>
-<li>Database design, performance optimization</li>
-</ul>
-<p><strong>Developing New Competencies:</strong></p>
-<p>As you diversify, build competencies in:</p>
-<ul>
-<li>Data analytics/BI (for clinic, pharmacy data)</li>
-<li>Patient-facing UI/UX (different from admin-facing SIMRS)</li>
-<li>Mobile-first design (clinics need mobile solutions)</li>
-<li>API/Platform architecture (to enable ecosystem partners)</li>
-</ul>
-<hr>
-<h5>3.2.3 Capabilities</h5>
-<p><strong>Title:</strong> Capabilities</p>
-<p><strong>Description:</strong></p>
-<p>"Integrated sets of resources, processes, and knowledge that enable an organization to perform activities. Capabilities are "what you can do"; resources are "what you have."</p>
-<p><strong>Tooltip:</strong></p>
-<p>"The specific things we can execute well: architectural decisions, deployment, support, etc."</p>
-<p><strong>Key SIMRS Capabilities:</strong></p>
-<p><strong>Technical Capabilities:</strong></p>
-<ul>
-<li>PHP/CodeIgniter development</li>
-<li>Database design and optimization (handling hospital data scale)</li>
-<li>System deployment and DevOps</li>
-<li>API development (for VClaim, PACS integration)</li>
-<li>Backup, disaster recovery, system reliability</li>
-</ul>
-<p><strong>Organizational Capabilities:</strong></p>
-<ul>
-<li>Healthcare sales and account management</li>
-<li>Implementation and customer onboarding</li>
-<li>Technical support and helpdesk</li>
-<li>Training and documentation</li>
-<li>Product management (feature prioritization)</li>
-</ul>
-<p><strong>Business Capabilities:</strong></p>
-<ul>
-<li>Vendor management (hosting, payment gateways, integrations)</li>
-<li>Licensing and compliance management</li>
-<li>Pricing and contract negotiation</li>
-<li>Market analysis and competitive intelligence</li>
-</ul>
-<p><strong>Gaps to Address for Diversification:</strong></p>
-<ul>
-<li>Mobile-first development (current: web/desktop-focused)</li>
-<li>B2C product design (current: B2B admin-focused)</li>
-<li>Data science/analytics (current: transaction/operational focus)</li>
-<li>API ecosystem governance (current: point-to-point integrations)</li>
-</ul>
-<hr>
-<h5>3.2.4 Dynamic Capabilities ◄─── FEATURED</h5>
-<p><strong>Title:</strong> Dynamic Capabilities</p>
-<p><strong>Description:</strong></p>
-<p>"The ability to sense emerging opportunities/threats, seize them by mobilizing resources, and transform the organization's capabilities to sustain competitive advantage over time. Not about doing the same thing better, but evolving <em>what</em> you do."</p>
-<p><strong>Tooltip:</strong></p>
-<p>"Our ability to sense new healthcare opportunities, move resources toward them, and reconfigure our organization to compete in new markets."</p>
-<p><strong>Teece's Framework (Sensing → Seizing → Transforming):</strong></p>
-<p><strong>SENSING PHASE:</strong></p>
-<ul>
-<li>Monitor healthcare market trends (telemedicine growth, clinic expansion, pharmacy consolidation, insurance digitization)</li>
-<li>Listen to current hospital customers: <em>What else do you need? What's your biggest pain?</em></li>
-<li>Scan emerging competitors (e.g., new healthcare SaaS platforms)</li>
-<li>Identify regulatory changes (e.g., new patient privacy laws, mandated EHR features)</li>
-<li>Track technology trends (cloud, AI/ML in healthcare, blockchain for records)</li>
-</ul>
-<p><strong>SIMRS Sensing Actions:</strong></p>
-<ul>
-<li>Quarterly customer advisory board conversations</li>
-<li>Industry conferences and healthcare IT summits</li>
-<li>Hiring talent from other healthcare segments (to bring new perspectives)</li>
-<li>R&D budget for experimentation (10% of dev time on new ideas)</li>
-<li>Partnerships with healthcare consultants, insurers, payment processors</li>
-</ul>
-<p><strong>SEIZING PHASE:</strong></p>
-<ul>
-<li>Once an opportunity is identified, quickly allocate resources to explore it</li>
-<li>Build a small team (3-5 people) to prototype a solution</li>
-<li>Partner with early customers willing to beta test</li>
-<li>Validate market fit before full-scale investment</li>
-</ul>
-<p><strong>SIMRS Seizing Actions:</strong></p>
-<p>Example: <em>Clinic management opportunity identified</em></p>
-<ul>
-<li>Hire 1-2 developers with clinic experience</li>
-<li>Partner with 2-3 clinic customers to co-develop "Clinic Edition"</li>
-<li>6-month sprint to MVP (Minimum Viable Product)</li>
-<li>Parallel: SIMRS core team continues optimizing hospital product</li>
-</ul>
-<p><strong>TRANSFORMING PHASE:</strong></p>
-<ul>
-<li>Integrate new capability into the organization</li>
-<li>Reorganize teams/processes to support new business line</li>
-<li>Update infrastructure, architecture, hiring profiles</li>
-<li>Codify new knowledge (training, documentation, processes)</li>
-<li>Decide: Is this a standalone product or integrated with SIMRS?</li>
-</ul>
-<p><strong>SIMRS Transforming Actions:</strong></p>
-<p>After clinic product validates:</p>
-<ul>
-<li>Create separate "Clinic Product Team" (with autonomy)</li>
-<li>Build shared "Healthcare Common Core" library (both hospital & clinic use)</li>
-<li>Update hiring to include clinic-focused roles (clinic support, clinic product managers)</li>
-<li>Governance: How do decisions on clinic vs. hospital features get made?</li>
-<li>Brand positioning: "SIMRS for Hospitals, [NewName] for Clinics"</li>
-</ul>
-<p><strong>Why Dynamic Capabilities are Critical for Your Diversification:</strong></p>
-<ul>
-<li>SIMRS was successful by deeply understanding hospitals. You can't just copy that for clinics, pharmacies, insurers.</li>
-<li>You need a <em>repeatable process</em> for identifying new healthcare segments, validating them quickly, and integrating them into your organization.</li>
-<li>Competitors will copy your products, but they can't copy your ability to <em>evolve faster</em>.</li>
-</ul>
-<p><strong>Building Dynamic Capabilities at SIMRS:</strong></p>
-<ol>
-<li><strong>Invest in sensing:</strong> Customer feedback loops, market research, partnerships</li>
-<li><strong>Empower seizing:</strong> Give teams autonomy to experiment with budget/time</li>
-<li><strong>Create transformation processes:</strong> Clear playbooks for when an experiment becomes a real product</li>
-<li><strong>Culture:</strong> Psychological safety + learning mindset (relevant to your diagnostic work!)</li>
-</ol>
-<p><strong>Academic Reference:</strong></p>
-<ul>
-<li>Teece, D. J. (2007). "Explicating Dynamic Capabilities: The Nature and Microfoundations of (Sustainable) Enterprise Performance." <em>Strategic Management Journal</em>, 28(13), 1319-1350.</li>
-</ul>
-<hr>
-<h5>3.2.5 Market Positioning</h5>
-<p><strong>Title:</strong> Market Positioning</p>
-<p><strong>Description:</strong></p>
-<p>"How the organization positions itself in the market relative to competitors. Focuses on external perception, customer value proposition, and competitive differentiation."</p>
-<p><strong>Tooltip:</strong></p>
-<p>"How customers perceive us compared to competitors and what unique value we deliver."</p>
-<p><strong>Current SIMRS Positioning:</strong></p>
-<ul>
-<li><strong>Target:</strong> Hospital administrators, IT directors</li>
-<li><strong>Value Proposition:</strong> "Comprehensive, reliable hospital operations management system"</li>
-<li><strong>Differentiation:</strong> Deep local expertise, Indonesian regulatory knowledge, strong customer relationships</li>
-<li><strong>Competitors:</strong> Cerner, Epic (global, very expensive), local competitors with narrower scope</li>
-</ul>
-<p><strong>Positioning for Diversification:</strong></p>
-<p>As you expand, maintain a consistent "parent brand" while sub-positioning products:</p>
-<ul>
-<li><strong>Parent Brand: SIMRS Ecosystem</strong> ("Integrated digital backbone for healthcare organizations")</li>
-<li><strong>SIMRS Hospital:</strong> For hospital operations</li>
-<li><strong>[Brand] Clinic:</strong> For clinic management</li>
-<li><strong>[Brand] Pharmacy:</strong> For pharmacy networks</li>
-<li><strong>[Brand] Analytics:</strong> For healthcare data insights</li>
-<li>All connected through data platform</li>
-</ul>
-<p><strong>Positioning Strategy Choices:</strong></p>
-<p><strong>Option A: House of Brands</strong></p>
-<ul>
-<li>Each product has unique branding (SIMRS, ClinicHub, PharmNet, DataCore)</li>
-<li>Pros: Flexibility, clear market positioning per segment</li>
-<li>Cons: Lose ecosystem narrative, duplicate marketing effort</li>
-</ul>
-<p><strong>Option B: Branded House</strong></p>
-<ul>
-<li>All products positioned under SIMRS banner (SIMRS Hospital, SIMRS Clinic, SIMRS Pharmacy)</li>
-<li>Pros: Unified ecosystem story, leverages SIMRS brand equity</li>
-<li>Cons: SIMRS brand must be strong enough to span multiple segments</li>
-</ul>
-<p><strong>Option C: Hybrid (Recommended for You)</strong></p>
-<ul>
-<li>Parent "SIMRS Healthcare Platform" with sub-brands</li>
-<li>Marketing emphasizes ecosystem benefits (data integration, shared analytics, single vendor)</li>
-<li>Allows flexibility while maintaining coherent strategy</li>
-</ul>
-<hr>
-<h5>3.2.6 Blue Ocean Strategy</h5>
-<p><strong>Title:</strong> Blue Ocean Strategy</p>
-<p><strong>Description:</strong></p>
-<p>"Instead of competing in existing markets (Red Ocean) where competitors clash and margins shrink, create uncontested new market spaces (Blue Ocean). Focuses on value innovation—simultaneously pursuing differentiation AND cost efficiency."</p>
-<p><strong>Tooltip:</strong></p>
-<p>"Creating new healthcare market opportunities rather than competing head-to-head with established vendors."</p>
-<p><strong>Red Ocean (Traditional Healthcare IT Market):</strong></p>
-<ul>
-<li>Dominated by Cerner, Epic, Allscripts, Microsoft (Dynamics)</li>
-<li>Customers compare features, negotiate price cuts</li>
-<li>Margins compress as competitors match features</li>
-<li>Slow innovation (enterprise software cycles)</li>
-</ul>
-<p><strong>Blue Ocean Opportunities for SIMRS:</strong></p>
-<p><strong>1. Indonesia-Centric Healthcare Platform</strong></p>
-<ul>
-<li>Global vendors focus on US/EU markets</li>
-<li>Indonesia has 17,000+ islands, scattered healthcare facilities, unique regulatory environment</li>
-<li><strong>Blue Ocean Opportunity:</strong> Build "SIMRS+" for Indonesia's unique healthcare needs</li>
-<li>Underserved: Rural clinics, small hospitals, pharmacy chains, micro-insurers</li>
-<li>Value Innovation: Localized UX, offline-capable (internet-poor regions), affordable pricing, local payment methods</li>
-</ul>
-<p><strong>2. Healthcare Ecosystem Platform (Not Just SIMRS)</strong></p>
-<ul>
-<li>Global vendors sell point solutions (hospital system, clinic system, pharmacy system - separately)</li>
-<li>Indonesian healthcare lacks integrated data flow</li>
-<li><strong>Blue Ocean Opportunity:</strong> Single platform connecting hospitals ↔ clinics ↔ pharmacies ↔ insurers</li>
-<li>Data flows between organizations (patient referral, prescription tracking, claims)</li>
-<li>Value Innovation: Integrated data visibility, reduced administrative friction, insurance compliance</li>
-</ul>
-<p><strong>3. AI-First Health Operations</strong></p>
-<ul>
-<li>Traditional vendors bolt AI onto legacy systems</li>
-<li><strong>Blue Ocean Opportunity:</strong> Build clinic/pharmacy operations from AI-first design</li>
-<li>Predictive pharmacy restocking, smart referral routing, automated billing</li>
-<li>Value Innovation: Reduce manual work, improve decisions, lower cost</li>
-</ul>
-<p><strong>4. Specialized Healthcare Segments (Underserved)</strong></p>
-<ul>
-<li>Global vendors focus on large hospitals</li>
-<li><strong>Blue Ocean Opportunity:</strong> Dominate small clinics + micro-insurers + pharmacy chains</li>
-<li>Competitors are fragmented local players</li>
-<li>Value Innovation: Simple, cheap, cloud-first (easier than legacy vendors)</li>
-</ul>
-<p><strong>Strategic Implication:</strong></p>
-<p>Instead of building a "SIMRS competitor to Cerner," build a "completely different market" that Cerner ignores. Then grow into markets they do care about from a position of strength.</p>
-<p><strong>Academic Reference:</strong></p>
-<ul>
-<li>Kim, W. C., & Mauborgne, R. (2005). <em>Blue Ocean Strategy: How to Create Uncontested Market Space and Make the Competition Irrelevant</em></li>
-</ul>
-<hr>
-<h5>3.2.7 Porter's Five Forces</h5>
-<p><strong>Title:</strong> Porter's Five Forces</p>
-<p><strong>Description:</strong></p>
-<p>"Framework analyzing competitive intensity and attractiveness of a market. Examines: (1) Threat of new entrants, (2) Bargaining power of suppliers, (3) Bargaining power of customers, (4) Threat of substitutes, (5) Competitive rivalry."</p>
-<p><strong>Tooltip:</strong></p>
-<p>"Analyzes market attractiveness and competitive pressures to inform strategic choices."</p>
-<p><strong>Porter's Five Forces Analysis for Healthcare IT (Indonesia):</strong></p>
-<p><strong>1. Threat of New Entrants: MEDIUM-HIGH</strong></p>
-<ul>
-<li><strong>Low barriers:</strong> Cloud platforms (AWS, Azure) make infrastructure cheap</li>
-<li><strong>High expertise barriers:</strong> Healthcare domain knowledge, regulatory navigation, customer relationships</li>
-<li><strong>SIMRS Advantage:</strong> You already know healthcare; new cloud-native entrants don't</li>
-<li><strong>Risk:</strong> A new startup with patient-centric focus, mobile-first, could undermine SIMRS</li>
-<li><strong>Mitigation:</strong> Move fast into mobile, patient-facing products before competitors do</li>
-</ul>
-<p><strong>2. Bargaining Power of Suppliers: MEDIUM</strong></p>
-<ul>
-<li><strong>High dependence on:</strong> Cloud providers (AWS, Azure), payment gateways, VClaim/PACS integrations</li>
-<li><strong>Risks:</strong> Price increases from cloud vendors, changes in regulatory APIs (VClaim)</li>
-<li><strong>Mitigation:</strong> Multi-cloud strategy, build integrations that aren't too dependent on any vendor</li>
-</ul>
-<p><strong>3. Bargaining Power of Customers: MEDIUM-HIGH</strong></p>
-<ul>
-<li><strong>Large hospitals:</strong> Can demand price cuts, custom features, dedicated support</li>
-<li><strong>Small clinics:</strong> Price-sensitive, but sticky once deployed (switching costs high)</li>
-<li><strong>Insurers:</strong> Powerful, can demand integration standards, data access</li>
-<li><strong>Mitigation:</strong> Differentiate on ecosystem value (connected to other healthcare orgs), not just features</li>
-</ul>
-<p><strong>4. Threat of Substitutes: MEDIUM</strong></p>
-<ul>
-<li><strong>Paper-based systems</strong> still common in some clinics (low-tech substitute)</li>
-<li><strong>Generic CRM/accounting software</strong> used by small clinics (ineffective but cheap)</li>
-<li><strong>Global vendors</strong> (Cerner, Epic) as substitute for "comprehensive solution"</li>
-<li><strong>Mitigation:</strong> Make SIMRS so cost-effective and locally relevant that substitutes look obsolete</li>
-</ul>
-<p><strong>5. Competitive Rivalry: HIGH</strong></p>
-<ul>
-<li><strong>Local competitors:</strong> Dozens of small healthcare IT vendors in Indonesia</li>
-<li><strong>Global competitors:</strong> Cerner, Epic slowly entering Indonesia market</li>
-<li><strong>Rivalry intensifying as:</strong> Healthcare digitalization accelerates, more startups target healthcare</li>
-<li><strong>Mitigation:</strong> Build ecosystem lock-in (hard to switch once you're on the platform)</li>
-</ul>
-<p><strong>Strategic Implications:</strong></p>
-<ul>
-<li><strong>Defensibility:</strong> Not feature parity, but ecosystem stickiness</li>
-<li><strong>Speed:</strong> Move faster than global vendors to new segments</li>
-<li><strong>Relationships:</strong> Deepen customer bonds through customer advisory boards, partnerships</li>
-</ul>
-<hr>
-<h5>3.2.8 Value Proposition Design</h5>
-<p><strong>Title:</strong> Value Proposition Design</p>
-<p><strong>Description:</strong></p>
-<p>"Articulating the specific benefits and unique value that the organization delivers to customers. Answers: <em>Why should customers choose us instead of alternatives?</em>"</p>
-<p><strong>Tooltip:</strong></p>
-<p>"Clear articulation of customer benefits and unique value we deliver."</p>
-<p><strong>SIMRS Current Value Proposition (Hospital):</strong></p>
-<ul>
-<li><strong>Functional benefits:</strong> Integrated operations (billing, procurement, pharmacy, patient records)</li>
-<li><strong>Emotional benefits:</strong> Confidence (trusted local vendor), control (not dependent on US vendor for support)</li>
-<li><strong>Economic benefits:</strong> Faster ROI than global vendors, lower total cost of ownership</li>
-<li><strong>Headline:</strong> "Complete hospital management system designed for Indonesian healthcare"</li>
-</ul>
-<p><strong>Value Proposition for Clinic Edition (NEW):</strong></p>
-<ul>
-<li><strong>Problem we solve:</strong> Clinic admins struggling with paper records, manual billing, inventory management</li>
-<li><strong>Our solution:</strong> Simple, affordable, cloud-based clinic management</li>
-<li><strong>Unique angle:</strong> Built by people who understand Indonesian clinic workflows (not generic SaaS)</li>
-<li><strong>Proof points:</strong> Hospitals trust SIMRS; clinics get same reliability at 1/10th the cost</li>
-</ul>
-<p><strong>Value Proposition Canvas (Osterwalder):</strong></p>
-<p><strong>Customer Segment: Hospital Administrators</strong></p>
-<ul>
-<li><strong>Pains:</strong> Multiple disconnected systems, slow billing, regulatory compliance complexity, vendor lock-in risk</li>
-<li><strong>Jobs to be done:</strong> Manage operations efficiently, ensure patient safety, meet accreditation standards, control IT costs</li>
-<li><strong>Gains they want:</strong> Fast ROI, reliable vendor, local support, data insights</li>
-</ul>
-<p><strong>SIMRS Value Proposition:</strong></p>
-<ul>
-<li><strong>Products/Services:</strong> Integrated SIMRS, local support, implementation services, customization</li>
-<li><strong>Pain relievers:</strong> Single integrated system (vs. multiple vendors), local team (vs. US support), compliance expertise</li>
-<li><strong>Gain creators:</strong> Faster operations, better patient data, confidence in local vendor</li>
-</ul>
-<p><strong>Diversification Implication:</strong></p>
-<ul>
-<li><strong>Clinic segment:</strong> Different value prop (simplicity + affordability vs. comprehensiveness)</li>
-<li><strong>Pharmacy segment:</strong> Different value prop (inventory accuracy + regulatory compliance)</li>
-<li><strong>Insurer segment:</strong> Different value prop (claims processing automation + data insights)</li>
-</ul>
-<hr>
-<h4>LAYER 2.3: AMBIDEXTERITY & EXPLORATION → LAYER 3</h4>
-<h5>3.3.1 Exploitation (Optimize Current)</h5>
-<p><strong>Title:</strong> Exploitation (Optimize Current)</p>
-<p><strong>Description:</strong></p>
-<p>"Focus on maximizing efficiency, profitability, and market share of existing products and businesses. Short-term profit generation through optimization, incremental improvement, and deepening customer relationships."</p>
-<p><strong>Tooltip:</strong></p>
-<p>"Optimizing SIMRS to generate cash and profits while we explore new opportunities."</p>
-<p><strong>SIMRS Exploitation Activities:</strong></p>
-<ul>
-<li>Adding requested hospital features (e.g., better reporting, mobile access to SIMRS)</li>
-<li>Optimizing performance (faster load times, better database queries)</li>
-<li>Deepening integrations (more hospital vendors, tighter VClaim integration)</li>
-<li>Expanding to more hospitals in same market (geographic or vertical expansion within hospitals)</li>
-<li>Improving margins through process efficiency (support automation, standardized onboarding)</li>
-<li>Upselling advanced modules to existing customers (analytics, mobile, advanced procurement)</li>
-</ul>
-<p><strong>Exploitation Metrics:</strong></p>
-<ul>
-<li>Revenue growth from existing customers (attach rate of new modules)</li>
-<li>Profitability per hospital (gross margin)</li>
-<li>Customer retention/churn</li>
-<li>Support cost per customer (leverage)</li>
-<li>Time to onboard new hospital (process efficiency)</li>
-</ul>
-<p><strong>Why Exploitation is Critical:</strong></p>
-<p>SIMRS is the "cash cow"—profits from hospitals fund exploration into clinics, pharmacies, insurers. If you neglect exploitation, SIMRS declines and you have no cash to explore.</p>
-<p><strong>Exploitation Timeline:</strong></p>
-<ul>
-<li>Keep current SIMRS team stable (don't poach all senior people for new ventures)</li>
-<li>Budget: Allocate 70% engineering capacity to SIMRS improvement</li>
-<li>Governance: Clear roadmap for SIMRS features, separate from new product initiatives</li>
-</ul>
-<hr>
-<h5>3.3.2 Exploration (New Opportunities)</h5>
-<p><strong>Title:</strong> Exploration (New Opportunities)</p>
-<p><strong>Description:</strong></p>
-<p>"Seeking and developing new businesses, markets, and capabilities. Involves experimentation, learning, and accepting higher failure rates. Generates future growth but requires upfront investment."</p>
-<p><strong>Tooltip:</strong></p>
-<p>"Experimenting with new healthcare segments, products, and business models."</p>
-<p><strong>SIMRS Exploration Activities:</strong></p>
-<ul>
-<li>Building clinic management prototype (validate: do clinics need it? will they pay?)</li>
-<li>Partnerships with pharmacy chains (learn: what data flows between clinics and pharmacies?)</li>
-<li>Conversations with micro-insurers (explore: how do we serve the insurance market?)</li>
-<li>Hiring talent from other healthcare IT companies (learn: what are competitors doing?)</li>
-<li>Attending healthcare tech conferences, innovation sprints</li>
-<li>Building a 10% "innovation time" budget (engineers explore ideas on side)</li>
-<li>R&D projects: AI for pharmacy restocking, patient portal, telemedicine integration</li>
-</ul>
-<p><strong>Exploration Metrics:</strong></p>
-<ul>
-<li>Number of new market experiments (how many new healthcare segments are you testing?)</li>
-<li>Time to MVP (how fast can you validate a new idea?)</li>
-<li>Learning velocity (how much did we learn from failed experiments?)</li>
-<li>Transition rate (% of successful experiments that become products)</li>
-</ul>
-<p><strong>Why Exploration is Critical:</strong></p>
-<p>SIMRS alone won't be sufficient long-term. Healthcare is transforming (telemedicine, patient-centric care, data analytics, AI). You must explore or become obsolete.</p>
-<p><strong>Exploration Timeline:</strong></p>
-<ul>
-<li>2025-2026: Explore clinic management, pharmacy data flows, patient engagement</li>
-<li>2026-2027: Validate 1-2 most promising, scale winners</li>
-<li>2027-2028: Full portfolio of SIMRS + 2-3 new healthcare products</li>
-</ul>
-<hr>
-<h5>3.3.3 Organizational Ambidexterity</h5>
-<p><strong>Title:</strong> Organizational Ambidexterity</p>
-<p><strong>Description:</strong></p>
-<p>"The organizational capability to simultaneously pursue exploitation (optimize current business) and exploration (develop new business) without one cannibalizing the other. Resolves the fundamental strategic tension: short-term vs. long-term."</p>
-<p><strong>Tooltip:</strong></p>
-<p>"Balancing optimization of SIMRS (near-term) with development of new healthcare products (future growth)."</p>
-<p><strong>The Ambidexterity Challenge:</strong></p>
-<ul>
-<li><strong>Problem:</strong> Teams pulling resources toward short-term profits (exploit SIMRS) vs. long-term growth (explore new products)</li>
-<li><strong>Organizational tension:</strong> SIMRS team says "We need more developers to keep hospitals happy"; Innovation team says "We need developers to build the clinic product"</li>
-<li><strong>Conflict:</strong> Different metrics, different timelines, different risk tolerances</li>
-</ul>
-<p><strong>Solutions to Enable Ambidexterity:</strong></p>
-<p><strong>Structural Separation (Recommended for SIMRS):</strong></p>
-<ul>
-<li><strong>Hospital Product Team:</strong> Dedicated to SIMRS (70% of engineering)</li>
-<li>Mission: Maximize hospital customer retention, profitability, satisfaction</li>
-<li>Metrics: Revenue growth, margin, NPS</li>
-<li>Reporting: To COO/VP Operations</li>
-</ul>
-<ul>
-<li><strong>New Products Team:</strong> Dedicated to clinic, pharmacy, insurer products (30% of engineering)</li>
-<li>Mission: Validate new healthcare markets, build next-generation products</li>
-<li>Metrics: Time to MVP, market validation, learning velocity</li>
-<li>Reporting: To Chief Innovation Officer or VP Strategy</li>
-</ul>
-<ul>
-<li><strong>Shared Services:</strong> Common infrastructure (cloud, databases, APIs, security)</li>
-<li>Managed as separate cost center</li>
-<li>Both teams consume shared services, pay for usage</li>
-</ul>
-<p><strong>Benefits of Structural Separation:</strong></p>
-<ul>
-<li>Clear accountability (who owns what outcomes?)</li>
-<li>Different goals don't conflict (SIMRS team not blamed for innovation delays)</li>
-<li>Teams can optimize differently (SIMRS: stability; New Products: speed)</li>
-<li>Talent attraction (some developers want predictable, profitable work; others want to build new things)</li>
-</ul>
-<p><strong>Cultural Enablers:</strong></p>
-<ul>
-<li><strong>Psychological Safety:</strong> Teams must feel safe taking risks, failing, learning (connects to your diagnostic work!)</li>
-<li><strong>Leadership Messaging:</strong> CEO explicitly values both short-term performance AND long-term innovation</li>
-<li><strong>Resource Clarity:</strong> Annual budgets committed in advance (so SIMRS team knows they have stable resources)</li>
-<li><strong>Knowledge Transfer:</strong> When clinic product learns something relevant to SIMRS, knowledge flows back</li>
-</ul>
-<p><strong>Governance Example:</strong></p>
-<ul>
-<li><strong>Quarterly Business Review (QBR):</strong></li>
-<li>SIMRS Team: Reports on hospital revenue, churn, profitability, feature adoption</li>
-<li>New Products Team: Reports on experiments, learning, market validation progress</li>
-<li>Resource allocation: Adjusted based on both teams' priorities</li>
-<li>Celebration: Both "delivering this quarter's hospital revenue" AND "validating clinic market" are wins</li>
-</ul>
-<p><strong>Academic Reference:</strong></p>
-<ul>
-<li>O'Reilly, C. A., & Tushman, M. L. (2013). "Organizational Ambidexterity: Past, Present, and Future." <em>Academy of Management Perspectives</em>, 27(4), 324-338.</li>
-</ul>
-<hr>
-<h3>HTML PRESENTATION GUIDE</h3>
-<h4>Overall Structure</h4>
-<pre><code>
-&lt;div class=&quot;strategic-management-section&quot;&gt;
-  &lt;h1&gt;Strategic Management&lt;/h1&gt;
-  &lt;p class=&quot;intro-description&quot;&gt;...&lt;/p&gt;
-  
-  &lt;div class=&quot;layer-1-container&quot;&gt;
-    &lt;!-- Layer 1 node --&gt;
-  &lt;/div&gt;
-  
-  &lt;div class=&quot;layer-2-container&quot;&gt;
-    &lt;!-- 4 Layer 2 nodes (Strategic Planning, Competitive Advantage, Business Model, Ecosystem) --&gt;
-  &lt;/div&gt;
-  
-  &lt;div class=&quot;layer-3-container&quot;&gt;
-    &lt;!-- Multiple Layer 3 nodes (expand on hover/click) --&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<h4>Component Hierarchy</h4>
-<p><strong>Layer 1 Node Component:</strong></p>
-<pre><code>
-&lt;div class=&quot;node node-layer-1&quot; data-node-id=&quot;strategic-management&quot;&gt;
-  &lt;div class=&quot;node-header&quot;&gt;
-    &lt;h2&gt;Strategic Management&lt;/h2&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;node-content&quot; style=&quot;display: none;&quot;&gt;
-    &lt;p class=&quot;description&quot;&gt;[Main description]&lt;/p&gt;
-    &lt;p class=&quot;reference&quot;&gt;Academic Reference: [citation]&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p><strong>Layer 2 Node Component:</strong></p>
-<pre><code>
-&lt;div class=&quot;node node-layer-2&quot; data-parent=&quot;strategic-management&quot; data-node-id=&quot;competitive-advantage&quot;&gt;
-  &lt;div class=&quot;node-header&quot;&gt;
-    &lt;h3&gt;Competitive Advantage&lt;/h3&gt;
-    &lt;span class=&quot;expand-icon&quot;&gt;▼&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;node-content&quot; style=&quot;display: none;&quot;&gt;
-    &lt;p class=&quot;description&quot;&gt;[Description]&lt;/p&gt;
-    &lt;p class=&quot;why-matters&quot;&gt;[Why It Matters for SIMRS]&lt;/p&gt;
-    &lt;ul class=&quot;sub-domains&quot;&gt;
-      &lt;li&gt;Resource-Based View (RBV)&lt;/li&gt;
-      &lt;li&gt;Market Positioning&lt;/li&gt;
-      &lt;li&gt;Ambidexterity &amp; Exploration&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;p class=&quot;reference&quot;&gt;[Citation]&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p><strong>Layer 3 Node Component:</strong></p>
-<pre><code>
-&lt;div class=&quot;node node-layer-3&quot; data-parent=&quot;competitive-advantage&quot; data-node-id=&quot;dynamic-capabilities&quot;&gt;
-  &lt;div class=&quot;node-header&quot;&gt;
-    &lt;h3&gt;Dynamic Capabilities ◄─── FEATURED&lt;/h3&gt;
-    &lt;span class=&quot;featured-badge&quot;&gt;Featured Concept&lt;/span&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;node-content&quot;&gt;
-    &lt;p class=&quot;description&quot;&gt;[Full description]&lt;/p&gt;
-    &lt;h4&gt;Teece&#x27;s Framework (Sensing → Seizing → Transforming):&lt;/h4&gt;
-    &lt;div class=&quot;framework-section&quot;&gt;
-      &lt;h5&gt;SENSING PHASE:&lt;/h5&gt;
-      &lt;p&gt;[Details]&lt;/p&gt;
-      &lt;ul&gt;&lt;li&gt;[SIMRS Sensing Actions]&lt;/li&gt;&lt;/ul&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;framework-section&quot;&gt;
-      &lt;h5&gt;SEIZING PHASE:&lt;/h5&gt;
-      &lt;p&gt;[Details]&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;framework-section&quot;&gt;
-      &lt;h5&gt;TRANSFORMING PHASE:&lt;/h5&gt;
-      &lt;p&gt;[Details]&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;h4&gt;Why Dynamic Capabilities are Critical:&lt;/h4&gt;
-    &lt;ul&gt;[Reasons for SIMRS]&lt;/ul&gt;
-    &lt;h4&gt;Building Dynamic Capabilities at SIMRS:&lt;/h4&gt;
-    &lt;ol&gt;[Action items]&lt;/ol&gt;
-    &lt;p class=&quot;reference&quot;&gt;[Citation]&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<h4>Interactivity Patterns</h4>
-<p><strong>Hover Behavior:</strong></p>
-<ul>
-<li>On hover over Layer 2/3 nodes: Background color change, slight shadow, cursor pointer</li>
-<li>Tooltip appears (if defined): Shows brief description in popover</li>
-</ul>
-<p><strong>Click Behavior:</strong></p>
-<ul>
-<li>Layer 1 node: Toggle all Layer 2 children visible/hidden</li>
-<li>Layer 2 node: Expand/collapse its content (description, why-matters, sub-domains)</li>
-<li>Layer 3 node: Expand/collapse detailed content (frameworks, examples, actions)</li>
-</ul>
-<p><strong>Visual Indicators:</strong></p>
-<ul>
-<li><strong>Featured nodes</strong> (Dynamic Capabilities): Distinct color, "Featured Concept" badge</li>
-<li><strong>Hierarchy depth:</strong> Color gradient (lighter = higher level)</li>
-<li><strong>Expand state:</strong> Chevron icon changes direction (▶ → ▼)</li>
-</ul>
-<h4>Styling Recommendations</h4>
-<p><strong>Color Scheme:</strong></p>
-<pre><code>
---layer-1-bg: #003366;     /* Deep blue (Strategic Management) */
---layer-2-bg: #0055AA;     /* Medium blue (Planning, Advantage, Business Model, Ecosystem) */
---layer-3-bg: #00AADD;     /* Light blue (specific frameworks) */
---featured-bg: #FF6B35;    /* Orange/warm (Dynamic Capabilities highlight) */
---featured-text: #FFFFFF;  /* White text on featured */
---text-dark: #1A1A1A;
---border-light: #E0E0E0;
-</code></pre>
-<p><strong>Typography:</strong></p>
-<pre><code>
-h1: 28px, bold, #003366
-h2 (Layer 2): 20px, bold, white on layer-2-bg
-h3 (Layer 3): 16px, bold, white on layer-3-bg
-h4 (subsection): 14px, bold, --text-dark
-p: 14px, line-height: 1.6, #333
-.reference: 12px, italic, #666
-.tooltip: 13px, gray background, rounded corners
-</code></pre>
-<p><strong>Spacing:</strong></p>
-<ul>
-<li>Node margin: 16px</li>
-<li>Node padding: 16px</li>
-<li>Content padding (expanded): 20px</li>
-<li>Section gaps: 24px</li>
-</ul>
-<h4>Layout Options</h4>
-<p><strong>Option A: Vertical Cascade (Recommended for Single Document)</strong></p>
-<pre><code>
-[Layer 1: Strategic Management]
-  ↓
-[Layer 2: Planning | Advantage | Business Model | Ecosystem]
-  ↓ (expandable)
-[Layer 3: Vision &amp; Mission, RBV, Dynamic Capabilities, etc.]
-</code></pre>
-<p><strong>Option B: Tree Diagram with SVG</strong></p>
-<ul>
-<li>Use SVG to draw connecting lines between nodes</li>
-<li>Clicking node highlights parent-child connections</li>
-<li>More visual but requires SVG rendering</li>
-</ul>
-<p><strong>Option C: Collapsible Outline / Accordion</strong></p>
-<ul>
-<li>All content in single HTML page, collapsible sections</li>
-<li>Clean, simple, minimal CSS</li>
-</ul>
-<h4>Recommended: Vertical Cascade + Expandable Sections</h4>
-<pre><code>
-1. Display Layer 1 node prominently at top
-2. Display all Layer 2 nodes in a row (or 2x2 grid)
-3. Layer 3 nodes appear below, grouped by parent Layer 2
-4. Click Layer 2 → expands/collapses its Layer 3 children
-5. Click Layer 3 → expands/collapses detailed content (frameworks, examples)
-</code></pre>
-<h4>Mobile Responsiveness</h4>
-<pre><code>
-@media (max-width: 768px) {
-  .layer-2-container {
-    display: grid;
-    grid-template-columns: 1fr;  /* Single column on mobile */
-  }
-  
-  .node {
-    font-size: 13px;  /* Slightly smaller text */
-    padding: 12px;
-  }
-  
-  h2, h3 {
-    font-size: 90%;  /* Scale down headers */
-  }
-}
-</code></pre>
-<h4>Navigation & Context</h4>
-<p><strong>Add:</strong></p>
-<ul>
-<li>Breadcrumb trail: "Business Strategy & Management > Strategic Management > Competitive Advantage > Dynamic Capabilities"</li>
-<li>"Back to top" button (if page is long)</li>
-<li>"Print to PDF" button (for documentation)</li>
-<li>Search/filter: "Find a concept" search box</li>
-</ul>
-<hr>
-<h3>Example HTML Snippet (Competitive Advantage Section)</h3>
-<pre><code>
-&lt;div class=&quot;node node-layer-2&quot; data-parent=&quot;strategic-management&quot; data-node-id=&quot;competitive-advantage&quot;&gt;
-  &lt;div class=&quot;node-header&quot;&gt;
-    &lt;h3&gt;Competitive Advantage&lt;/h3&gt;
-    &lt;span class=&quot;expand-toggle&quot;&gt;▶&lt;/span&gt;
-  &lt;/div&gt;
-  
-  &lt;div class=&quot;node-content&quot; style=&quot;display: none;&quot;&gt;
-    &lt;p class=&quot;description&quot;&gt;
-      The unique attributes, capabilities, and resources that enable an organization 
-      to outperform competitors and deliver superior value to customers. The core 
-      focus of strategic management.
-    &lt;/p&gt;
-    
-    &lt;p class=&quot;why-matters&quot;&gt;
-      &lt;strong&gt;Why It Matters for SIMRS:&lt;/strong&gt; This is the centerpiece of your 
-      diversification strategy. It answers: What makes SIMRS different in the 
-      healthcare market? How can we sustain advantage as we expand into new areas?
-    &lt;/p&gt;
-    
-    &lt;div class=&quot;subdomains&quot;&gt;
-      &lt;p&gt;&lt;strong&gt;Key Subdomains:&lt;/strong&gt;&lt;/p&gt;
-      &lt;ul&gt;
-        &lt;li&gt;&lt;a href=&quot;#rbv&quot;&gt;Resource-Based View (RBV)&lt;/a&gt; – Advantage from internal capabilities&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#positioning&quot;&gt;Market Positioning&lt;/a&gt; – Advantage from external market dynamics&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;#ambidexterity&quot;&gt;Ambidexterity &amp; Exploration&lt;/a&gt; – Advantage from balancing optimization with innovation&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/div&gt;
-    
-    &lt;p class=&quot;reference&quot;&gt;
-      &lt;em&gt;Porter, M. E. (1985). Competitive Advantage: Creating and Sustaining Superior Performance&lt;/em&gt;
-    &lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
 
-&lt;!-- Layer 3 nodes under Competitive Advantage --&gt;
-&lt;div class=&quot;layer-3-subsection&quot; data-parent=&quot;competitive-advantage&quot; style=&quot;margin-left: 20px;&quot;&gt;
-  
-  &lt;!-- RBV Node --&gt;
-  &lt;div class=&quot;node node-layer-3&quot; id=&quot;rbv&quot;&gt;
-    &lt;div class=&quot;node-header&quot;&gt;
-      &lt;h4&gt;Resource-Based View (RBV)&lt;/h4&gt;
-      &lt;span class=&quot;expand-toggle&quot;&gt;▶&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;node-content&quot; style=&quot;display: none;&quot;&gt;
-      &lt;!-- Full RBV content from above --&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  
-  &lt;!-- Dynamic Capabilities Node --&gt;
-  &lt;div class=&quot;node node-layer-3 featured&quot; id=&quot;dynamic-capabilities&quot;&gt;
-    &lt;div class=&quot;node-header&quot;&gt;
-      &lt;h4&gt;Dynamic Capabilities ◄─── FEATURED&lt;/h4&gt;
-      &lt;span class=&quot;featured-badge&quot;&gt;Key Concept&lt;/span&gt;
-      &lt;span class=&quot;expand-toggle&quot;&gt;▶&lt;/span&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;node-content&quot; style=&quot;display: none;&quot;&gt;
-      &lt;!-- Full Dynamic Capabilities content from above --&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  
-  &lt;!-- More Layer 3 nodes... --&gt;
-&lt;/div&gt;
-</code></pre>
-<hr>
-<h2>Summary: How to Build the HTML</h2>
-<ol>
-<li><strong>Create a base HTML template</strong> with header, navigation, main content area</li>
-<li><strong>Organize content</strong> into sections by Layer (Layer 1 > Layer 2 > Layer 3)</li>
-<li><strong>Use CSS classes</strong> to style nodes by depth (node-layer-1, node-layer-2, node-layer-3)</li>
-<li><strong>Add JavaScript</strong> for expand/collapse functionality:</li>
-</ol>
-<ul>
-<li>Click node-header → toggle node-content display</li>
-<li>Update expand-toggle icon (▶ ↔ ▼)</li>
-<li>Optionally, animate height expansion</li>
-</ul>
-<ol>
-<li><strong>Style featured nodes</strong> (Dynamic Capabilities) distinctly</li>
-<li><strong>Add hover effects</strong> (color change, shadow, cursor pointer)</li>
-<li><strong>Test responsiveness</strong> on mobile/tablet</li>
-</ol>
-<hr>
-<h3>File Ready for HTML Developer</h3>
-<p>This <code>.md</code> file contains:</p>
-<ul>
-<li>✅ All content for Strategic Management domain</li>
-<li>✅ Layer 1 (title, description, academic reference)</li>
-<li>✅ Layer 2 (4 nodes: Planning, Competitive Advantage, Business Model, Ecosystem)</li>
-<li>✅ Layer 3 (8+ detailed nodes with frameworks, examples, actions)</li>
-<li>✅ HTML structure recommendations</li>
-<li>✅ Styling guidance</li>
-<li>✅ Interactivity patterns</li>
-<li>✅ Mobile responsive approach</li>
-<li>✅ Example HTML snippet</li>
-</ul>
-<p><strong>Next Steps:</strong></p>
-<ol>
-<li>Repeat this process for other Layer 1 domains (Operational Management, Organizational Capabilities & Learning, Organizational Culture & Governance)</li>
-<li>Combine all <code>.md</code> files into a single HTML page</li>
-<li>Use CSS to create visual hierarchy and interactive experience</li>
-<li>Test on desktop and mobile</li></div>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Dark mode persistence
-  if (localStorage.getItem('darkMode') === 'enabled') {
-    document.body.classList.add('dark-mode');
-  }
+    <div class="max-w-5xl mx-auto px-4 py-12">
+        <!-- Breadcrumbs -->
+        <nav class="flex text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
+          <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <li class="inline-flex items-center">
+              <a href="index.html" class="hover:text-blue-600">Business Strategy & Management</a>
+            </li>
+            <li aria-current="page">
+              <div class="flex items-center">
+                <i class="fas fa-chevron-right text-xs mx-2"></i>
+                <span class="text-slate-800 font-medium">Strategic Management</span>
+              </div>
+            </li>
+          </ol>
+        </nav>
 
-  const content = document.getElementById('content');
-  const nodes = Array.from(content.childNodes);
-  const fragment = document.createDocumentFragment();
-  let sections = [];
-  let cur = null;
+        <main class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <!-- Header -->
+            <div class="bg-blue-900 px-8 py-8 text-white border-b-4 border-blue-500 relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="bg-blue-800 text-blue-100 text-xs px-2 py-1 rounded font-semibold tracking-wide uppercase">Layer 1 Domain</span>
+                    </div>
+                    <h1 class="text-4xl font-bold mb-4">Strategic Management</h1>
+                    <p class="text-blue-100 text-lg leading-relaxed max-w-3xl">
+                        The comprehensive process of formulating and implementing strategies to achieve long-term competitive advantage. It encompasses strategic direction, market positioning, and organizational capability development. Essential for healthcare companies diversifying across multiple product lines.
+                    </p>
+                    
+                    <div class="mt-6 pt-4 border-t border-blue-800">
+                        <p class="text-sm text-blue-200 italic"><i class="fas fa-book mr-2"></i>Reference: Hitt, M. A., Ireland, R. D., & Hoskisson, R. E. (2016). Strategic Management: Competitiveness and Globalization</p>
+                    </div>
+                </div>
+                <i class="fas fa-chess-knight absolute right-0 bottom-0 opacity-10 text-[10rem] mr-8 -mb-4 z-0"></i>
+            </div>
 
-  nodes.forEach(node => {
-    if (node.nodeType !== 1) return;
-    if (node.tagName === 'H1') { fragment.appendChild(node); return; }
-    if (node.tagName === 'H2') {
-      cur = { heading: node, children: [] };
-      sections.push(cur);
-    } else if (cur) {
-      cur.children.push(node);
-    } else {
-      fragment.appendChild(node);
-    }
-  });
+            <div class="p-8 bg-slate-50">
+                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">Strategic Domains (Layer 2)</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Layer 2: Strategic Planning & Direction -->
+                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-lg text-blue-600 mr-4">
+                                <i class="fas fa-map-signs fa-lg"></i>
+                            </div>
+                        <a href="strategic-planning-direction.html" class="group-hover:text-blue-700"><h3 class="text-lg font-bold text-slate-800">1. Strategic Planning & Direction</h3></a>
+                        </div>
+                        <p class="text-slate-600 mb-4 text-sm min-h-[60px]">The process of defining organizational vision, mission, and long-term strategic direction. Establishes the roadmap for where the organization is headed.</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded text-sm mb-4">
+                            <ul class="space-y-2">
+                                <li><a href="vision-mission.html" class="text-blue-600 hover:underline"><i class="fas fa-chevron-right text-xs mr-2"></i>Vision & Mission</a></li>
+                                <li><a href="corporate-strategy.html" class="text-blue-600 hover:underline"><i class="fas fa-chevron-right text-xs mr-2"></i>Corporate Strategy</a></li>
+                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Portfolio Strategy</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-auto inline-block">Explore Domain <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    
+                    <!-- Layer 2: Competitive Advantage -->
+                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-lg text-blue-600 mr-4">
+                                <i class="fas fa-trophy fa-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">2. Competitive Advantage</h3>
+                        </div>
+                        <p class="text-slate-600 mb-4 text-sm min-h-[60px]">The unique attributes, capabilities, and resources that enable an organization to outperform competitors and deliver superior value to customers.</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded text-sm mb-4">
+                            <ul class="space-y-2">
+                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Resource-Based View (RBV)</li>
+                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Market Positioning</li>
+                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Ambidexterity & Exploration</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-auto inline-block">Explore Domain <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    
+                    <!-- Layer 2: Business Model & Innovation -->
+                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-lg text-blue-600 mr-4">
+                                <i class="fas fa-lightbulb fa-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">3. Business Model & Innovation</h3>
+                        </div>
+                        <p class="text-slate-600 mb-4 text-sm min-h-[60px]">The architecture of how an organization creates, delivers, and captures value. Explores new ways to generate revenue and serve customers.</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded text-sm mb-4">
+                            <ul class="space-y-2">
+                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Business Model Canvas</li>
+                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Business Model Innovation</li>
+                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Product Innovation</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-auto inline-block">Explore Domain <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                    
+                     <!-- Layer 2: Ecosystem & Platform Strategy -->
+                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-lg text-blue-600 mr-4">
+                                <i class="fas fa-network-wired fa-lg"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800">4. Ecosystem & Platform Strategy</h3>
+                        </div>
+                        <p class="text-slate-600 mb-4 text-sm min-h-[60px]">A strategic approach where organizations create value by orchestrating a network of partners, platforms, and complementary services.</p>
+                        
+                        <div class="bg-slate-50 p-3 rounded text-sm mb-4">
+                            <ul class="space-y-2">
+                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Platform Business Models</li>
+                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Ecosystem Leadership</li>
+                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Network Effects</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-auto inline-block">Explore Domain <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white px-8 py-4 border-t border-slate-200 flex justify-between items-center">
+                <a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center">
+                    <i class="fas fa-home mr-2"></i> Back to Map (Root)
+                </a>
+            </div>
+        </main>
+    </div>
 
-  sections.forEach(sec => {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'section';
-    const btn = document.createElement('button');
-    btn.className = 'section-toggle open';
-    btn.innerHTML = '<span class="arrow">&#9658;</span>' + sec.heading.innerHTML;
-    const body = document.createElement('div');
-    body.className = 'section-body open';
-    sec.children.forEach(c => body.appendChild(c));
-    btn.addEventListener('click', () => { btn.classList.toggle('open'); body.classList.toggle('open'); });
-    wrapper.appendChild(btn); wrapper.appendChild(body); fragment.appendChild(wrapper);
-  });
-
-  content.innerHTML = ''; content.appendChild(fragment);
-
-  let allCollapsed = false;
-  document.getElementById('toggleAll').addEventListener('click', function() {
-    allCollapsed = !allCollapsed;
-    document.querySelectorAll('.section-toggle').forEach(btn => {
-      const b = btn.nextElementSibling;
-      if (allCollapsed) { btn.classList.remove('open'); b.classList.remove('open'); }
-      else { btn.classList.add('open'); b.classList.add('open'); }
-    });
-    this.textContent = allCollapsed ? 'Expand All' : 'Collapse All';
-  });
-});
-</script>
 </body>
 </html>
