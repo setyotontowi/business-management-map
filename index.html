@@ -7,11 +7,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<script>
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
 
 <header>
   <h1>Business Strategy & Management</h1>
   <p>Academic Framework for Healthcare Diversification</p>
 </header>
+<button class="theme-toggle" id="themeToggle">🌓 Toggle Theme</button>
 
 <div class="tree-container">
   <ul class="tree">
@@ -58,8 +64,8 @@
                     <li class="node-wrap"><div class="node level-4 uncovered"><span>Core Competencies</span></div></li>
                     <li class="node-wrap"><div class="node level-4 uncovered"><span>Capabilities</span></div></li>
                     <li class="node-wrap">
-                      <div class="node level-4 dc-node" data-tooltip="<strong>Key Sources:</strong><br>Teece (1997) - Firm Resources and Strategy<br>Teece (2007) - Sustaining Enterprise Performance<br><br><strong>Framework:</strong> Sensing → Seizing → Transforming">
-                        <a href="dynamic-capabilities-map.html" style="text-decoration: none; color: inherit;">Dynamic Capabilities</a>
+                      <div class="node level-4 dc-node uncovered" data-tooltip="<strong>Key Sources:</strong><br>Teece (1997) - Firm Resources and Strategy<br>Teece (2007) - Sustaining Enterprise Performance<br><br><strong>Framework:</strong> Sensing → Seizing → Transforming">
+                        <span>Dynamic Capabilities</span>
                         <span class="dc-label">FEATURED</span>
                       </div>
                     </li>
@@ -358,6 +364,23 @@
         wrap.classList.toggle('collapsed');
       }
     });
+  });
+
+  // Dark Mode Persistence
+  const themeToggle = document.getElementById('themeToggle');
+  const body = document.body;
+  
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('dark-mode');
+  }
+
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+    }
   });
 </script>
 </body>

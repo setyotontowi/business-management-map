@@ -7,8 +7,22 @@
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body.dark-mode { background-color: #0f172a; color: #f1f5f9; }
+        .dark-mode main { background-color: #1e293b; border-color: #334155; }
+        .dark-mode h2, .dark-mode h3, .dark-mode span.text-slate-800 { color: #f8fafc; }
+        .dark-mode .bg-slate-50 { background-color: #1e293b; }
+        .dark-mode .bg-white { background-color: #0f172a; border-color: #334155; }
+        .dark-mode .text-slate-600, .dark-mode .text-slate-700, .dark-mode .text-slate-500 { color: #94a3b8; }
+        .dark-mode .border-slate-100, .dark-mode .border-slate-200 { border-color: #334155; }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
+<script>
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+</script>
 
     <div class="max-w-5xl mx-auto px-4 py-12">
         <!-- Breadcrumbs -->

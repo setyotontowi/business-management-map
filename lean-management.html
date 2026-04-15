@@ -7,41 +7,71 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; background: #f9f9f8; color: #222; font-size: 15px; line-height: 1.7; }
+  
+  :root {
+    --bg: #f9f9f8;
+    --text: #222;
+    --nav-border: #eee;
+    --section-border: #e5e5e5;
+    --h1: #111;
+    --h-sub: #444;
+    --p: #333;
+    --code-bg: #f0f0f0;
+    --pre-bg: #f5f5f5;
+    --table-th: #f0f0f0;
+    --link: #2563eb;
+  }
+
+  body.dark-mode {
+    --bg: #0f172a;
+    --text: #f1f5f9;
+    --nav-border: #1e293b;
+    --section-border: #1e293b;
+    --h1: #f8fafc;
+    --h-sub: #cbd5e1;
+    --p: #94a3b8;
+    --code-bg: #1e293b;
+    --pre-bg: #1e293b;
+    --table-th: #1e293b;
+    --link: #60a5fa;
+  }
+
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; transition: background 0.3s, color 0.3s; }
   .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
-  nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-  nav a { color: #2563eb; text-decoration: none; font-size: 13px; font-weight: 600; }
+  nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid var(--nav-border); padding-bottom: 20px; }
+  nav a { color: var(--link); text-decoration: none; font-size: 13px; font-weight: 600; }
   nav a:hover { text-decoration: underline; }
   #toggleAll { background: none; border: 1px solid #ddd; border-radius: 4px; padding: 4px 10px; font-size: 12px; cursor: pointer; color: #666; }
   #toggleAll:hover { background: #f0f0f0; }
-  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; color: #111; }
-  .section { border-bottom: 1px solid #e5e5e5; }
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; color: var(--h1); }
+  .section { border-bottom: 1px solid var(--section-border); }
   .section-toggle {
     width: 100%; background: none; border: none; text-align: left;
     padding: 14px 0; cursor: pointer;
     display: flex; align-items: center; gap: 8px;
-    font-family: inherit; font-size: 1rem; font-weight: 600; color: #111;
+    font-family: inherit; font-size: 1rem; font-weight: 600; color: var(--h1);
   }
-  .section-toggle:hover { background: #fafafa; color: #2563eb; }
+  .section-toggle:hover { background: rgba(0,0,0,0.02); color: var(--link); }
+  .dark-mode .section-toggle:hover { background: rgba(255,255,255,0.02); }
   .section-toggle .arrow { font-size: 10px; color: #999; transition: transform 0.2s; display: inline-block; }
   .section-toggle.open .arrow { transform: rotate(90deg); }
   .section-body { padding: 0 0 16px 20px; display: none; }
-  .section-body.open { display: block; border-left: 2px solid #f0f0f0; }
-  h3 { font-size: 0.95rem; font-weight: 700; color: #444; margin: 20px 0 8px; }
-  h4 { font-size: 0.9rem; font-weight: 700; color: #555; margin: 16px 0 6px; }
-  h5, h6 { font-size: 0.85rem; font-weight: 700; color: #666; margin: 12px 0 4px; }
-  p { margin: 8px 0 12px; color: #333; }
+  .section-body.open { display: block; border-left: 2px solid var(--nav-border); }
+  h3 { font-size: 0.95rem; font-weight: 700; color: var(--h-sub); margin: 20px 0 8px; }
+  h4 { font-size: 0.9rem; font-weight: 700; color: var(--h-sub); margin: 16px 0 6px; }
+  h5, h6 { font-size: 0.85rem; font-weight: 700; color: var(--h-sub); margin: 12px 0 4px; }
+  p { margin: 8px 0 12px; color: var(--p); }
   ul, ol { margin: 8px 0 12px 24px; }
   li { margin: 4px 0; }
-  hr { border: none; border-top: 1px solid #eee; margin: 24px 0; }
-  code { background: #f0f0f0; padding: 2px 4px; border-radius: 3px; font-size: 0.85em; font-family: monospace; }
-  pre { background: #f5f5f5; border: 1px solid #e0e0e0; border-radius: 4px; padding: 14px; overflow-x: auto; margin: 14px 0; }
+  hr { border: none; border-top: 1px solid var(--nav-border); margin: 24px 0; }
+  code { background: var(--code-bg); padding: 2px 4px; border-radius: 3px; font-size: 0.85em; font-family: monospace; }
+  pre { background: var(--pre-bg); border: 1px solid var(--nav-border); border-radius: 4px; padding: 14px; overflow-x: auto; margin: 14px 0; }
   pre code { background: none; padding: 0; font-size: 0.82em; }
   strong { font-weight: 600; }
-  a { color: #2563eb; }
+  a { color: var(--link); }
   table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.9em; }
-  th { background: #f0f0f0; font-weight: 600; padding: 8px 12px; border: 1px solid #ddd; text-align: left; }
-  td { padding: 8px 12px; border: 1px solid #e5e5e5; vertical-align: top; }
+  th { background: var(--table-th); font-weight: 600; padding: 8px 12px; border: 1px solid var(--nav-border); text-align: left; }
+  td { padding: 8px 12px; border: 1px solid var(--nav-border); vertical-align: top; }
 </style>
 </head>
 <body>
@@ -1413,6 +1443,11 @@ Never more than 5 in progress (prevents context-switching waste)
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+  // Dark mode persistence
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+  }
+
   const content = document.getElementById('content');
   const nodes = Array.from(content.childNodes);
   const fragment = document.createDocumentFragment();

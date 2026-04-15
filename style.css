@@ -1,11 +1,28 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg-color: #f8fafc;
+  --text-color: #0f172a;
+  --header-color: #1e40af;
+  --node-bg: #ffffff;
+  --node-border: #e2e8f0;
+  --node-text: #475569;
+}
+
+body.dark-mode {
+  --bg-color: #0f172a;
+  --text-color: #f1f5f9;
+  --header-color: #60a5fa;
+  --node-bg: #1e293b;
+  --node-border: #334155;
+  --node-text: #cbd5e1;
+}
 
 body {
   font-family: 'Segoe UI', system-ui, sans-serif;
-  background: #f8fafc;
-  color: #0f172a;
+  background: var(--bg-color);
+  color: var(--text-color);
   min-height: 100vh;
   padding: 2rem 1rem 4rem;
+  transition: background 0.3s, color 0.3s;
 }
 
 header {
@@ -16,7 +33,7 @@ header {
 header h1 {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #1e40af;
+  color: var(--header-color);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -95,9 +112,9 @@ ul, ul ul {
 /* Level colors */
 .level-0 { background: #dbeafe; color: #1e3a8a; border-color: #93c5fd; font-size: 1rem; font-weight: 700; }
 .level-1 { background: #e0f2fe; color: #0369a1; border-color: #7dd3fc; }
-.level-2 { background: #f1f5f9; color: #334155; border-color: #cbd5e1; }
-.level-3 { background: #ffffff; color: #475569; border-color: #e2e8f0; }
-.level-4 { background: #ffffff; color: #64748b; border-color: #f1f5f9; }
+.level-2 { background: var(--node-bg); color: var(--node-text); border-color: var(--node-border); }
+.level-3 { background: var(--node-bg); color: var(--node-text); border-color: var(--node-border); }
+.level-4 { background: var(--node-bg); color: var(--node-text); border-color: var(--node-border); }
 
 .node.uncovered {
   background: #f1f5f9 !important;
@@ -187,4 +204,42 @@ ul, ul ul {
 
 @keyframes fadeIn {
   to { opacity: 1; transform: translateX(0); }
+}
+
+/* Dark Mode Toggle */
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--node-bg);
+  border: 1px solid var(--node-border);
+  color: var(--text-color);
+  padding: 0.5rem 0.8rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+  z-index: 2000;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.dark-mode .node.uncovered {
+  background: #1e293b !important;
+  color: #64748b !important;
+  border-color: #334155 !important;
+}
+
+.dark-mode .tooltip {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f1f5f9;
 }
