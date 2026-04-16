@@ -31,6 +31,38 @@ Incident Management is a structured process for detecting, responding to, and le
 - **John Allspaw & Tom Limoncelli**: "**Blameless postmortems**" and learning culture (pioneered by Google)
 - **Gene Kim, Jez Humble**: *The DevOps Handbook* - incident response as organizational capability
 - **Etsy**: **Blameless postmortem** culture, reducing **mean time to recovery (MTTR)**
+- **Karl Weick & Kathleen Sutcliffe**: **High Reliability Organizations (HRO)** - Managing the unexpected in high-stakes environments.
+- **Erik Hollnagel**: **Resilience Engineering** and **Safety-II** - focusing on how systems succeed, not just how they fail.
+- **Dave Snowden**: **Cynefin Framework** - situational awareness for decision-making in complexity.
+- **Diane Vaughan**: **Normalization of Deviance** - why organizations gradually accept lower standards until disaster strikes.
+
+---
+
+## Academic Frameworks
+
+### 1. The Cynefin Framework (Decision Support)
+Developed by Dave Snowden, this framework helps responders identify the "domain" of an incident to choose the right strategy:
+- **Chaotic Domain**: (Major Outage) No clear cause-effect. **Act → Sense → Respond**. Establish order first (Incident Commander).
+- **Complex Domain**: (Intermittent Bug) Cause-effect only visible in retrospect. **Probe → Sense → Respond**. Safe-to-fail experiments.
+- **Complicated Domain**: (Performance Issues) Requires expertise. **Sense → Analyze → Respond**. Use specialists.
+
+### 2. High Reliability Organizations (HRO) Principles
+Weick & Sutcliffe identified 5 principles that allow organizations to manage complex systems with very few accidents:
+1. **Preoccupation with Failure**: Treating near-misses as data points for potential systemic collapse.
+2. **Reluctance to Simplify**: Resisting simple explanations for complex failures (avoiding "human error" as root cause).
+3. **Sensitivity to Operations**: Maintaining a high level of situational awareness on the front lines.
+4. **Commitment to Resilience**: Developing capabilities to detect, contain, and bounce back from errors.
+5. **Deference to Expertise**: During an incident, authority shifts to those with the most relevant knowledge, not the highest rank.
+
+### 3. Resilience Engineering (Safety-II)
+Erik Hollnagel distinguishes between **Safety-I** (preventing things from going wrong) and **Safety-II** (understanding how things normally go right).
+- **Graceful Extensibility**: The ability of a system to stretch its performance under pressure.
+- **Sustaining Adaptability**: Ensuring the organization has the "margin" to handle the unexpected.
+- **Local Rationality**: Understanding that people make decisions that make sense to them at the time, given their context and goals.
+
+### 4. Normalization of Deviance
+Coined by Diane Vaughan (studying the Challenger disaster), this describes how small deviations from standard operating procedures (SOPs) become the "new normal" until a tipping point is reached.
+- **The Warning**: Incidents are often the result of long-term erosion of safety margins, not a single point-of-failure.
 
 ---
 
@@ -241,6 +273,11 @@ Formal process + clear roles + psychological safety = faster response + better l
 - **John Allspaw**: "Blameless Postmortems" (Etsy blog & talks) - foundational work on psychological safety in incident response
 - **Gene Kim, Jez Humble, Patrick Debois, John Willis**: *The DevOps Handbook* - Chapter on incident response as organizational capability
 - **Google SRE Book**: "Managing Incidents" chapter - practical incident response protocols at scale
+- **Snowden, D. J., & Boone, M. E. (2007)**: "A Leader’s Framework for Decision Making." *Harvard Business Review*. (The foundational Cynefin paper).
+- **Weick, K. E., & Sutcliffe, K. M. (2001)**: *Managing the Unexpected: Assuring High Performance in an Age of Complexity*. Jossey-Bass.
+- **Hollnagel, E. (2014)**: *Safety-I and Safety-II: The Past and Future of Safety Management*. Ashgate Publishing.
+- **Vaughan, D. (1996)**: *The Challenger Launch Decision: Risky Technology, Culture, and Deviance at NASA*. University of Chicago Press.
+- **Dekker, S. (2014)**: *The Field Guide to Understanding Human Error*. Ashgate. (Critique of "human error" as a root cause).
 
 ---
 
