@@ -101,7 +101,7 @@ INTERNALIZATION   COMBINATION
 (Explicit → Tacit) (Explicit → Explicit)
 ```
 
-#### Mode 1: SOCIALIZATION (Tacit → Tacit)
+#### Mode 1: **SOCIALIZATION** (Tacit → Tacit)
 **Definition:** Transferring tacit knowledge through direct interaction
 
 **How It Works:**
@@ -135,7 +135,7 @@ INTERNALIZATION   COMBINATION
 
 ---
 
-#### Mode 2: EXTERNALIZATION (Tacit → Explicit)
+#### Mode 2: **EXTERNALIZATION** (Tacit → Explicit)
 **Definition:** Converting tacit knowledge to explicit form (documents, models, frameworks)
 
 **How It Works:**
@@ -173,7 +173,7 @@ INTERNALIZATION   COMBINATION
 
 ---
 
-#### Mode 3: COMBINATION (Explicit → Explicit)
+#### Mode 3: **COMBINATION** (Explicit → Explicit)
 **Definition:** Combining existing explicit knowledge into new forms
 
 **How It Works:**
@@ -207,7 +207,7 @@ INTERNALIZATION   COMBINATION
 
 ---
 
-#### Mode 4: INTERNALIZATION (Explicit → Tacit)
+#### Mode 4: **INTERNALIZATION** (Explicit → Tacit)
 **Definition:** Taking explicit knowledge (documents, guides) and internalizing it to become tacit knowledge (personal skill)
 
 **How It Works:**
@@ -240,7 +240,7 @@ INTERNALIZATION   COMBINATION
 
 ---
 
-### The Knowledge Spiral
+### The **Knowledge Spiral**
 
 The four modes form a spiral:
 ```
@@ -263,7 +263,7 @@ Back to Socialization (new person becomes mentor, cycle repeats)
 
 **Etienne Wenger** (*Communities of Practice, 1998*) describes how knowledge is created and shared in communities
 
-#### What is a Community of Practice?
+#### What is a **Community of Practice (CoP)**?
 **Definition:** A group of people bound together by shared concern, expertise, or passion for a domain
 
 **Three Elements:**
@@ -308,7 +308,7 @@ Back to Socialization (new person becomes mentor, cycle repeats)
 
 ### Framework 3: After-Action Review (AAR)
 
-**U.S. Army**, developed After-Action Review as systematic way to capture lessons after operations
+**U.S. Army**, developed **After-Action Review (AAR)** as systematic way to capture lessons after operations
 
 **Process:**
 1. **What was supposed to happen?** (plan/intent)
@@ -358,7 +358,7 @@ Level 4: Contextual Guides (When to use which approach)
 Level 5: Video/Observation (Complex, nuanced knowledge)
 ```
 
-#### Level 1: Decision Records (Most Important, Least Effort)
+#### Level 1: **Decision Records** (Most Important, Least Effort)
 **What:** Document important decisions and why they were made
 
 **Format:**
@@ -513,7 +513,7 @@ WISDOM: Video demo works for enterprise customers (complex product), but not SMB
 
 **Gabriel Szulanski** (*Sticky Knowledge, 2003*) studied why knowledge doesn't transfer effectively
 
-#### Factors Making Knowledge "Sticky" (Hard to Transfer):
+#### Factors Making Knowledge "**Sticky**" (Hard to Transfer):
 
 1. **Causal Ambiguity:** People don't understand why something works
    - Example: "This approach works, but why?" → hard to transfer
@@ -545,7 +545,7 @@ WISDOM: Video demo works for enterprise customers (complex product), but not SMB
 
 **Chris Argyris** (*Double-Loop Learning, 1977*) distinguished learning types
 
-#### Level 1: Single-Loop Learning (Adaptive)
+#### Level 1: **Single-Loop Learning** (Adaptive)
 **Definition:** Fix problems by adjusting actions (but keep goals, assumptions same)
 
 **Example:**
@@ -553,7 +553,7 @@ WISDOM: Video demo works for enterprise customers (complex product), but not SMB
 - Single-loop: Hire more support staff, reduce response time
 - Assumes: Support model is good, just need more people
 
-#### Level 2: Double-Loop Learning (Generative)
+#### Level 2: **Double-Loop Learning** (Generative)
 **Definition:** Fix problems by questioning assumptions and goals themselves
 
 **Example:**
