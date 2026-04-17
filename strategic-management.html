@@ -1,143 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strategic Management - Business Strategy Framework</title>
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Management Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --bg: #f9f9f8;
+    --text: #222;
+    --nav-border: #eee;
+    --section-border: #e5e5e5;
+    --h1: #111;
+    --h-sub: #444;
+    --p: #333;
+    --code-bg: #f0f0f0;
+    --pre-bg: #f5f5f5;
+    --table-th: #f0f0f0;
+    --link: #2563eb;
+  }
+
+  body.dark-mode {
+    --bg: #0f172a;
+    --text: #f1f5f9;
+    --nav-border: #1e293b;
+    --section-border: #1e293b;
+    --h1: #f8fafc;
+    --h-sub: #cbd5e1;
+    --p: #94a3b8;
+    --code-bg: #1e293b;
+    --pre-bg: #1e293b;
+    --table-th: #1e293b;
+    --link: #60a5fa;
+  }
+
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; transition: background 0.3s, color 0.3s; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+  nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid var(--nav-border); padding-bottom: 20px; }
+  nav a { color: var(--link); text-decoration: none; font-size: 13px; font-weight: 600; }
+  nav a:hover { text-decoration: underline; }
+  #toggleAll { background: none; border: 1px solid #ddd; border-radius: 4px; padding: 4px 10px; font-size: 12px; cursor: pointer; color: #666; }
+  #toggleAll:hover { background: #f0f0f0; }
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; color: var(--h1); }
+  .section { border-bottom: 1px solid var(--section-border); }
+  .section-toggle {
+    width: 100%; background: none; border: none; text-align: left;
+    padding: 14px 0; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    font-family: inherit; font-size: 1rem; font-weight: 600; color: var(--h1);
+  }
+  .section-toggle:hover { background: rgba(0,0,0,0.02); color: var(--link); }
+  .dark-mode .section-toggle:hover { background: rgba(255,255,255,0.02); }
+  .section-toggle .arrow { font-size: 10px; color: #999; transition: transform 0.2s; display: inline-block; }
+  .section-toggle.open .arrow { transform: rotate(90deg); }
+  .section-body { padding: 0 0 16px 20px; display: none; }
+  .section-body.open { display: block; border-left: 2px solid var(--nav-border); }
+  h2 { font-size: 1.1rem; font-weight: 700; color: var(--h1); }
+  h3 { font-size: 0.95rem; font-weight: 700; color: var(--h-sub); margin: 20px 0 8px; }
+  h4 { font-size: 0.9rem; font-weight: 700; color: var(--h-sub); margin: 16px 0 6px; }
+  p { margin: 8px 0 12px; color: var(--p); }
+  ul, ol { margin: 8px 0 12px 24px; }
+  li { margin: 4px 0; }
+  code { background: var(--code-bg); padding: 2px 4px; border-radius: 3px; font-size: 0.85em; font-family: monospace; }
+  pre { background: var(--pre-bg); border: 1px solid var(--nav-border); border-radius: 4px; padding: 14px; overflow-x: auto; margin: 14px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.9em; }
+  th { background: var(--table-th); font-weight: 600; padding: 8px 12px; border: 1px solid var(--nav-border); text-align: left; }
+  td { padding: 8px 12px; border: 1px solid var(--nav-border); vertical-align: top; }
+  .alert { padding: 12px; border-radius: 4px; margin: 12px 0; font-size: 0.9em; }
+  .alert-tip { background: #e0f2fe; color: #0369a1; border-left: 4px solid #0ea5e9; }
+</style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen">
+<body>
+<div class="wrap">
+  <nav>
+    <a href="index.html">← Back to Dashboard</a>
+    <button id="toggleAll">Collapse All</button>
+  </nav>
+  <div id="content">
+    <h1>STRATEGIC MANAGEMENT</h1>
+    
+    <p>Strategic Management is the comprehensive process of formulating and implementing strategies to achieve long-term competitive advantage. It addresses the fundamental questions: <em>Where are we going? How do we win? What opportunities should we pursue?</em></p>
 
-    <div class="max-w-5xl mx-auto px-4 py-12">
-        <!-- Breadcrumbs -->
-        <nav class="flex text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
-          <ol class="inline-flex items-center space-x-1 md:space-x-3">
-            <li class="inline-flex items-center">
-              <a href="index.html" class="hover:text-blue-600">Business Strategy & Management</a>
-            </li>
-            <li aria-current="page">
-              <div class="flex items-center">
-                <i class="fas fa-chevron-right text-xs mx-2"></i>
-                <span class="text-slate-800 font-medium">Strategic Management</span>
-              </div>
-            </li>
-          </ol>
-        </nav>
+    <h2>What It Is</h2>
+    <p>The disciplinary framework that encompasses strategic direction, market positioning, and organizational capability development. For healthcare companies like SIMRS, it is essential for navigating diversification across multiple product lines and segments.</p>
 
-        <main class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-            <!-- Header -->
-            <div class="bg-blue-900 px-8 py-8 text-white border-b-4 border-blue-500 relative overflow-hidden">
-                <div class="relative z-10">
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="bg-blue-800 text-blue-100 text-xs px-2 py-1 rounded font-semibold tracking-wide uppercase">Layer 1 Domain</span>
-                    </div>
-                    <h1 class="text-4xl font-bold mb-4">Strategic Management</h1>
-                    <p class="text-blue-100 text-lg leading-relaxed max-w-3xl">
-                        The comprehensive process of formulating and implementing strategies to achieve long-term competitive advantage. It encompasses strategic direction, market positioning, and organizational capability development. Essential for healthcare companies diversifying across multiple product lines.
-                    </p>
-                    
-                    <div class="mt-6 pt-4 border-t border-blue-800">
-                        <p class="text-sm text-blue-200 italic"><i class="fas fa-book mr-2"></i>Reference: Hitt, M. A., Ireland, R. D., & Hoskisson, R. E. (2016). Strategic Management: Competitiveness and Globalization</p>
-                    </div>
-                </div>
-                <i class="fas fa-chess-knight absolute right-0 bottom-0 opacity-10 text-[10rem] mr-8 -mb-4 z-0"></i>
-            </div>
+    <h2>Why It Matters</h2>
+    <ul>
+      <li><strong>Long-term Survival</strong>: Defines how to compete and win in changing markets.</li>
+      <li><strong>Resource Allocation</strong>: Ensures investments align with the organizational "North Star."</li>
+      <li><strong>Competitive Advantage</strong>: Identifies and protects unique internal capabilities (RBV).</li>
+      <li><strong>Innovation Guidance</strong>: Provides the architecture for value creation and capture.</li>
+    </ul>
 
-            <div class="p-8 bg-slate-50">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">Strategic Domains (Layer 2)</h2>
-                
-                <div class="grid md:grid-cols-2 gap-6">
-                    <!-- Layer 2: Strategic Planning & Direction -->
-                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-blue-100 p-3 rounded-lg text-blue-600 mr-4">
-                                <i class="fas fa-map-signs fa-lg"></i>
-                            </div>
-                        <a href="strategic-planning-direction.html" class="group-hover:text-blue-700"><h3 class="text-lg font-bold text-slate-800">1. Strategic Planning & Direction</h3></a>
-                        </div>
-                        <p class="text-slate-600 mb-4 text-sm min-h-[60px]">The process of defining organizational vision, mission, and long-term strategic direction. Establishes the roadmap for where the organization is headed.</p>
-                        
-                        <div class="bg-slate-50 p-3 rounded text-sm mb-4">
-                            <ul class="space-y-2">
-                                <li><a href="vision-mission.html" class="text-blue-600 hover:underline"><i class="fas fa-chevron-right text-xs mr-2"></i>Vision & Mission</a></li>
-                                <li><a href="corporate-strategy.html" class="text-blue-600 hover:underline"><i class="fas fa-chevron-right text-xs mr-2"></i>Corporate Strategy</a></li>
-                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Portfolio Strategy</li>
-                            </ul>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-auto inline-block">Explore Domain <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                    
-                    <!-- Layer 2: Competitive Advantage -->
-                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-blue-100 p-3 rounded-lg text-blue-600 mr-4">
-                                <i class="fas fa-trophy fa-lg"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-800">2. Competitive Advantage</h3>
-                        </div>
-                        <p class="text-slate-600 mb-4 text-sm min-h-[60px]">The unique attributes, capabilities, and resources that enable an organization to outperform competitors and deliver superior value to customers.</p>
-                        
-                        <div class="bg-slate-50 p-3 rounded text-sm mb-4">
-                            <ul class="space-y-2">
-                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Resource-Based View (RBV)</li>
-                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Market Positioning</li>
-                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Ambidexterity & Exploration</li>
-                            </ul>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-auto inline-block">Explore Domain <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                    
-                    <!-- Layer 2: Business Model & Innovation -->
-                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-blue-100 p-3 rounded-lg text-blue-600 mr-4">
-                                <i class="fas fa-lightbulb fa-lg"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-800">3. Business Model & Innovation</h3>
-                        </div>
-                        <p class="text-slate-600 mb-4 text-sm min-h-[60px]">The architecture of how an organization creates, delivers, and captures value. Explores new ways to generate revenue and serve customers.</p>
-                        
-                        <div class="bg-slate-50 p-3 rounded text-sm mb-4">
-                            <ul class="space-y-2">
-                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Business Model Canvas</li>
-                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Business Model Innovation</li>
-                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Product Innovation</li>
-                            </ul>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-auto inline-block">Explore Domain <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                    
-                     <!-- Layer 2: Ecosystem & Platform Strategy -->
-                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-blue-100 p-3 rounded-lg text-blue-600 mr-4">
-                                <i class="fas fa-network-wired fa-lg"></i>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-800">4. Ecosystem & Platform Strategy</h3>
-                        </div>
-                        <p class="text-slate-600 mb-4 text-sm min-h-[60px]">A strategic approach where organizations create value by orchestrating a network of partners, platforms, and complementary services.</p>
-                        
-                        <div class="bg-slate-50 p-3 rounded text-sm mb-4">
-                            <ul class="space-y-2">
-                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Platform Business Models</li>
-                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Ecosystem Leadership</li>
-                                <li class="text-slate-500"><i class="fas fa-chevron-right text-xs mr-2"></i>Network Effects</li>
-                            </ul>
-                        </div>
-                        <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-semibold mt-auto inline-block">Explore Domain <i class="fas fa-arrow-right ml-1"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-white px-8 py-4 border-t border-slate-200 flex justify-between items-center">
-                <a href="index.html" class="text-blue-600 hover:text-blue-800 font-medium text-sm flex items-center">
-                    <i class="fas fa-home mr-2"></i> Back to Map (Root)
-                </a>
-            </div>
-        </main>
+    <hr style="border:none; border-top:1px solid var(--nav-border); margin:24px 0;">
+
+    <h2>Strategic Domains (Layer 2)</h2>
+    <p>Strategic Management is divided into four key thematic domains:</p>
+
+    <h3>1. Strategic Planning & Direction</h3>
+    <p>The process of defining organizational vision, mission, and roadmap. Establishes the foundation for all subsequent strategic choices.</p>
+    <p><a href="strategic-planning-direction.html">View Planning & Direction Guide →</a></p>
+
+    <h3>2. Competitive Advantage</h3>
+    <p>Focuses on unique attributes and capabilities (Resource-Based View), market positioning, and the balance between exploitation and exploration.</p>
+
+    <h3>3. Business Model & Innovation</h3>
+    <p>The architecture of value. Explores new ways to generate revenue and serve customers in evolving healthcare ecosystems.</p>
+
+    <h3>4. Ecosystem & Platform Strategy</h3>
+    <p>Orchestrating a network of partners and platform services to enable network effects and multi-sided markets.</p>
+
+    <hr style="border:none; border-top:1px solid var(--nav-border); margin:24px 0;">
+
+    <h2>Research Foundation</h2>
+    <p>This framework is grounded in established academic theory:</p>
+    <ul>
+      <li><strong>Hitt, Ireland, & Hoskisson (2016)</strong>: <em>Strategic Management: Competitiveness and Globalization</em>.</li>
+      <li><strong>Michael Porter (1985)</strong>: <em>Competitive Advantage</em>.</li>
+      <li><strong>Mintzberg (1998)</strong>: <em>Strategy Safari</em>.</li>
+    </ul>
+
+    <div class="alert alert-tip">
+      <strong>Note:</strong> Effective strategic management requires a balance between <strong>Formulation</strong> (planning) and <strong>Implementation</strong> (execution excellence).
     </div>
+  </div>
+</div>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+  }
+
+  const content = document.getElementById('content');
+  const nodes = Array.from(content.childNodes);
+  const fragment = document.createDocumentFragment();
+  let sections = [];
+  let cur = null;
+
+  nodes.forEach(node => {
+    if (node.nodeType !== 1) return;
+    if (node.tagName === 'H1') { fragment.appendChild(node); return; }
+    if (node.tagName === 'H2') {
+      cur = { heading: node, children: [] };
+      sections.push(cur);
+    } else if (cur) {
+      cur.children.push(node);
+    } else {
+      fragment.appendChild(node);
+    }
+  });
+
+  sections.forEach(sec => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'section';
+    const btn = document.createElement('button');
+    btn.className = 'section-toggle open';
+    btn.innerHTML = '<span class="arrow">&#9658;</span>' + sec.heading.innerHTML;
+    const body = document.createElement('div');
+    body.className = 'section-body open';
+    sec.children.forEach(c => body.appendChild(c));
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('open');
+      body.classList.toggle('open');
+    });
+    wrapper.appendChild(btn);
+    wrapper.appendChild(body);
+    fragment.appendChild(wrapper);
+  });
+
+  content.innerHTML = '';
+  content.appendChild(fragment);
+
+  let allCollapsed = false;
+  const toggleBtn = document.getElementById('toggleAll');
+  toggleBtn.addEventListener('click', function() {
+    allCollapsed = !allCollapsed;
+    document.querySelectorAll('.section-toggle').forEach(btn => {
+      const b = btn.nextElementSibling;
+      if (allCollapsed) {
+        btn.classList.remove('open');
+        b.classList.remove('open');
+      } else {
+        btn.classList.add('open');
+        b.classList.add('open');
+      }
+    });
+    this.textContent = allCollapsed ? 'Expand All' : 'Collapse All';
+  });
+});
+</script>
 </body>
 </html>
