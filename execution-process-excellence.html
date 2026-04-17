@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Execution & Process Excellence Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --bg: #f9f9f8;
+    --text: #222;
+    --nav-border: #eee;
+    --section-border: #e5e5e5;
+    --h1: #111;
+    --h-sub: #444;
+    --p: #333;
+    --code-bg: #f0f0f0;
+    --pre-bg: #f5f5f5;
+    --table-th: #f0f0f0;
+    --link: #2563eb;
+  }
+
+  body.dark-mode {
+    --bg: #0f172a;
+    --text: #f1f5f9;
+    --nav-border: #1e293b;
+    --section-border: #1e293b;
+    --h1: #f8fafc;
+    --h-sub: #cbd5e1;
+    --p: #94a3b8;
+    --code-bg: #1e293b;
+    --pre-bg: #1e293b;
+    --table-th: #1e293b;
+    --link: #60a5fa;
+  }
+
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; transition: background 0.3s, color 0.3s; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+  nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid var(--nav-border); padding-bottom: 20px; }
+  nav a { color: var(--link); text-decoration: none; font-size: 13px; font-weight: 600; }
+  nav a:hover { text-decoration: underline; }
+  #toggleAll { background: none; border: 1px solid #ddd; border-radius: 4px; padding: 4px 10px; font-size: 12px; cursor: pointer; color: #666; }
+  #toggleAll:hover { background: #f0f0f0; }
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; color: var(--h1); }
+  .section { border-bottom: 1px solid var(--section-border); }
+  .section-toggle {
+    width: 100%; background: none; border: none; text-align: left;
+    padding: 14px 0; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    font-family: inherit; font-size: 1rem; font-weight: 600; color: var(--h1);
+  }
+  .section-toggle:hover { background: rgba(0,0,0,0.02); color: var(--link); }
+  .dark-mode .section-toggle:hover { background: rgba(255,255,255,0.02); }
+  .section-toggle .arrow { font-size: 10px; color: #999; transition: transform 0.2s; display: inline-block; }
+  .section-toggle.open .arrow { transform: rotate(90deg); }
+  .section-body { padding: 0 0 16px 20px; display: none; }
+  .section-body.open { display: block; border-left: 2px solid var(--nav-border); }
+  h2 { font-size: 1.1rem; font-weight: 700; color: var(--h1); }
+  h3 { font-size: 0.95rem; font-weight: 700; color: var(--h-sub); margin: 20px 0 8px; }
+  h4 { font-size: 0.9rem; font-weight: 700; color: var(--h-sub); margin: 16px 0 6px; }
+  p { margin: 8px 0 12px; color: var(--p); }
+  ul, ol { margin: 8px 0 12px 24px; }
+  li { margin: 4px 0; }
+  hr { border: none; border-top: 1px solid var(--nav-border); margin: 24px 0; }
+  code { background: var(--code-bg); padding: 2px 4px; border-radius: 3px; font-size: 0.85em; font-family: monospace; }
+  pre { background: var(--pre-bg); border: 1px solid var(--nav-border); border-radius: 4px; padding: 14px; overflow-x: auto; margin: 14px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.9em; }
+  th { background: var(--table-th); font-weight: 600; padding: 8px 12px; border: 1px solid var(--nav-border); text-align: left; }
+  td { padding: 8px 12px; border: 1px solid var(--nav-border); vertical-align: top; }
+  .alert { padding: 12px; border-radius: 4px; margin: 12px 0; font-size: 0.9em; }
+  .alert-tip { background: #e0f2fe; color: #0369a1; border-left: 4px solid #0ea5e9; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a href="index.html">← Back to Dashboard</a>
+    <button id="toggleAll">Collapse All</button>
+  </nav>
+  <div id="content">
+    <h1>EXECUTION & PROCESS EXCELLENCE</h1>
+    
+    <h2>What It Is</h2>
+    <p>Execution and Process Excellence is the organizational capability to translate strategic intent into operational reality through systematic methodologies. It is the layer that ensures high-level strategy isn't lost in the "Execution Gap."</p>
+    <p><strong>Why It Matters:</strong></p>
+    <ul>
+      <li><strong>Consistency</strong>: Reduces variability in healthcare outcomes and service delivery.</li>
+      <li><strong>Efficiency</strong>: Minimizes waste (Lean) and maximizes flow (Agile).</li>
+      <li><strong>Adaptability</strong>: Enables the organization to pivot quickly based on market feedback.</li>
+      <li><strong>Quality</strong>: Embeds standards that prevent errors before they reach the patient.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Key Dimensions</h2>
+    <table>
+      <thead>
+        <tr><th>Dimension</th><th>Meaning</th><th>Focus Area</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Methodology</td><td>Systematic way of working</td><td>Lean, Agile, Scrum</td></tr>
+        <tr><td>Optimization</td><td>Improving current state</td><td>Kaizen, VSM, Benchmarking</td></tr>
+        <tr><td>Standardization</td><td>Reducing variability</td><td>SOPs, Compliance, Governance</td></tr>
+        <tr><td>Measurement</td><td>Tracking progress</td><td>KPIs, OKRs, Throughput</td></tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Research Foundation</h2>
+    <ul>
+      <li><strong>Womack & Jones (1996)</strong>: <em>Lean Thinking</em> – The foundation of waste elimination.</li>
+      <li><strong>Schwaber & Beedle (2002)</strong>: <em>Agile Software Development with Scrum</em> – Iterative delivery.</li>
+      <li><strong>Larry Bossidy & Ram Charan</strong>: <em>Execution: The Discipline of Getting Things Done</em>.</li>
+      <li><strong>Taiichi Ohno</strong>: <em>Toyota Production System</em> – The origin of high-excellence operations.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Core Hub: The Execution Layer</h2>
+    <p>This domain orchestrates several specialized sub-disciplines that enable organizational success:</p>
+    
+    <h3>1. Lean Management</h3>
+    <p>Focused on maximum value and zero waste. It uses tools like <strong>Value Stream Mapping (VSM)</strong> to visualize flow and <strong>Kaizen</strong> for continuous improvement.</p>
+    <p><a href="lean-management.html">View Lean Management Guide →</a></p>
+
+    <h3>2. Agile & Iterative Delivery</h3>
+    <p>Focused on speed, flexibility, and feedback. It uses the <strong>Scrum Framework</strong> to manage complex work through sprints and standups.</p>
+    <p><em>(Related concepts: Sprint Planning, Retrospectives, Feedback Loops)</em></p>
+
+    <h3>3. Process Optimization</h3>
+    <p>The tactical heart of operations. It addresses <strong>Standardization & SOPs</strong>, <strong>Performance Metrics</strong>, and <strong>Quality Management</strong>.</p>
+    <p><a href="incident-management.html">View Incident Management (Optimization Example) →</a></p>
+
+    <hr>
+
+    <h2>The "Execution Gap"</h2>
+    <p>Many organizations fail not because of bad strategy, but because they lack the "Execution Muscle." Execution Excellence bridges this by:</p>
+    <ul>
+      <li><strong>Linking Sprints to Strategy</strong>: Ensuring every team action supports a higher-level goal.</li>
+      <li><strong>Standardizing Success</strong>: When a team finds a better way (Kaizen), it becomes the new standard (SOP).</li>
+      <li><strong>Measuring Cowing</strong>: Not just measuring outputs, but measuring the health of the system.</li>
+    </ul>
+
+    <div class="alert alert-tip">
+      <strong>Pro Tip:</strong> Execution is a discipline, not an event. It requires regular rhythm (Rituals), clear owners (Accountability), and honest reviews (Psychological Safety).
+    </div>
+
+    <hr>
+
+    <h2>Quick Summary</h2>
+    <table>
+      <thead>
+        <tr><th>Aspect</th><th>Key Point</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Primary Goal</strong></td><td>Convert strategy into results with maximum efficiency.</td></tr>
+        <tr><td><strong>Key Tools</strong></td><td>Lean, Agile, Kaizen, Standardization.</td></tr>
+        <tr><td><strong>Relationship</strong></td><td>Enables Strategic Management; powered by Organizational Learning.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+  }
+
+  const content = document.getElementById('content');
+  const nodes = Array.from(content.childNodes);
+  const fragment = document.createDocumentFragment();
+  let sections = [];
+  let cur = null;
+
+  nodes.forEach(node => {
+    if (node.nodeType !== 1) return;
+    if (node.tagName === 'H1') { fragment.appendChild(node); return; }
+    if (node.tagName === 'H2') {
+      cur = { heading: node, children: [] };
+      sections.push(cur);
+    } else if (cur) {
+      if (node.tagName !== 'HR') cur.children.push(node);
+    } else if (node.tagName !== 'HR') {
+      fragment.appendChild(node);
+    }
+  });
+
+  sections.forEach(sec => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'section';
+    
+    const btn = document.createElement('button');
+    btn.className = 'section-toggle open';
+    btn.innerHTML = '<span class="arrow">&#9658;</span>' + sec.heading.innerHTML;
+    
+    const body = document.createElement('div');
+    body.className = 'section-body open';
+    sec.children.forEach(c => body.appendChild(c));
+    
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('open');
+      body.classList.toggle('open');
+    });
+    
+    wrapper.appendChild(btn);
+    wrapper.appendChild(body);
+    fragment.appendChild(wrapper);
+  });
+
+  content.innerHTML = '';
+  content.appendChild(fragment);
+
+  let allCollapsed = false;
+  const toggleBtn = document.getElementById('toggleAll');
+  toggleBtn.addEventListener('click', function() {
+    allCollapsed = !allCollapsed;
+    document.querySelectorAll('.section-toggle').forEach(btn => {
+      const b = btn.nextElementSibling;
+      if (allCollapsed) {
+        btn.classList.remove('open');
+        b.classList.remove('open');
+      } else {
+        btn.classList.add('open');
+        b.classList.add('open');
+      }
+    });
+    this.textContent = allCollapsed ? 'Expand All' : 'Collapse All';
+  });
+});
+</script>
+</body>
+</html>
