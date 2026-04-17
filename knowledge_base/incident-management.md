@@ -10,6 +10,7 @@ Incident Management is a structured process for detecting, responding to, and le
 - **Root causes prevent recurrence**: Understanding "why" reduces future incidents
 - **Learning embeds knowledge**: Post-incident reviews build organizational resilience
 - **Trust matters**: Transparent processes build psychological safety in incident response
+- **Incident vs. Issue**: An **Incident** is an unplanned disruption to a service (e.g., website down). An **Issue** (or Problem in ITIL) is the underlying cause that requires long-term resolution (e.g., insufficient memory). An **Issue** can also refer to a tracking ticket for a bug that isn't yet causing a service disruption.
 
 ---
 
@@ -63,6 +64,21 @@ Erik Hollnagel distinguishes between **Safety-I** (preventing things from going 
 ### 4. Normalization of Deviance
 Coined by Diane Vaughan (studying the Challenger disaster), this describes how small deviations from standard operating procedures (SOPs) become the "new normal" until a tipping point is reached.
 - **The Warning**: Incidents are often the result of long-term erosion of safety margins, not a single point-of-failure.
+
+---
+
+## IT Service Management (ITSM) & ITIL
+
+Modern incident management often borrows from established enterprise frameworks:
+
+- **ITSM (IT Service Management)**: The overarching discipline of designing, delivering, managing, and improving the way IT is used within an organization. It focuses on aligninig IT services with business needs.
+- **ITIL (Information Technology Infrastructure Library)**: A specific, widely-adopted set of best practices for ITSM.
+    - **Incident Management in ITIL**: Focuses on restoring service as quickly as possible.
+    - **Problem Management in ITIL**: Focuses on identifying and removing the root cause to prevent future incidents.
+    - **Change Management in ITIL**: Ensures that changes to the system are handled efficiently and safely to avoid creating new incidents.
+
+> [!TIP]
+> While DevOps and SRE focus on automation and speed, ITIL provides a structured language for service ownership and lifecycle management that is valuable in large organizations.
 
 ---
 
@@ -149,113 +165,30 @@ Formal process + clear roles + psychological safety = faster response + better l
 
 ## Do's & Don'ts (Combined Format)
 
-### DO 1: Activate a Single Incident Commander Immediately
-**What:** One person coordinates all response activities (not a consensus-based discussion)
-**Why:** Reduces decision paralysis, prevents duplicated work, maintains clear authority chain
-**Example:** 
-- ✅ **Good**: "Sarah is incident commander. Engineering, start diagnostics. Product, prepare customer communication. Finance, estimate impact."
-- ❌ **Bad**: "Everyone jump in. Who knows what's happening? Let's discuss options." (30 minutes pass, no decision made)
+### Recommended Practices (DO)
 
----
+| Action | Why & Example |
+|---|---|
+| **1. Activate a Single Incident Commander Immediately** | **Why**: Reduces decision paralysis, prevents duplicated work, maintaining clear authority. <br> ✅ **Good**: "Sarah is incident commander. Engineering, start diagnostics." <br> ❌ **Bad**: "Everyone jump in. Let's discuss options." |
+| **2. Establish Clear Communication Channels (War Room)** | **Why**: Prevents information silos, ensures everyone sees decisions, reduces repeated questions. <br> ✅ **Good**: War room bridge line with all stakeholders; live Slack updates. <br> ❌ **Bad**: Side conversations between PMs/Execs siphoning information. |
+| **3. Notify Customers Early** | **Why**: Reduces panic, builds trust, gives customers action items if needed. <br> ✅ **Good**: "We detected an issue at 2:15 PM. Estimated update in 15 minutes." <br> ❌ **Bad**: Silence for 30 minutes; customers assume the worst. |
+| **4. Separate Investigation From Resolution** | **Why**: Faster recovery; resolution time stays independent of deep root cause learning. <br> ✅ **Good**: Ops team rolls back deployment (5 min fix) while SRE team investigates. <br> ❌ **Bad**: Wait for full root cause analysis before rolling back. |
+| **5. Document Timeline During Incident** | **Why**: Prevents false memories, speeds postmortem, creates accurate record for learning. <br> ✅ **Good**: Dedicated scribe in war room log events in real-time. <br> ❌ **Bad**: Recreate timeline from memory days later. |
+| **6. Conduct Blameless Postmortems Within 48 Hours** | **Why**: Fresh memories, captures learning while clear, builds psychological safety. <br> ✅ **Good**: "Test coverage was insufficient. We'll add tests. No blame for the author." <br> ❌ **Bad**: "John deployed bad code. John is an idiot." |
 
-### DO 2: Establish Clear Communication Channels (War Room)
-**What:** All responders in one channel (Slack, conference bridge, war room); no side conversations about incident
-**Why:** Prevents information silos, ensures everyone sees decisions, reduces repeated questions
-**Example:**
-- ✅ **Good**: War room bridge line with all stakeholders; Slack channel with live updates; everyone sees timeline
-- ❌ **Bad**: PMs discussing with execs separately, engineers discussing with ops separately; conflicting information spreads
+### Practices to Avoid (DON'T)
 
----
-
-### DO 3: Notify Customers Early, Even With Partial Information
-**What:** Communicate status, impact, and **ETA** within first 5 minutes; update every 15 minutes
-**Why:** Reduces panic, prevents rumor mill, builds trust, gives customers action items if needed
-**Example:**
-- ✅ **Good**: "We detected an issue at 2:15 PM affecting login for 15% of users. Engineers are investigating. Estimated update in 15 minutes."
-- ❌ **Bad**: Complete silence for 30 minutes; customers assume it's much worse
-
----
-
-### DO 4: Separate Investigation From Resolution
-**What:** Parallel workflows: one team investigates **root cause**; one team fixes and restores service
-**Why:** **Faster recovery** (don't wait for root cause understanding); resolution time independent of learning
-**Example:**
-- ✅ **Good**: Ops team rolls back deployment (5 min). **SRE** team investigates what went wrong (45 min investigation, separate from fix)
-- ❌ **Bad**: Wait for full root cause analysis before rolling back (service is down for 45 minutes)
-
----
-
-### DO 5: Document Timeline During Incident, Not After
-**What:** Real-time log: "2:15 PM - Alert fired", "2:18 PM - **War room** activated", "2:22 PM - Rollback started"
-**Why:** Prevents false memories, speeds postmortem, creates accurate record for learning
-**Example:**
-- ✅ **Good**: Dedicated **scribe** in war room adds events to timeline in real-time
-- ❌ **Bad**: Try to recreate timeline from memory days later ("I think it was around 2:20?")
-
----
-
-### DO 6: Conduct Blameless Postmortems Within 48 Hours
-**What:** Review what happened, why systems/processes/decisions led to incident, what we'll change
-**Why:** Fresh memories, captures learning while details are clear, builds psychological safety
-**Example:**
-- ✅ **Good**: "The code passed tests because test coverage was insufficient. We'll add tests for this scenario. No blame for whoever wrote the code."
-- ❌ **Bad**: "John deployed bad code. John is an idiot." (John hides future incidents instead of reporting them)
-
----
-
-### DON'T 1: Wait for Perfect Information Before Acting
-**What:** Don't delay response waiting for complete root cause analysis
-**Why:** Business impact compounds every minute; temporary fix + investigation faster than perfect fix after analysis
-**Example:**
-- ✅ **Good**: Symptoms point to database; roll back latest change (2 min fix) while investigating DB queries
-- ❌ **Bad**: "We can't fix anything until we know exactly what's wrong." (Service down for 1 hour while investigating)
-
----
-
-### DON'T 2: Focus on Who Made the Mistake Instead of What Failed
-**What:** Don't ask "who deployed this?" or "who wrote this code?"; ask "what systems allowed this to happen?"
-**Why:** Blame culture hides incidents, prevents learning, reduces future reporting, damages trust
-**Example:**
-- ✅ **Good**: "Deploys are manual, which allows mistakes. We'll automate deployment process."
-- ❌ **Bad**: "Sarah made a typo in config. We should fire Sarah or reduce her access." (People get scared, hide incidents)
-
----
-
-### DON'T 3: Assume Single Root Cause
-**What:** Don't stop at "database was slow"; dig for why database was slow, why alerts missed it, why backup wasn't available
-**Why:** Single root causes are rare; multiple contributing factors prevent recurrence better than patching one thing
-**Example:**
-- ✅ **Good**: "Root causes: (1) Query plan changed due to schema modification, (2) Monitoring didn't alert on slow queries, (3) Read replicas were misconfigured"
-- ❌ **Bad**: "Root cause: Query was slow. We'll rewrite the query." (Doesn't address monitoring gap or replica misconfiguration)
-
----
-
-### DON'T 4: Close Postmortem Without Action Items and Owners
-**What:** Don't say "we'll improve monitoring" without assigning to someone with a deadline
-**Why:** Action items without owners disappear; improvements don't get implemented; same incident recurs
-**Example:**
-- ✅ **Good**: "Alex will implement query-performance alerts by Friday. Sarah will add test coverage by next Wednesday."
-- ❌ **Bad**: "We should improve monitoring someday." (Never happens)
-
----
-
-### DON'T 5: Keep Postmortems Internal
-**What:** Don't restrict postmortems to incident responders; share broadly with engineering, ops, product, leadership
-**Why:** Organization learns from the incident, same mistakes prevented across multiple teams, transparency builds trust
-**Example:**
-- ✅ **Good**: Share postmortem in Slack. Discuss in weekly engineering all-hands. Add lessons to runbook library.
-- ❌ **Bad**: Postmortem stays in small email. Most of org never learns the lesson.
-
----
-
-### DON'T 6: Confuse Incident Severity With Blame Intensity
-**What:** Don't blame people more if incident was severity-1 (major) vs. severity-3 (minor)
-**Why:** Blame discourages honesty; high-severity incidents often have obvious contributing factors that should have been caught by systems/process
-**Example:**
-- ✅ **Good**: Severity-1 incident review asks "what systems failed?" with same blameless approach as severity-3
-- ❌ **Bad**: "This was critical. Someone's head will roll." (Creates fear, prevents learning)
-
----
+| Action | Why & Example |
+|---|---|
+| **1. Wait for Perfect Information Before Acting** | **Why**: Business impact compounds every minute; temporary fix + investigation is faster. <br> ✅ **Good**: Roll back latest change (2 min fix) while investigating queries. <br> ❌ **Bad**: "We can't fix anything until we know exactly what's wrong." |
+| **2. Focus on Who Made the Mistake** | **Why**: Blame culture hides incidents, prevents learning, and damages trust. <br> ✅ **Good**: "Deploys are manual. We'll automate the process." <br> ❌ **Bad**: "Sarah made a typo. We should fire or restrict her access." |
+| **3. Assume Single Root Cause** | **Why**: Multiple contributing factors exist; patching one thing rarely prevents recurrence. <br> ✅ **Good**: Identifying query change + monitoring gap + replica misconfig. <br> ❌ **Bad**: "Root cause: Query was slow. We'll rewrite the query." |
+| **4. Close Postmortem Without Action Items** | **Why**: Action items without owners disappear; improvements slip; same incident recurs. <br> ✅ **Good**: "Alex will implement alerts by Friday. Sarah will add tests by next Wed." <br> ❌ **Bad**: "We should improve monitoring someday." |
+| **5. Keep Postmortems Internal** | **Why**: Organization learns from the incident; same mistakes prevented across multiple teams. <br> ✅ **Good**: Share postmortem in Slack; discuss in engineering all-hands. <br> ❌ **Bad**: Postmortem stays in a closed email thread. |
+| **6. Confuse Severity With Blame** | **Why**: Blame discourages honesty; high-severity incidents often reveal systemic gaps. <br> ✅ **Good**: Severity-1 review asks "what system failed?" with same blamelessness. <br> ❌ **Bad**: "This was critical. Someone's head will roll." |
+| **7. Ignore "Near-Misses"** | **Why**: Free lessons; reveal systemic weaknesses without the cost of a full outage. <br> ✅ **Good**: "Primary DB failed, secondary took over. Investigate why primary failed." <br> ❌ **Bad**: "No one noticed, so it doesn't matter." |
+| **8. Communicate in Siloes** | **Why**: Leads to conflicting customer communications and executive panic. <br> ✅ **Good**: Shared status page or automated Slack updates for all stakeholders. <br> ❌ **Bad**: Engineers fixing issue while Support tells customers "everything is fine." |
+| **9. Skip Postmortem for "Simple" Fixes** | **Why**: "Simple" fixes often mask complex underlying issues that will recur. <br> ✅ **Good**: "We restarted the server, but we'll review why it ran out of memory." <br> ❌ **Bad**: "Just restart it and move on. It happens." |
 
 ## Incident Response Severity & Escalation
 

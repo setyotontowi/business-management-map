@@ -73,6 +73,8 @@
   table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.9em; }
   th { background: var(--table-th); font-weight: 600; padding: 8px 12px; border: 1px solid var(--nav-border); text-align: left; }
   td { padding: 8px 12px; border: 1px solid var(--nav-border); vertical-align: top; }
+  .alert { padding: 12px; border-radius: 4px; margin: 12px 0; font-size: 0.9em; }
+  .alert-tip { background: #e0f2fe; color: #0369a1; border-left: 4px solid #0ea5e9; }
 </style>
 </head>
 <body>
@@ -92,7 +94,8 @@
       <li><strong>Communication prevents confusion</strong>: Clear roles eliminate blame and finger-pointing</li>
       <li><strong>Root causes prevent recurrence</strong>: Understanding "why" reduces future incidents</li>
       <li><strong>Learning embeds knowledge</strong>: Post-incident reviews build organizational resilience</li>
-      <li><strong>Trust matters</strong>: Transparent processes build psychological safety in incident response</li>
+      <li><strong>Trust matters</strong>: Transparent processes build psychological safety</li>
+      <li><strong>Incident vs. Issue</strong>: An <strong>Incident</strong> is an unplanned disruption to a service (e.g., website down). An <strong>Issue</strong> is the underlying cause (e.g., memory leak) or a tracking ticket for a bug that isn't yet causing a disruption.</li>
     </ul>
 
     <hr>
@@ -119,133 +122,225 @@
       <li><strong>John Allspaw & Tom Limoncelli</strong>: "<strong>Blameless postmortems</strong>" and learning culture (pioneered by Google)</li>
       <li><strong>Gene Kim, Jez Humble</strong>: <em>The DevOps Handbook</em> - incident response as organizational capability</li>
       <li><strong>Etsy</strong>: <strong>Blameless postmortem</strong> culture, reducing <strong>mean time to recovery (MTTR)</strong></li>
-      <li><strong>Karl Weick & Kathleen Sutcliffe</strong>: <strong>High Reliability Organizations (HRO)</strong> - Managing the unexpected in high-stakes environments.</li>
-      <li><strong>Erik Hollnagel</strong>: <strong>Resilience Engineering</strong> and <strong>Safety-II</strong> - focusing on how systems succeed, not just how they fail.</li>
-      <li><strong>Dave Snowden</strong>: <strong>Cynefin Framework</strong> - situational awareness for decision-making in complexity.</li>
-      <li><strong>Diane Vaughan</strong>: <strong>Normalization of Deviance</strong> - why organizations gradually accept lower standards until disaster strikes.</li>
+      <li><strong>Karl Weick & Kathleen Sutcliffe</strong>: <strong>High Reliability Organizations (HRO)</strong> - Managing the unexpected.</li>
+      <li><strong>Erik Hollnagel</strong>: <strong>Resilience Engineering</strong> and <strong>Safety-II</strong> - how systems succeed.</li>
+      <li><strong>Dave Snowden</strong>: <strong>Cynefin Framework</strong> - situational awareness for complexity.</li>
+      <li><strong>Diane Vaughan</strong>: <strong>Normalization of Deviance</strong> - why safety margins erode.</li>
     </ul>
 
     <hr>
 
     <h2>Academic Frameworks</h2>
     <h3>1. The Cynefin Framework (Decision Support)</h3>
-    <p>Developed by Dave Snowden, this framework helps responders identify the "domain" of an incident to choose the right strategy:</p>
+    <p>Developed by Dave Snowden, this framework helps responders identify the "domain" of an incident:</p>
     <ul>
-      <li><strong>Chaotic Domain</strong>: (Major Outage) No clear cause-effect. <strong>Act → Sense → Respond</strong>. Establish order first (Incident Commander).</li>
-      <li><strong>Complex Domain</strong>: (Intermittent Bug) Cause-effect only visible in retrospect. <strong>Probe → Sense → Respond</strong>. Safe-to-fail experiments.</li>
-      <li><strong>Complicated Domain</strong>: (Performance Issues) Requires expertise. <strong>Sense → Analyze → Respond</strong>. Use specialists.</li>
+      <li><strong>Chaotic</strong>: (Major Outage) **Act → Sense → Respond**. Establish order first.</li>
+      <li><strong>Complex</strong>: (Intermittent Bug) **Probe → Sense → Respond**. Safe-to-fail experiments.</li>
+      <li><strong>Complicated</strong>: (Performance Issues) **Sense → Analyze → Respond**. Use specialists.</li>
     </ul>
 
     <h3>2. High Reliability Organizations (HRO) Principles</h3>
-    <p>Weick & Sutcliffe identified 5 principles that allow organizations to manage complex systems with very few accidents:</p>
+    <p>Weick & Sutcliffe's 5 principles for managing complex systems:</p>
     <ol>
-      <li><strong>Preoccupation with Failure</strong>: Treating near-misses as data points for potential systemic collapse.</li>
-      <li><strong>Reluctance to Simplify</strong>: Resisting simple explanations for complex failures (avoiding "human error" as root cause).</li>
-      <li><strong>Sensitivity to Operations</strong>: Maintaining a high level of situational awareness on the front lines.</li>
-      <li><strong>Commitment to Resilience</strong>: Developing capabilities to detect, contain, and bounce back from errors.</li>
-      <li><strong>Deference to Expertise</strong>: During an incident, authority shifts to those with the most relevant knowledge, not the highest rank.</li>
+      <li><strong>Preoccupation with Failure</strong>: Treating near-misses as data points for collapse.</li>
+      <li><strong>Reluctance to Simplify</strong>: Resisting simple explanations for complex failures.</li>
+      <li><strong>Sensitivity to Operations</strong>: High level of situational awareness on the front lines.</li>
+      <li><strong>Commitment to Resilience</strong>: Developing capabilities to contain and bounce back.</li>
+      <li><strong>Deference to Expertise</strong>: Authority shifts to those with relevant knowledge.</li>
     </ol>
 
     <h3>3. Resilience Engineering (Safety-II)</h3>
-    <p>Erik Hollnagel distinguishes between <strong>Safety-I</strong> (preventing things from going wrong) and <strong>Safety-II</strong> (understanding how things normally go right).</p>
-    <ul>
-      <li><strong>Graceful Extensibility</strong>: The ability of a system to stretch its performance under pressure.</li>
-      <li><strong>Sustaining Adaptability</strong>: Ensuring the organization has the "margin" to handle the unexpected.</li>
-      <li><strong>Local Rationality</strong>: Understanding that people make decisions that make sense to them at the time, given their context and goals.</li>
-    </ul>
+    <p>Focuses on how systems normally go right. Includes <strong>Graceful Extensibility</strong>, <strong>Sustaining Adaptability</strong>, and <strong>Local Rationality</strong>.</p>
 
     <h3>4. Normalization of Deviance</h3>
-    <p>Coined by Diane Vaughan (studying the Challenger disaster), this describes how small deviations from standard operating procedures (SOPs) become the "new normal" until a tipping point is reached.</p>
+    <p>Describes how small deviations from SOPs become the "new normal" until a tipping point is reached.</p>
+
+    <hr>
+
+    <h2>ITSM & ITIL Overview</h2>
+    <p>Modern incident management often borrows from these enterprise frameworks:</p>
     <ul>
-      <li><strong>The Warning</strong>: Incidents are often the result of long-term erosion of safety margins, not a single point-of-failure.</li>
+      <li><strong>ITSM (IT Service Management)</strong>: The overarching discipline of aligning IT services with business needs.</li>
+      <li><strong>ITIL (Information Technology Infrastructure Library)</strong>: A specific set of best practices.
+        <ul>
+          <li><strong>Incident Management</strong>: Restoration of service as quickly as possible.</li>
+          <li><strong>Problem Management</strong>: Identifying and removing root causes.</li>
+          <li><strong>Change Management</strong>: Handling system changes safely.</li>
+        </ul>
+      </li>
     </ul>
+    <div class="alert alert-tip">
+      <strong>Tip:</strong> While DevOps focuses on speed, ITIL provides a structured language for service ownership.
+    </div>
 
     <hr>
 
     <h2>Core Framework: 5 Phases</h2>
-    <h4>Phase 1: Incident Detection & Alerting</h4>
-    <ul>
-      <li>Proactive monitoring (metrics, logs, synthetic tests)</li>
-      <li>Customer reports as early warning</li>
-      <li>Clear definition of "incident" vs. "issue"</li>
-      <li><strong>Goal</strong>: Minimize time-to-detection</li>
-    </ul>
-    <h4>Phase 2: Incident Response & <strong>Triage</strong></h4>
-    <ul>
-      <li>Rapid <strong>war room</strong> activation (clear communication channel)</li>
-      <li><strong>Incident commander</strong> (single point of coordination)</li>
-      <li>Stakeholder notification (customers, leadership)</li>
-      <li>Initial assessment (scope, severity, impact)</li>
-      <li><strong>Goal</strong>: Establish order, prevent panic</li>
-    </ul>
-    <h4>Phase 3: Incident Resolution</h4>
-    <ul>
-      <li>Parallel investigation + remediation</li>
-      <li>Clear escalation paths for blocked decisions</li>
-      <li>Temporary fixes vs. permanent fixes (trade-off clarity)</li>
-      <li><strong>Goal</strong>: Return to normal operations as fast as safely possible</li>
-    </ul>
+    <h4>Phase 1: Detection & Alerting</h4>
+    <p>Proactive monitoring and customer reports. <strong>Goal</strong>: Minimize time-to-detection.</p>
+    <h4>Phase 2: Response & Triage</h4>
+    <p>War room activation and Incident Commander role. <strong>Goal</strong>: Establish order.</p>
+    <h4>Phase 3: Resolution</h4>
+    <p>Parallel investigation and remediation paths. <strong>Goal</strong>: Return to normal operations.</p>
     <h4>Phase 4: Post-Incident Review</h4>
-    <ul>
-      <li><strong>Blameless analysis</strong> of what happened (not who caused it)</li>
-      <li>Timeline reconstruction (when did each thing happen?)</li>
-      <li><strong>Root cause analysis</strong> (<strong>5 Whys</strong> or similar)</li>
-      <li>Contributing factors (systems, processes, human decisions)</li>
-      <li><strong>Goal</strong>: Understand the full story, not assign blame</li>
-    </ul>
-    <h4>Phase 5: Knowledge Capture & Prevention</h4>
-    <ul>
-      <li>Document findings and action items</li>
-      <li>Implement improvements (monitoring, alerting, process, design)</li>
-      <li>Track remediation (don't let improvements slip)</li>
-      <li>Share learnings across organization</li>
-      <li><strong>Goal</strong>: Reduce probability or severity of recurrence</li>
-    </ul>
-
-    <hr>
-
-    <h2>Case Study 1: Google's SRE Culture</h2>
-    <p><strong>What They Did:</strong></p>
-    <p>Google formalized <strong>Incident Management</strong> as a core discipline (<strong>Site Reliability Engineering</strong> / <strong>SRE</strong>). They invested in monitoring, alerting, and crucially—<strong>blameless postmortems</strong>.</p>
-    <p><strong>Result:</strong></p>
-    <ul>
-      <li><strong>MTTR</strong> reduced from hours to minutes</li>
-      <li>Incident frequency decreased as prevention mechanisms accumulated</li>
-      <li>Teams moved faster because they reported incidents immediately</li>
-    </ul>
-
-    <hr>
-
-    <h2>Case Study 2: Hospital Emergency Response</h2>
-    <p><strong>What They Did:</strong></p>
-    <p>A major hospital adopted the Incident Command System (ICS) from emergency response: one commander, clear roles, parallel workflows, and post-incident reviews.</p>
-    <p><strong>Result:</strong></p>
-    <ul>
-      <li>Response time dropped from 15+ minutes to 3-5 minutes</li>
-      <li>Medication error frequency decreased 40% within 1 year</li>
-    </ul>
+    <p>Blameless analysis and timeline reconstruction. <strong>Goal</strong>: Understand the full story.</p>
+    <h4>Phase 5: Knowledge Capture</h4>
+    <p>Documenting findings and tracking action items. <strong>Goal</strong>: Prevent recurrence.</p>
 
     <hr>
 
     <h2>Do's & Don'ts</h2>
-    <h4>DO 1: Activate a Single Incident Commander Immediately</h4>
-    <p><strong>Why:</strong> Reduces decision paralysis, prevents duplicated work.</p>
-    <h4>DO 2: Establish Clear Communication Channels (War Room)</h4>
-    <p><strong>Why:</strong> Prevents information silos, ensures transparency.</p>
-    <h4>DO 3: Notify Customers Early</h4>
-    <p><strong>Why:</strong> Builds trust, reduces panic.</p>
+    <h3>Recommended Practices (DO)</h3>
+    <table>
+      <thead>
+        <tr><th style="width: 30%;">Action</th><th>Why & Example</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Activate a Single Incident Commander Immediately</strong></td>
+          <td>
+            <strong>Why:</strong> Reduces decision paralysis, prevents duplicated work, maintains clear authority.
+            <p>✅ <em>Good:</em> "Sarah is incident commander. Engineering, start diagnostics."</p>
+            <p>❌ <em>Bad:</em> "Everyone jump in. Let's discuss options."</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>2. Establish Clear Communication Channels (War Room)</strong></td>
+          <td>
+            <strong>Why:</strong> Prevents information silos, ensures everyone sees decisions, reduces repeated questions.
+            <p>✅ <em>Good:</em> War room bridge line with all stakeholders; live Slack updates.</p>
+            <p>❌ <em>Bad:</em> Side conversations between PMs/Execs siphoning information.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>3. Notify Customers Early</strong></td>
+          <td>
+            <strong>Why:</strong> Reduces panic, builds trust, gives customers action items if needed.
+            <p>✅ <em>Good:</em> "We detected an issue at 2:15 PM. Estimated update in 15 minutes."</p>
+            <p>❌ <em>Bad:</em> Silence for 30 minutes; customers assume the worst.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>4. Separate Investigation From Resolution</strong></td>
+          <td>
+            <strong>Why:</strong> Faster recovery; resolution time stays independent of deep root cause learning.
+            <p>✅ <em>Good:</em> Ops team rolls back deployment (5 min fix) while SRE team investigates.</p>
+            <p>❌ <em>Bad:</em> Wait for full root cause analysis before rolling back.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>5. Document Timeline During Incident</strong></td>
+          <td>
+            <strong>Why:</strong> Prevents false memories, speeds postmortem, creates accurate record for learning.
+            <p>✅ <em>Good:</em> Dedicated scribe in war room log events in real-time.</p>
+            <p>❌ <em>Bad:</em> Recreate timeline from memory days later.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>6. Conduct Blameless Postmortems Within 48 Hours</strong></td>
+          <td>
+            <strong>Why:</strong> Fresh memories, captures learning while clear, builds psychological safety.
+            <p>✅ <em>Good:</em> "Test coverage was insufficient. We'll add tests. No blame for the author."</p>
+            <p>❌ <em>Bad:</em> "John deployed bad code. John is an idiot."</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
     <hr>
 
-    <h2>Incident Response Severity & Escalation</h2>
+    <h3>Practices to Avoid (DON'T)</h3>
+    <table>
+      <thead>
+        <tr><th style="width: 30%;">Action</th><th>Why & Example</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1. Wait for Perfect Information Before Acting</strong></td>
+          <td>
+            <strong>Why:</strong> Business impact compounds every minute; temporary fix + investigation is faster.
+            <p>✅ <em>Good:</em> Roll back latest change (2 min fix) while investigating queries.</p>
+            <p>❌ <em>Bad:</em> "Wait until we know exactly what's wrong."</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>2. Focus on Who Made the Mistake</strong></td>
+          <td>
+            <strong>Why:</strong> Blame culture hides incidents, prevents learning, and damages trust.
+            <p>✅ <em>Good:</em> "Deploys are manual. We'll automate the process."</p>
+            <p>❌ <em>Bad:</em> "Sarah made a typo. We should fire or restrict her access."</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>3. Assume Single Root Cause</strong></td>
+          <td>
+            <strong>Why:</strong> Multiple contributing factors exist; patching one thing rarely prevents recurrence.
+            <p>✅ <em>Good:</em> Identifying query change + monitoring gap + replica misconfig.</p>
+            <p>❌ <em>Bad:</em> "Root cause: Query was slow. We'll rewrite the query."</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>4. Close Postmortem Without Action Items</strong></td>
+          <td>
+            <strong>Why:</strong> Action items without owners disappear; improvements slip; same incident recurs.
+            <p>✅ <em>Good:</em> "Alex will implement alerts by Fri. Sarah will add tests by next Wed."</p>
+            <p>❌ <em>Bad:</em> "We should improve monitoring someday."</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>5. Keep Postmortems Internal</strong></td>
+          <td>
+            <strong>Why:</strong> Organization learns from the incident; same mistakes prevented across multiple teams.
+            <p>✅ <em>Good:</em> Share postmortem in Slack; discuss in engineering all-hands.</p>
+            <p>❌ <em>Bad:</em> Postmortem stays in a closed email thread.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>6. Confuse Severity With Blame</strong></td>
+          <td>
+            <strong>Why:</strong> Blame discourages honesty; high-severity incidents often reveal systemic gaps.
+            <p>✅ <em>Good:</em> Severity-1 review asks "what system failed?" with same blamelessness.</p>
+            <p>❌ <em>Bad:</em> "This was critical. Someone's head will roll."</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>7. Ignore "Near-Misses"</strong></td>
+          <td>
+            <strong>Why:</strong> Free lessons; reveal systemic weaknesses without the cost of a full outage.
+            <p>✅ <em>Good:</em> "Primary DB failed, secondary took over. Investigate why primary failed."</p>
+            <p>❌ <em>Bad:</em> "No one noticed, so it doesn't matter."</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>8. Communicate in Siloes</strong></td>
+          <td>
+            <strong>Why:</strong> Leads to conflicting customer communications and executive panic.
+            <p>✅ <em>Good:</em> Shared status page or automated Slack updates for all stakeholders.</p>
+            <p>❌ <em>Bad:</em> Engineers fixing issue while Support tells customers "everything is fine."</p>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>9. Skip Postmortem for "Simple" Fixes</strong></td>
+          <td>
+            <strong>Why:</strong> "Simple" fixes often mask complex underlying issues that will recur.
+            <p>✅ <em>Good:</em> "We restarted the server, but we'll review why it ran out of memory."</p>
+            <p>❌ <em>Bad:</em> "Just restart it and move on. It happens."</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Incident Severity Levels</h2>
     <table>
       <thead>
         <tr><th>Severity</th><th>Definition</th><th>Response Time</th><th>Communication</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Severity 1</strong></td><td>Major service outage</td><td>Incident commander + all hands</td><td>Every 15 min</td></tr>
-        <tr><td><strong>Severity 2</strong></td><td>Significant degradation</td><td>Incident commander + on-call</td><td>Every 30 min</td></tr>
-        <tr><td><strong>Severity 3</strong></td><td>Minor issue</td><td>On-call engineer</td><td>Internal update</td></tr>
+        <tr><td><strong>Severity 1</strong></td><td>Major outage</td><td>All hands</td><td>Every 15 min</td></tr>
+        <tr><td><strong>Severity 2</strong></td><td>Significant degradation</td><td>On-call team</td><td>Every 30 min</td></tr>
+        <tr><td><strong>Severity 3</strong></td><td>Minor issue</td><td>On-call engineer</td><td>Internal updates</td></tr>
       </tbody>
     </table>
 
@@ -257,7 +352,6 @@
       <li><strong>Gene Kim, Jez Humble</strong>: <em>The DevOps Handbook</em></li>
       <li><strong>Snowden & Boone (2007)</strong>: "A Leader’s Framework for Decision Making"</li>
       <li><strong>Weick & Sutcliffe (2001)</strong>: <em>Managing the Unexpected</em></li>
-      <li><strong>Hollnagel (2014)</strong>: <em>Safety-I and Safety-II</em></li>
       <li><strong>Vaughan (1996)</strong>: <em>The Challenger Launch Decision</em></li>
     </ul>
 
@@ -284,8 +378,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let sections = [];
   let cur = null;
 
-  // Grouping logic: Anything between H2 tags becomes a section
-  // Except for the first H1 which stays outside
   nodes.forEach(node => {
     if (node.nodeType !== 1) return;
     if (node.tagName === 'H1') {
@@ -296,8 +388,6 @@ document.addEventListener('DOMContentLoaded', () => {
       cur = { heading: node, children: [] };
       sections.push(cur);
     } else if (cur) {
-      // If it's an HR, don't include it in children if it's the last element
-      // But actually, we want the HRs to be markers, or just ignore them inside sections
       if (node.tagName !== 'HR') {
         cur.children.push(node);
       }
