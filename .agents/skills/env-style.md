@@ -113,6 +113,11 @@ Every knowledge page follows this shell:
 - Internal links use relative paths: `href="index.html"`, `href="incident-management.html"`.
 - `index.html` is the central navigation hub (tree map).
 
+### Do and Don'ts
+- DO create html content with exact same content with md files
+- DON'T reduce or remove content in html from content md files
+
+
 ---
 
 ## Section-Toggle JS Pattern

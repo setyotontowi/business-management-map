@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Strategy: Quick Reference Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  :root {
+    --bg: #f9f9f8;
+    --text: #222;
+    --nav-border: #eee;
+    --section-border: #e5e5e5;
+    --h1: #111;
+    --h-sub: #444;
+    --p: #333;
+    --code-bg: #f0f0f0;
+    --pre-bg: #f5f5f5;
+    --table-th: #f0f0f0;
+    --link: #2563eb;
+    --success: #16a34a;
+    --error: #dc2626;
+  }
+
+  body.dark-mode {
+    --bg: #0f172a;
+    --text: #f1f5f9;
+    --nav-border: #1e293b;
+    --section-border: #1e293b;
+    --h1: #f8fafc;
+    --h-sub: #cbd5e1;
+    --p: #94a3b8;
+    --code-bg: #1e293b;
+    --pre-bg: #1e293b;
+    --table-th: #1e293b;
+    --link: #60a5fa;
+  }
+
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; transition: background 0.3s, color 0.3s; }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+  nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid var(--nav-border); padding-bottom: 20px; }
+  .breadcrumbs { font-size: 13px; color: #666; font-weight: 600; }
+  .breadcrumbs a { color: var(--link); text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+  .breadcrumbs span { color: var(--text); opacity: 0.8; }
+
+  #toggleAll { background: none; border: 1px solid #ddd; border-radius: 4px; padding: 4px 10px; font-size: 12px; cursor: pointer; color: #666; }
+  #toggleAll:hover { background: #f0f0f0; }
+  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; color: var(--h1); }
+  .section { border-bottom: 1px solid var(--section-border); }
+  .section-toggle {
+    width: 100%; background: none; border: none; text-align: left;
+    padding: 14px 0; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    font-family: inherit; font-size: 1rem; font-weight: 600; color: var(--h1);
+  }
+  .section-toggle:hover { background: rgba(0,0,0,0.02); color: var(--link); }
+  .dark-mode .section-toggle:hover { background: rgba(255,255,255,0.02); }
+  .section-toggle .arrow { font-size: 10px; color: #999; transition: transform 0.2s; display: inline-block; }
+  .section-toggle.open .arrow { transform: rotate(90deg); }
+  .section-body { padding: 0 0 16px 20px; display: none; }
+  .section-body.open { display: block; border-left: 2px solid var(--nav-border); }
+  
+  h3 { font-size: 1rem; font-weight: 700; color: var(--h1); margin: 24px 0 12px; }
+  h4 { font-size: 0.95rem; font-weight: 700; color: var(--h-sub); margin: 20px 0 8px; }
+  p { margin: 8px 0 12px; color: var(--p); }
+  ul, ol { margin: 8px 0 12px 24px; }
+  li { margin: 6px 0; }
+  hr { border: none; border-top: 1px solid var(--nav-border); margin: 24px 0; }
+  
+  .matrix-item { margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px dashed var(--nav-border); }
+  .matrix-item:last-child { border-bottom: none; }
+  .matrix-item strong { color: var(--h1); display: block; margin-bottom: 4px; }
+  
+  .case-study { background: rgba(37, 99, 235, 0.03); padding: 20px; border-radius: 8px; border-left: 4px solid var(--link); margin: 20px 0; }
+  .dark-mode .case-study { background: rgba(96, 165, 250, 0.05); }
+  
+  .do-dont { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 20px 0; }
+  .do-item, .dont-item { padding: 16px; border-radius: 6px; border: 1px solid var(--nav-border); }
+  .do-header { color: var(--success); font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+  .dont-header { color: var(--error); font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.9em; }
+  th { background: var(--table-th); font-weight: 600; padding: 12px; border: 1px solid var(--nav-border); text-align: left; }
+  td { padding: 12px; border: 1px solid var(--nav-border); vertical-align: top; }
+  
+  .tag-success { color: var(--success); font-weight: 600; }
+  .tag-error { color: var(--error); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="breadcrumbs">
+      <a href="index.html">Dashboard</a> / <a href="strategic-management.html">Strategic Management</a> / <a href="strategic-planning-direction.html">Strategic Planning & Direction</a> / <span>Portfolio Strategy</span>
+    </div>
+    <button id="toggleAll">Collapse All</button>
+  </nav>
+
+  <h1>Portfolio Strategy: Quick Reference Guide</h1>
+
+  <div class="section">
+    <button class="section-toggle open"><span class="arrow">▶</span> 1. What It Is</button>
+    <div class="section-body open">
+      <p>Portfolio Strategy is how a company manages its collection of businesses, products, or projects to maximize overall value. It answers: "Which businesses should we be in? How do we allocate resources? When do we divest?" Rather than managing each business independently, portfolio strategy views the organization as a portfolio requiring intentional composition and balance.</p>
+      <p><strong>Why It Matters:</strong></p>
+      <ul>
+        <li><strong>Resource allocation</strong>: Limited capital requires tough choices; flows to highest-value opportunities.</li>
+        <li><strong>Risk balance</strong>: Balance between cash cows and growth stars prevents bankruptcy.</li>
+        <li><strong>Synergy capture</strong>: Sharing capabilities and reducing costs across related businesses.</li>
+        <li><strong>Strategic clarity</strong>: Clear roles for each business reduces confusion.</li>
+        <li><strong>Avoid graveyard portfolios</strong>: Prevents accumulation of underperforming businesses.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <button class="section-toggle"><span class="arrow">▶</span> 2. Key Dimensions</button>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>Meaning</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Market Growth</strong></td><td>Is the market expanding or contracting?</td><td>High-growth (smartphones) vs. mature (basic phones)</td></tr>
+          <tr><td><strong>Market Share</strong></td><td>Do we have strong position or weak position?</td><td>Market leader vs. niche player</td></tr>
+          <tr><td><strong>Cash Generation</strong></td><td>Does business generate cash or require investment?</td><td>Mature product high margin vs. startup phase</td></tr>
+          <tr><td><strong>Strategic Fit</strong></td><td>Does business align with company capabilities?</td><td>Software services vs. entering mining</td></tr>
+          <tr><td><strong>Resource Requirement</strong></td><td>How much capital/talent does business need?</td><td>High-capex (mfg) vs. low-capex (SaaS)</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Key Sources:</strong> Bruce Henderson (BCG Matrix), Michael Porter (Diversification), Igor Ansoff (Product-Market Matrix).</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <button class="section-toggle"><span class="arrow">▶</span> 3. Core Framework: BCG Matrix & Roles</button>
+    <div class="section-body">
+      <div class="matrix-item">
+        <strong>STARS (High Growth, High Share)</strong>
+        <p>Businesses winning in growing markets. Require investment to maintain position. Future cash generators.</p>
+        <p><span class="tag-success">Strategy:</span> Invest aggressively; protect market share.</p>
+        <p><strong>Example:</strong> Apple when smartphones were emerging.</p>
+      </div>
+      <div class="matrix-item">
+        <strong>CASH COWS (Low Growth, High Share)</strong>
+        <p>Businesses dominating mature markets. Generate significant cash with minimal investment. Fund other investments.</p>
+        <p><span class="tag-success">Strategy:</span> Harvest cash; minimize investment; maintain efficiency.</p>
+        <p><strong>Example:</strong> Microsoft Office in mature markets.</p>
+      </div>
+      <div class="matrix-item">
+        <strong>QUESTION MARKS (High Growth, Low Share)</strong>
+        <p>Growing markets but weak position. Could become stars or dogs. High risk, high potential.</p>
+        <p><span class="tag-success">Strategy:</span> Selective investment; decide quickly (star or divest).</p>
+        <p><strong>Example:</strong> Early-stage AI products in AI boom.</p>
+      </div>
+      <div class="matrix-item">
+        <strong>DOGS (Low Growth, Low Share)</strong>
+        <p>Declining markets with weak position. Generate little cash, require ongoing investment.</p>
+        <p><span class="tag-error">Strategy:</span> Divest or harvest; stop investing.</p>
+        <p><strong>Example:</strong> Kodak's film business in digital photography era.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <button class="section-toggle"><span class="arrow">▶</span> 4. Portfolio Balance Principles</button>
+    <div class="section-body">
+      <h4>Principle 1: Cash Flow Balance</h4>
+      <ul>
+        <li><strong>Need cash generators:</strong> Cash cows fund growth investments.</li>
+        <li><strong>Risk:</strong> All stars = financial crisis. All cash cows = no growth (irrelevance).</li>
+        <li><strong>Target:</strong> Enough cash cows to fund 2-3 stars without external capital.</li>
+      </ul>
+      <h4>Principle 2: Competence & Fit</h4>
+      <ul>
+        <li><strong>Related diversification:</strong> New business uses existing capabilities (e.g., Office → Cloud).</li>
+        <li><strong>Unrelated diversification:</strong> New business unrelated to existing capabilities (e.g., Tech → Hotels).</li>
+        <li><strong>Rule:</strong> Enter only if you have unfair advantage or can build one quickly.</li>
+      </ul>
+      <h4>Principle 3: Strategic Timing</h4>
+      <ul>
+        <li><strong>Enter early:</strong> Stars are found early in market growth; entering late limits upside.</li>
+        <li><strong>Exit decisively:</strong> Dogs consume resources; exit before losses compound.</li>
+        <li><strong>Avoid prolonged transitions:</strong> Don't hold declining businesses "until they turn around."</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <button class="section-toggle"><span class="arrow">▶</span> 5. Case Studies</button>
+    <div class="section-body">
+      <div class="case-study">
+        <h4>Microsoft's Portfolio Pivot (The "Hidden" Shift)</h4>
+        <p>Under Satya Nadella (2014+), Microsoft decoupled software from Windows. Nadella realized Windows was becoming a "Cash Cow" in a mobile world and pivoted to "Cloud-first, Mobile-first."</p>
+        
+        <p><strong>Strategic Moves:</strong></p>
+        <ul>
+          <li><strong>Write-off & Exit:</strong> Wrote off $7.6B Nokia acquisition; exited mobile hardware.</li>
+          <li><strong>Platform Agnostic:</strong> Moved Office to iOS/Android and Linux.</li>
+          <li><strong>Aggressive Star Building:</strong> Invested heavily in Azure; acquired LinkedIn and GitHub.</li>
+          <li><strong>The AI Bet:</strong> Massive partnership with OpenAI to own the Generative AI category.</li>
+        </ul>
+
+        <p><strong>Result:</strong></p>
+        <ul>
+          <li>Market value increased from ~$300B to over $3T.</li>
+          <li>Transitioned to a "Global Infrastructure & Intelligence" portfolio.</li>
+          <li>Culture shift to "Learn-it-all" enabled agility.</li>
+        </ul>
+
+        <p><strong>Key Lesson:</strong> Portfolio strategy requires honesty about which businesses are truly strategic. Microsoft couldn't be everything; by divesting weak positions, it created a focused, high-growth portfolio.</p>
+      </div>
+
+      <div class="case-study">
+        <h4>J&J's Strategic "Cleanse"</h4>
+        <p>J&J long operated as a conglomerate. Consumer Health (Tylenol, Talc) was growing slower and carried massive legal/regulatory risks that overshadowed high-growth Pharma and MedTech.</p>
+        
+        <p><strong>Strategic Moves:</strong></p>
+        <ul>
+          <li><strong>The Kenvue Spin-off (2023):</strong> Decisively separated Consumer Health into a new entity.</li>
+          <li><strong>Rationale:</strong> Divestment of stability to gain agility and remove the "Conglomerate Discount."</li>
+          <li><strong>Focus Re-allocation:</strong> Redirected R&amp;D exclusively to high-margin Biotech and Robotic Surgery.</li>
+        </ul>
+
+        <p><strong>Result:</strong></p>
+        <ul>
+          <li>Unlocked shareholder value by removing the Conglomerate Discount.</li>
+          <li>Portfolio moved from "Slow/Stable" to "High-Risk/High-Growth."</li>
+        <li>Reduced legal "noise" allowing focus on complex science.</li>
+        </ul>
+
+        <p><strong>Key Lesson:</strong> Sometimes a business is a "Cash Cow" with too much "baggage." Divesting it doesn't mean failure, but that it no longer fits the parent's risk-return profile.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <button class="section-toggle"><span class="arrow">▶</span> 6. Do's & Don'ts (Comprehensive Guide)</button>
+    <div class="section-body">
+      <div class="do-dont">
+        <!-- DO 1 -->
+        <div class="do-item">
+          <div class="do-header">✅ DO 1: Define Clear Roles for Each Business</div>
+          <p><strong>What:</strong> Explicitly state what each business is for (cash generation, growth, strategic entry, capability building).</p>
+          <p><strong>Why:</strong> Prevents confusion; allows appropriate investment levels; clarifies exit criteria.</p>
+          <p><span class="tag-success">Good Example:</span> "Business A: Cash cow (harvest for cash, 3% growth expected). Business B: Growth star (invest aggressively, 25% growth target)."</p>
+          <p><span class="tag-error">Bad Example:</span> "Invest equally in all businesses." (Results in underfunded stars and overinvested dogs)</p>
+        </div>
+        
+        <!-- DO 2 -->
+        <div class="do-item">
+          <div class="do-header">✅ DO 2: Periodically Reassess Market Position & Growth</div>
+          <p><strong>What:</strong> For each business, assess: Is market growing or shrinking? Do we have strong position or weak?</p>
+          <p><strong>Why:</strong> Position changes; yesterday's star becomes today's dog; decisions need fresh data.</p>
+          <p><span class="tag-success">Good Example:</span> "Business X was a star. Market growth slowed 6%; reclassify as cash cow and focus on margin."</p>
+          <p><span class="tag-error">Bad Example:</span> "We've always invested heavily in Business X." (Pouring money into a declining business)</p>
+        </div>
+
+        <!-- DO 3 -->
+        <div class="do-item">
+          <div class="do-header">✅ DO 3: Use Cash Cows to Fund Stars</div>
+          <p><strong>What:</strong> Let mature, profitable businesses generate cash; reinvest that cash into high-growth opportunities.</p>
+          <p><strong>Why:</strong> Provides growth fuel without external capital.</p>
+          <p><span class="tag-success">Good Example:</span> Mature healthcare devices generating $500M profit, reinvesting $400M in an AI health startup.</p>
+          <p><span class="tag-error">Bad Example:</span> Starving a cash cow to maintain efficiency while borrowing money to fund stars.</p>
+        </div>
+
+        <!-- DO 4 -->
+        <div class="do-item">
+          <div class="do-header">✅ DO 4: Set Different Financial Targets</div>
+          <p><strong>What:</strong> Stars aimed at growth (top-line), cash cows at margin (bottom-line), question marks at clarity.</p>
+          <p><strong>Why:</strong> Same metrics across different roles drives wrong behaviors.</p>
+          <p><span class="tag-success">Good Example:</span> Stars measured on growth rate/market share; Cash cows on margin/cash generation.</p>
+          <p><span class="tag-error">Bad Example:</span> "All businesses measured on ROI." (Stars underinvest to improve ROI).</p>
+        </div>
+
+        <!-- DO 5 -->
+        <div class="do-item">
+          <div class="do-header">✅ DO 5: Divest Dogs Decisively</div>
+          <p><strong>What:</strong> When a business is in decline with weak position, exit (sell or shut down) within 1-2 years.</p>
+          <p><strong>Why:</strong> Delay compounds losses; capital and talent stuck in dying businesses.</p>
+          <p><span class="tag-success">Good Example:</span> "Business is a dog. Decision: Divest by end of 2024. Redeploy capital to new ventures."</p>
+          <p><span class="tag-error">Bad Example:</span> "Business is struggling but we'll give it more time." (5 years later, still bleeding cash).</p>
+        </div>
+
+        <!-- DO 6 -->
+        <div class="do-item">
+          <div class="do-header">✅ DO 6: Pursue Related Diversification</div>
+          <p><strong>What:</strong> New businesses should leverage existing capabilities or synergize with the existing portfolio.</p>
+          <p><strong>Why:</strong> Related businesses succeed at higher rates; you have an unfair advantage.</p>
+          <p><span class="tag-success">Good Example:</span> Software company entering cloud services (shares engineering, sales, and support ops).</p>
+          <p><span class="tag-error">Bad Example:</span> Software company acquiring a hotel chain (no shared capabilities, high risk).</p>
+        </div>
+
+        <!-- DON'T 1 -->
+        <div class="dont-item">
+          <div class="dont-header">❌ DON'T 1: Pursue Unrelated Diversification</div>
+          <p><strong>What:</strong> Don't enter a new market unless you have an unfair advantage (capability, cost, or access).</p>
+          <p><strong>Why:</strong> Usually fails; high acquisition costs + integration risk + no synergy = value destruction.</p>
+          <p><span class="tag-success">Good Example:</span> Telecom company entering mobile payments (uses billing infrastructure and customer base).</p>
+          <p><span class="tag-error">Bad Example:</span> Telecom company acquiring a fashion brand (no synergy, different expertise).</p>
+        </div>
+
+        <!-- DON'T 2 -->
+        <div class="dont-item">
+          <div class="dont-header">❌ DON'T 2: Maintain Equal Investment</div>
+          <p><strong>What:</strong> Don't assume each business deserves equal capital/resources.</p>
+          <p><strong>Why:</strong> Wastes capital on dogs; underfunds high-potential stars.</p>
+          <p><span class="tag-success">Good Example:</span> "Star gets 60% of capital; cow gets 20%; dog gets 5%."</p>
+          <p><span class="tag-error">Bad Example:</span> "Equal 25% allocation to all four units." (Starves growth, funds decline).</p>
+        </div>
+
+        <!-- DON'T 3 -->
+        <div class="dont-item">
+          <div class="dont-header">❌ DON'T 3: Sentimentality vs. Strategic Importance</div>
+          <p><strong>What:</strong> Don't keep unprofitable businesses just because they're labeled "strategically important."</p>
+          <p><strong>Why:</strong> Rationalization for emotional attachment; drains resources.</p>
+          <p><span class="tag-success">Good Example:</span> "Important for entry. Timeline: 3 years to break even or we divest."</p>
+          <p><span class="tag-error">Bad Example:</span> "Strategically important so we'll fund it indefinitely regardless of performance."</p>
+        </div>
+
+        <!-- DON'T 4 -->
+        <div class="dont-item">
+          <div class="dont-header">❌ DON'T 4: Resist Market Signals</div>
+          <p><strong>What:</strong> Don't deny when stars are becoming question marks or dogs becoming irrelevant.</p>
+          <p><strong>Why:</strong> Market changes; resistance delays necessary strategic adjustments.</p>
+          <p><span class="tag-success">Good Example:</span> "Smartphone market maturing. Reclassify as cash cow; adjust strategy."</p>
+          <p><span class="tag-error">Bad Example:</span> "Market will reaccelerate soon." (Wait 3 years; competitor wins).</p>
+        </div>
+
+        <!-- DON'T 5 -->
+        <div class="dont-item">
+          <div class="dont-header">❌ DON'T 5: Mix Strategy with Politics</div>
+          <p><strong>What:</strong> Don't let business leaders' ambitions override portfolio logic.</p>
+          <p><strong>Why:</strong> Leaders naturally want growth; strategy requires disciplined prioritization.</p>
+          <p><span class="tag-success">Good Example:</span> "Portfolio analysis shows business is a dog. Decision: Divest."</p>
+          <p><span class="tag-error">Bad Example:</span> "Business leader is well-liked so we fund them regardless of analysis."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <button class="section-toggle"><span class="arrow">▶</span> 7. Decision Framework & Summary</button>
+    <div class="section-body">
+      <table>
+        <thead>
+          <tr><th>Classification</th><th>Cash Expectation</th><th>Growth Target</th><th>Investment</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>STAR</strong></td><td>Break-even acceptable</td><td>20%+</td><td>Heavy</td></tr>
+          <tr><td><strong>CASH COW</strong></td><td>25%+ margins</td><td>3-5%</td><td>Minimal</td></tr>
+          <tr><td><strong>QUESTION MARK</strong></td><td>Loss acceptable</td><td>15%+</td><td>Medium</td></tr>
+          <tr><td><strong>DOG</strong></td><td>Negative/minimal</td><td>&lt;3%</td><td>Minimal</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Quick Summary:</strong> Reassess annually; exit dogs decisively; cash cows fund stars; pursue related diversification.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Simple Toggle Logic
+  document.querySelectorAll('.section-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.toggle('open');
+      const body = button.nextElementSibling;
+      body.classList.toggle('open');
+    });
+  });
+
+  // Toggle All Logic
+  const toggleAll = document.getElementById('toggleAll');
+  if (toggleAll) {
+    let allOpen = false;
+    toggleAll.addEventListener('click', () => {
+      allOpen = !allOpen;
+      document.querySelectorAll('.section-toggle').forEach(btn => {
+        if (allOpen) { btn.classList.add('open'); btn.nextElementSibling.classList.add('open'); }
+        else { btn.classList.remove('open'); btn.nextElementSibling.classList.remove('open'); }
+      });
+      toggleAll.textContent = allOpen ? 'Collapse All' : 'Expand All';
+    });
+  }
+
+  // Dark Mode Support
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+  }
+</script>
+</body>
+</html>
