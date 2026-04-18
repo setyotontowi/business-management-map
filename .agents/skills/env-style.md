@@ -47,8 +47,10 @@ This project is a **self-contained HTML wiki** for business management knowledge
 | `--nav-border` | `#eee` | Dividers |
 | `--table-th` | `#f0f0f0` | Table headers |
 | `--code-bg` | `#f0f0f0` | Inline code |
+| `--breadcrumbs` | `#666` | Breadcrumb text (70% opacity for current) |
 
 ### Component Patterns
+- **Breadcrumbs**: `.breadcrumbs` container inside `nav`. Uses `var(--link)` for links and `var(--text)` with `opacity: 0.8` for the current page span.
 - **Section toggles**: `<button class="section-toggle">` with a `▶` arrow that rotates 90° when open. Body is a `div.section-body` hidden by default or `display:block` when `.open`.
 - **Tables**: `border-collapse: collapse`, `font-size: 0.9em`, `padding: 8px 12px`, `vertical-align: top`. Headers use `var(--table-th)`.
 - **Alerts**: `.alert` with left-border accent. Example: `.alert-tip { background:#e0f2fe; border-left:4px solid #0ea5e9; }`.
@@ -75,7 +77,11 @@ Every knowledge page follows this shell:
 <body>
 <div class="wrap">
   <nav>
-    <a href="index.html">← Back to Dashboard</a>
+    <div class="breadcrumbs">
+      <a href="index.html">Dashboard</a> / 
+      <a href="parent.html">Parent Category</a> / 
+      <span>Current Page</span>
+    </div>
     <button id="toggleAll">Collapse All</button>
   </nav>
   <div id="content">
