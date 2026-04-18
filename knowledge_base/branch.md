@@ -18,10 +18,6 @@ BUSINESS STRATEGY & MANAGEMENT
 │  │  │  ├─ Porter's Five Forces
 │  │  │  └─ Value Proposition Design
 │  │  │
-│  │  └─ Ambidexterity & Exploration
-│  │     ├─ Exploitation (Optimize Current)
-│  │     ├─ Exploration (New Opportunities)
-│  │     └─ Organizational Ambidexterity
 │  │
 │  ├─ Business Model & Innovation
 │  │  ├─ Business Model Canvas
@@ -48,16 +44,17 @@ BUSINESS STRATEGY & MANAGEMENT
 │  │  │  ├─ Sprint Planning & Execution
 │  │  │  └─ Feedback Loops & Adaptation
 │  │  │
-│  │  └─ Process Optimization
-│  │     ├─ Standardization & SOP
-│  │     ├─ Performance Metrics
-│  │     ├─ Quality Management
-│  │     └─ Incident Management
-│  │        ├─ Incident Detection & Alerting
-│  │        ├─ Incident Response & Resolution
-│  │        ├─ Root Cause Analysis
-│  │        ├─ Post-Incident Review
-│  │        └─ Knowledge Capture from Incidents
+│  │     └─ Quality Management
+│  │
+│  ├─ Reliability & Resilience
+│  │  ├─ Incident Management
+│  │  │  ├─ Incident Detection & Alerting
+│  │  │  ├─ Incident Response & Resolution
+│  │  │  ├─ Root Cause Analysis
+│  │  │  ├─ Post-Incident Review
+│  │  │  └─ Knowledge Capture from Incidents
+│  │  ├─ Service Reliability Engineering (SRE)
+│  │  └─ Crisis Management
 │  │
 │  ├─ Resource & Capacity Management
 │  │  ├─ Resource Allocation
@@ -90,6 +87,11 @@ BUSINESS STRATEGY & MANAGEMENT
 │     ├─ Transformation Leadership
 │     ├─ Change Readiness
 │     └─ Digital Transformation
+│
+├─ Ambidexterity & Exploration
+│  ├─ Exploration vs. Exploitation
+│  ├─ Organizational Ambidexterity
+│  └─ Structural Ambidexterity
 │
 └─ ORGANIZATIONAL CULTURE & GOVERNANCE
    │
