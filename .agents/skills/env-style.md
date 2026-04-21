@@ -113,9 +113,15 @@ Every knowledge page follows this shell:
 - Internal links use relative paths: `href="index.html"`, `href="incident-management.html"`.
 - `index.html` is the central navigation hub (tree map).
 
-### Do and Don'ts
-- DO create html content with exact same content with md files
-- DON'T reduce or remove content in html from content md files
+### Content & Parity Rules
+- **Exact Mirroring**: DO create HTML content with the exact same content and wording as the corresponding `.md` file.
+- **No Reductions**: DON'T reduce, summarize, or remove content in HTML that exists in the `.md` file.
+- **Do's & Don'ts Structure**: When creating "Do's & Don'ts" sections, use the following structure for each item:
+    - **What**: Tactical description of the action.
+    - **Why**: Strategic rationale for the action.
+    - **Good Example**: A concrete ✅ scenario/demonstration.
+    - **Bad Example**: A concrete ❌ scenario/demonstration.
+- **Visual Indicators**: Use `.tag-success` (green) for Good Examples and `.tag-error` (red) for Bad Examples in HTML.
 
 
 ---
