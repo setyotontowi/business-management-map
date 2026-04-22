@@ -12,14 +12,15 @@ This project is a **self-contained HTML wiki** for business management knowledge
 ## Programming Conventions
 
 - **Vanilla only**: HTML, CSS, JS. No React, no Tailwind.
-- **Inline `<style>`**: Each page carries its own `<style>` block in `<head>`. The shared `style.css` is for the index/tree map only.
+- **Inline `<style>`**: Each page carries its own `<style>` block in `<head>`. The shared `style.css` is for the index/tree map only. For markdown viewer pages, use the shared `md-viewer.css`.
 - **CSS custom properties** for theming:
   ```css
   :root { --bg: #f9f9f8; --text: #222; --link: #2563eb; ... }
   body.dark-mode { --bg: #0f172a; --text: #f1f5f9; ... }
   ```
 - **Dark mode** via `body.dark-mode` class toggled by a small JS snippet — not via `prefers-color-scheme`.
-- **Minimal JS**: Only for UI interactions (collapse/expand, dark mode toggle). No external libraries.
+- **Minimal JS**: Mostly for UI interactions and content rendering. **marked.js** is the standard library for markdown viewing.
+- **Markdown Viewer Strategy**: Prioritize building a dynamic viewer that fetches and renders the corresponding `.md` file instead of mirroring content manually in HTML.
 - **Don't touch existing code** unless the change is necessary. Make the smallest possible edit.
 
 ---
@@ -69,27 +70,24 @@ Every knowledge page follows this shell:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[Topic] Guide</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-    /* CSS variables + component styles */
-  </style>
+  <link rel="stylesheet" href="md-viewer.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 <div class="wrap">
   <nav>
     <div class="breadcrumbs">
       <a href="index.html">Dashboard</a> / 
-      <a href="parent.html">Parent Category</a> / 
       <span>Current Page</span>
     </div>
-    <button id="toggleAll">Collapse All</button>
   </nav>
-  <div id="content">
-    <h1>TOPIC: Quick Reference Guide</h1>
-    <!-- H2 sections become collapsible via JS -->
-  </div>
+
+  <main id="markdown-content">
+    <p style="text-align: center; padding: 40px; opacity: 0.5;">Loading content...</p>
+  </main>
 </div>
-<script>/* section-toggle + dark mode logic */</script>
+
+<script src="md-viewer.js" data-src="knowledge_base/[filename].md"></script>
 </body>
 </html>
 ```
@@ -113,64 +111,18 @@ Every knowledge page follows this shell:
 - Internal links use relative paths: `href="index.html"`, `href="incident-management.html"`.
 - `index.html` is the central navigation hub (tree map).
 
-### Content & Parity Rules
-- **Exact Mirroring**: DO create HTML content with the exact same content and wording as the corresponding `.md` file.
-- **No Reductions**: DON'T reduce, summarize, or remove content in HTML that exists in the `.md` file.
-- **Do's & Don'ts Structure**: When creating "Do's & Don'ts" sections, use the following structure for each item:
-    - **What**: Tactical description of the action.
-    - **Why**: Strategic rationale for the action.
-    - **Good Example**: A concrete ✅ scenario/demonstration.
-    - **Bad Example**: A concrete ❌ scenario/demonstration.
-- **Visual Indicators**: Use `.tag-success` (green) for Good Examples and `.tag-error` (red) for Bad Examples in HTML.
+### Dynamic Rendering
+- **Single Source of Truth**: The `.md` file in `knowledge_base/` is the primary source of truth.
+- **Viewer Consistency**: The HTML shell acts only as a frame. Don't mirror content manually; let the viewer handle it.
+- **Styling Parity**: Ensure the CSS in the HTML frame correctly styles standard markdown elements (headers, tables, etc.) to match the project's aesthetic.
 
 
 ---
 
-## Section-Toggle JS Pattern
+## Shared Helper Files
 
-The standard JS that builds collapsible sections from `h2` headings:
-
-```js
-document.addEventListener('DOMContentLoaded', () => {
-  const content = document.getElementById('content');
-  const nodes = Array.from(content.childNodes);
-  const fragment = document.createDocumentFragment();
-  let sections = [], cur = null;
-
-  nodes.forEach(node => {
-    if (node.nodeType !== 1) return;
-    if (node.tagName === 'H1') { fragment.appendChild(node); return; }
-    if (node.tagName === 'H2') { cur = { heading: node, children: [] }; sections.push(cur); }
-    else if (cur) { if (node.tagName !== 'HR') cur.children.push(node); }
-    else if (node.tagName !== 'HR') fragment.appendChild(node);
-  });
-
-  sections.forEach(sec => {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'section';
-    const btn = document.createElement('button');
-    btn.className = 'section-toggle open';
-    btn.innerHTML = '<span class="arrow">&#9658;</span>' + sec.heading.innerHTML;
-    const body = document.createElement('div');
-    body.className = 'section-body open';
-    sec.children.forEach(c => body.appendChild(c));
-    btn.addEventListener('click', () => { btn.classList.toggle('open'); body.classList.toggle('open'); });
-    wrapper.appendChild(btn);
-    wrapper.appendChild(body);
-    fragment.appendChild(wrapper);
-  });
-
-  content.innerHTML = '';
-  content.appendChild(fragment);
-
-  let allCollapsed = false;
-  document.getElementById('toggleAll').addEventListener('click', function() {
-    allCollapsed = !allCollapsed;
-    document.querySelectorAll('.section-toggle').forEach(b => {
-      b.nextElementSibling.classList.toggle('open', !allCollapsed);
-      b.classList.toggle('open', !allCollapsed);
-    });
-    this.textContent = allCollapsed ? 'Expand All' : 'Collapse All';
-  });
-});
-```
+- **`md-viewer.css`**: Contains all theme variables, typography, table/code styles. Linked via `<link rel="stylesheet">`.
+- **`md-viewer.js`**: Self-executing script that reads `data-src` attribute to fetch and render the `.md` file. Also handles dark mode. Usage:
+  ```html
+  <script src="md-viewer.js" data-src="knowledge_base/[filename].md"></script>
+  ```

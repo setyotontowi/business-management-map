@@ -4,88 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crisis Management: Quick Reference Guide</title>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  
-  :root {
-    --bg: #f9f9f8;
-    --text: #222;
-    --nav-border: #eee;
-    --section-border: #e5e5e5;
-    --h1: #111;
-    --h-sub: #444;
-    --p: #333;
-    --code-bg: #f0f0f0;
-    --pre-bg: #f5f5f5;
-    --table-th: #f0f0f0;
-    --link: #2563eb;
-    --success: #16a34a;
-    --error: #dc2626;
-  }
-
-  body.dark-mode {
-    --bg: #0f172a;
-    --text: #f1f5f9;
-    --nav-border: #1e293b;
-    --section-border: #1e293b;
-    --h1: #f8fafc;
-    --h-sub: #cbd5e1;
-    --p: #94a3b8;
-    --code-bg: #1e293b;
-    --pre-bg: #1e293b;
-    --table-th: #1e293b;
-    --link: #60a5fa;
-  }
-
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; transition: background 0.3s, color 0.3s; }
-  .wrap { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
-  nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid var(--nav-border); padding-bottom: 20px; }
-  .breadcrumbs { font-size: 13px; color: #666; font-weight: 600; }
-  .breadcrumbs a { color: var(--link); text-decoration: none; }
-  .breadcrumbs a:hover { text-decoration: underline; }
-  .breadcrumbs span { color: var(--text); opacity: 0.8; }
-
-  #toggleAll { background: none; border: 1px solid #ddd; border-radius: 4px; padding: 4px 10px; font-size: 12px; cursor: pointer; color: #666; }
-  #toggleAll:hover { background: #f0f0f0; }
-  h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 24px; color: var(--h1); }
-  .section { border-bottom: 1px solid var(--section-border); }
-  .section-toggle {
-    width: 100%; background: none; border: none; text-align: left;
-    padding: 14px 0; cursor: pointer;
-    display: flex; align-items: center; gap: 8px;
-    font-family: inherit; font-size: 1rem; font-weight: 600; color: var(--h1);
-  }
-  .section-toggle:hover { background: rgba(0,0,0,0.02); color: var(--link); }
-  .dark-mode .section-toggle:hover { background: rgba(255,255,255,0.02); }
-  .section-toggle .arrow { font-size: 10px; color: #999; transition: transform 0.2s; display: inline-block; }
-  .section-toggle.open .arrow { transform: rotate(90deg); }
-  .section-body { padding: 0 0 16px 20px; display: none; }
-  .section-body.open { display: block; border-left: 2px solid var(--nav-border); }
-  
-  h3 { font-size: 1rem; font-weight: 700; color: var(--h1); margin: 24px 0 12px; }
-  h4 { font-size: 0.95rem; font-weight: 700; color: var(--h-sub); margin: 20px 0 8px; }
-  p { margin: 8px 0 12px; color: var(--p); }
-  ul, ol { margin: 8px 0 12px 24px; }
-  li { margin: 6px 0; }
-  hr { border: none; border-top: 1px solid var(--nav-border); margin: 24px 0; }
-  
-  .case-study { background: rgba(37, 99, 235, 0.03); padding: 20px; border-radius: 8px; border-left: 4px solid var(--link); margin: 24px 0; }
-  .dark-mode .case-study { background: rgba(96, 165, 250, 0.05); }
-  
-  .do-dont { display: grid; grid-template-columns: 1fr; gap: 16px; margin: 20px 0; }
-  .do-item, .dont-item { padding: 16px; border-radius: 6px; border: 1px solid var(--nav-border); }
-  .do-header { color: var(--success); font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
-  .dont-header { color: var(--error); font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
-
-  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.9em; }
-  th { background: var(--table-th); font-weight: 600; padding: 12px; border: 1px solid var(--nav-border); text-align: left; }
-  td { padding: 12px; border: 1px solid var(--nav-border); vertical-align: top; }
-  
-  .tag-success { color: var(--success); font-weight: 600; }
-  .tag-error { color: var(--error); font-weight: 600; }
-</style>
+<link rel="stylesheet" href="md-viewer.css">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -93,7 +13,6 @@
     <div class="breadcrumbs">
       <a href="index.html">Dashboard</a> / <span>Crisis Management</span>
     </div>
-    <button id="toggleAll">Collapse All</button>
   </nav>
 
   <main id="markdown-content">
@@ -101,35 +20,6 @@
   </main>
 </div>
 
-<script>
-  async function loadMarkdown() {
-    const contentEl = document.getElementById('markdown-content');
-    try {
-      const response = await fetch('knowledge_base/crisis-management.md');
-      if (!response.ok) throw new Error('File not found');
-      const text = await response.text();
-      
-      // Configure marked for best results
-      marked.setOptions({
-        headerIds: true,
-        gfm: true,
-        breaks: true
-      });
-
-      contentEl.innerHTML = marked.parse(text);
-      
-      // Re-apply any specific formatting or logic if needed
-      // Since it's standard markdown, we just let it render.
-    } catch (err) {
-      contentEl.innerHTML = `<p style="color:var(--error); padding: 40px; text-align: center;">Error loading markdown: ${err.message}</p>`;
-    }
-  }
-
-  loadMarkdown();
-
-  if (localStorage.getItem('darkMode') === 'enabled') {
-    document.body.classList.add('dark-mode');
-  }
-</script>
+<script src="md-viewer.js" data-src="knowledge_base/crisis-management.md"></script>
 </body>
 </html>
