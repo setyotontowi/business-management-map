@@ -55,3 +55,40 @@ td { padding: 12px; border: 1px solid var(--nav-border); vertical-align: top; }
 code { background: var(--code-bg); padding: 2px 4px; border-radius: 3px; font-size: 0.9em; }
 pre { background: var(--pre-bg); padding: 16px; border-radius: 6px; overflow-x: auto; margin: 14px 0; }
 pre code { background: none; padding: 0; }
+
+/* Collapsible Sections */
+.section-toggle {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 28px 0 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--h1);
+  transition: opacity 0.2s;
+}
+.section-toggle:hover { opacity: 0.8; }
+.section-toggle h2 { margin: 0; display: inline; }
+
+.toggle-icon {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.section-toggle.open .toggle-icon { transform: rotate(90deg); }
+
+.section-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out, opacity 0.2s;
+  opacity: 0;
+}
+.section-toggle.open + .section-body {
+  max-height: 2000px; /* Large enough for most sections */
+  opacity: 1;
+  margin-bottom: 20px;
+}

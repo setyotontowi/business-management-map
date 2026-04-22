@@ -30,6 +30,36 @@
 
     marked.setOptions({ gfm: true, breaks: true });
     contentEl.innerHTML = marked.parse(text);
+
+    // Build collapsible sections
+    const children = Array.from(contentEl.children);
+    let currentBody = null;
+
+    children.forEach(child => {
+      if (child.tagName === 'H2') {
+        const toggle = document.createElement('button');
+        toggle.className = 'section-toggle';
+        toggle.innerHTML = `<span class="toggle-icon">▶</span>`;
+        
+        // Move H2 into toggle
+        const h2 = child.cloneNode(true);
+        toggle.appendChild(h2);
+        child.replaceWith(toggle);
+
+        currentBody = document.createElement('div');
+        currentBody.className = 'section-body';
+        toggle.after(currentBody);
+
+        toggle.addEventListener('click', () => {
+          toggle.classList.toggle('open');
+        });
+      } else if (currentBody && child.tagName !== 'HR') {
+        currentBody.appendChild(child);
+      } else if (child.tagName === 'HR') {
+        child.remove(); // Style guide says remove HR when building toggles
+      }
+    });
+
   } catch (err) {
     contentEl.innerHTML = '<p style="color:var(--error); padding: 40px; text-align: center;">Error loading markdown: ' + err.message + '</p>';
   }
