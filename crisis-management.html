@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crisis Management: Quick Reference Guide</title>
-<style>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   
@@ -95,189 +96,36 @@
     <button id="toggleAll">Collapse All</button>
   </nav>
 
-  <h1>CRISIS MANAGEMENT: Quick Reference Guide</h1>
-
-  <div class="section">
-    <button class="section-toggle open"><span class="arrow">▶</span> What It Is</button>
-    <div class="section-body open">
-      <p>Crisis Management is the process of preparing for, detecting, and responding to existential threats to organizational survival or reputation. Unlike incidents (service outages, data breaches), crises threaten the organization's fundamental viability—existential threats like bankruptcy, scandal, regulatory shutdown, product catastrophe, or loss of trust. Crisis management requires speed, clarity, and often difficult trade-offs between stakeholder interests.</p>
-      <p><strong>Why It Matters:</strong></p>
-      <ul>
-        <li><strong>Survival is at stake</strong>: Poor crisis response can destroy a company; good response can preserve it</li>
-        <li><strong>Trust is fragile</strong>: Stakeholders lose trust in seconds; rebuilding takes months</li>
-        <li><strong>First 24 hours decide</strong>: Initial response sets narrative; hard to correct if wrong early</li>
-        <li><strong>Complexity increases under pressure</strong>: Crisis requires clear decision-making when emotions run high</li>
-        <li><strong>Prevention beats response</strong>: Most crises are preventable with foresight and preparation</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="section">
-    <button class="section-toggle"><span class="arrow">▶</span> Academic Frameworks</button>
-    <div class="section-body">
-      <h3>1. Situational Crisis Communication Theory (SCCT)</h3>
-      <p><strong>Source</strong>: W. Timothy Coombs (2007). Strategy must match <strong>Crisis Type</strong> and <strong>Reputation Threat Level</strong>.</p>
-      <ul>
-        <li><strong>Victim Crisis</strong> (Low Responsibility): Natural disaster, product tampering.</li>
-        <li><strong>Accidental Crisis</strong> (Moderate Responsibility): Technical failure, accident.</li>
-        <li><strong>Intentional Crisis</strong> (High Responsibility): Misconduct, ignoring safety standards.</li>
-      </ul>
-      <h3>2. Mitroff's Onion Model of Crisis Readiness</h3>
-      <p><strong>Source</strong>: Pauchant & Mitroff (1992). Crisis readiness layers: 1. Psychology (Core), 2. Culture, 3. Structure, 4. Strategy.</p>
-      <h3>3. High Reliability Organization (HRO) Principles</h3>
-      <p><strong>Source</strong>: Weick & Sutcliffe (2001). Managing the unexpected via preoccupations with failure, reluctance to simplify, sensitivity to operations, and deference to expertise.</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <button class="section-toggle"><span class="arrow">▶</span> The 5 Phases of Crisis Management</button>
-    <div class="section-body">
-      <h4>Phase 1: Preparation & Prevention (Pre-Crisis)</h4>
-      <ul>
-        <li>Build resilient systems; identify signals through Pre-mortems; designate leadership with delegated authority.</li>
-      </ul>
-      <h4>Phase 2: Detection & Diagnosis (Early Crisis)</h4>
-      <ul>
-        <li>Address the "Signal Problem"; distinguish between incident and crisis; define scope and moral dimension.</li>
-      </ul>
-      <h4>Phase 3: Containment & Stabilization (Active Crisis)</h4>
-      <ul>
-        <li>Match response to responsibility level (SCCT); Acknowledge → Investigating → Timeline; take decisive action.</li>
-      </ul>
-      <h4>Phase 4: Recovery & Healing (Post-Crisis)</h4>
-      <ul>
-        <li>Return to normal; provide support to victims; close the "Trust Gap" with consistent action.</li>
-      </ul>
-      <h4>Phase 5: Learning & Resilience (Long-Term)</h4>
-      <ul>
-        <li>Double-loop learning (fix culture, not just process); update the organizational Psychology layer.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="section">
-    <button class="section-toggle"><span class="arrow">▶</span> Case Studies: In-Depth Analysis</button>
-    <div class="section-body">
-      <div class="case-study">
-        <h4>1. J&J Tylenol (1982) - The Gold Standard</h4>
-        <p><strong>What Happened:</strong> Seven deaths in Chicago due to cyanide-laced bottles. A <strong>Victim Crisis</strong>.</p>
-        <p><strong>Strategic Moves:</strong> Stakeholder primacy (safety > profit); recalled 31M bottles ($100M cost); pioneered tamper-resistant packaging.</p>
-        <p><strong>Result:</strong> Market share recovered within a year; became most trusted company in healthcare.</p>
-        <p><strong>Key Lesson:</strong> Over-responding on the moral dimension in a Victim Crisis builds massive reputational capital.</p>
-      </div>
-      <div class="case-study">
-        <h4>2. Boeing 737 MAX (2018-2019) - Cultural Failure</h4>
-        <p><strong>What Happened:</strong> Two crashes, 346 deaths. Caused by MCAS software hidden from pilots to save on training costs.</p>
-        <p><strong>Strategic Failures:</strong> Simplified explanation ("pilot error"); hid technical flaws from regulators (Intentional Crisis); leadership invisibility and leaglistic tone.</p>
-        <p><strong>Result:</strong> $30B+ loss; CEO fired; brand trust severely damaged for years.</p>
-        <p><strong>Key Lesson:</strong> An Intentional Crisis requires a "Rebuild" strategy. Boeing used "Diminish," leading to collapse.</p>
-      </div>
-      <div class="case-study">
-        <h4>3. BP Deepwater Horizon (2010) - Leadership Failure</h4>
-        <p><strong>What Happened:</strong> Massive oil spill; 11 deaths. Environmental catastrophe.</p>
-        <p><strong>Strategic Failures:</strong> Minimization of spill size; externalizing blame to contractors; "I'd like my life back" gaffe by CEO.</p>
-        <p><strong>Result:</strong> $65B+ in cleanup/legal fees; brand synonymous with negligence.</p>
-        <p><strong>Key Lesson:</strong> Leadership visibility must be paired with Empathy. Without empathy, visibility is toxic.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <button class="section-toggle"><span class="arrow">▶</span> Do's & Don'ts (Comprehensive Guide)</button>
-    <div class="section-body">
-      <div class="do-dont">
-        <div class="do-item">
-          <div class="do-header">✅ DO 1: Move from Structure to Culture</div>
-          <p><strong>What:</strong> Build a culture where "bad news travels fast" and whistleblowers are rewarded.</p>
-          <p><strong>Why:</strong> Crises aren't secrets; employees at the bottom usually know months before failure.</p>
-          <p><span class="tag-success">Good Example:</span> Airline rewarding pilots for reporting "near misses" without punishment.</p>
-          <p><span class="tag-error">Bad Example:</span> Managers hiding production delays to meet quarterly bonuses.</p>
-        </div>
-        <div class="do-item">
-          <div class="do-header">✅ DO 2: Apply SCCT Matching Principle</div>
-          <p><strong>What:</strong> Pick a communication strategy that matches your responsibility level (Victim, Accidental, Intentional).</p>
-          <p><strong>Why:</strong> Misaligned strategy (e.g. Diminish for Intentional) is seen as lying.</p>
-          <p><span class="tag-success">Good Example:</span> Admitting technical failure (Accidental) and offering rebuild/apology immediately.</p>
-          <p><span class="tag-error">Bad Example:</span> Blaming "rogue engineers" for a systemic scandal (Volkswagen).</p>
-        </div>
-        <div class="do-item">
-          <div class="do-header">✅ DO 3: Prioritize HRO Principles</div>
-          <p><strong>What:</strong> Treat every minor incident as a potential signal of a systemic crisis.</p>
-          <p><strong>Why:</strong> Crises are accumulations of small, ignored signals.</p>
-          <p><span class="tag-success">Good Example:</span> Hospital treating a "wrong-patient-med" error as a reason to redesign entire workflow.</p>
-          <p><span class="tag-error">Bad Example:</span> Ignoring 50 complaints because "customers always complain."</p>
-        </div>
-        <div class="dont-item">
-          <div class="dont-header">❌ DON'T 1: Allow Psychological Denial</div>
-          <p><strong>What:</strong> Don't let leadership believe "It can't happen to us."</p>
-          <p><strong>Why:</strong> Hubris leads to delayed detection and slow response.</p>
-          <p><span class="tag-success">Good Example:</span> CEO setting a "Red Team" to find vulnerabilities annually.</p>
-          <p><span class="tag-error">Bad Example:</span> "We are the global leader; our planes don't crash." (Boeing internal sentiment).</p>
-        </div>
-        <div class="dont-item">
-          <div class="dont-header">❌ DON'T 2: Treat Crisis as a PR Problem</div>
-          <p><strong>What:</strong> Don't focus on "managing the message" until you have "managed the problem."</p>
-          <p><strong>Why:</strong> Transparency without action is PR; action without transparency is invisible.</p>
-          <p><span class="tag-success">Good Example:</span> Recalling product first, then holding detailed press briefings.</p>
-          <p><span class="tag-error">Bad Example:</span> Hiring a PR firm to release statements while the unsafe product is still on shelves.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section">
-    <button class="section-toggle"><span class="arrow">▶</span> Framework Reference Guide</button>
-    <div class="section-body">
-      <h4>Crisis Response Decision Matrix (SCCT)</h4>
-      <table>
-        <thead>
-          <tr><th>Attribution</th><th>Strategy</th><th>Recommended Actions</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Low (Victim)</strong></td><td>Deny / Bolster</td><td>Legal defense; Remind of past history</td></tr>
-          <tr><td><strong>Moderate (Accidental)</strong></td><td>Diminish / Justify</td><td>Explain technical context; minimize blame</td></tr>
-          <tr><td><strong>High (Intentional)</strong></td><td><strong>Rebuild / Apologize</strong></td><td>Admit guilt; Full compensation; Change leadership</td></tr>
-        </tbody>
-      </table>
-      <h4>Crisis Management Maturity Model</h4>
-      <table>
-        <thead>
-          <tr><th>Level</th><th>Mindset</th><th>Resilience</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Reactive</strong></td><td>Surprise/Bad luck</td><td>Fragile</td></tr>
-          <tr><td><strong>Compliant</strong></td><td>Checklist/Legal-led</td><td>Brittle</td></tr>
-          <tr><td><strong>Proactive</strong></td><td>Risk to manage</td><td>Robust</td></tr>
-          <tr><td><strong>Resilient (HRO)</strong></td><td>Learning source</td><td>Antifragile</td></tr>
-        </tbody>
-      </table>
-      <p><strong>Summary:</strong> Stakeholders > Profit. System fix > Scapegoat. Signals > Hubris.</p>
-    </div>
-  </div>
-
+  <main id="markdown-content">
+    <p style="text-align: center; padding: 40px; opacity: 0.5;">Loading content...</p>
+  </main>
 </div>
 
 <script>
-  document.querySelectorAll('.section-toggle').forEach(button => {
-    button.addEventListener('click', () => {
-      button.classList.toggle('open');
-      const body = button.nextElementSibling;
-      body.classList.toggle('open');
-    });
-  });
-
-  const toggleAll = document.getElementById('toggleAll');
-  if (toggleAll) {
-    let allOpen = false;
-    toggleAll.addEventListener('click', () => {
-      allOpen = !allOpen;
-      document.querySelectorAll('.section-toggle').forEach(btn => {
-        if (allOpen) { btn.classList.add('open'); btn.nextElementSibling.classList.add('open'); }
-        else { btn.classList.remove('open'); btn.nextElementSibling.classList.remove('open'); }
+  async function loadMarkdown() {
+    const contentEl = document.getElementById('markdown-content');
+    try {
+      const response = await fetch('knowledge_base/crisis-management.md');
+      if (!response.ok) throw new Error('File not found');
+      const text = await response.text();
+      
+      // Configure marked for best results
+      marked.setOptions({
+        headerIds: true,
+        gfm: true,
+        breaks: true
       });
-      toggleAll.textContent = allOpen ? 'Collapse All' : 'Expand All';
-    });
+
+      contentEl.innerHTML = marked.parse(text);
+      
+      // Re-apply any specific formatting or logic if needed
+      // Since it's standard markdown, we just let it render.
+    } catch (err) {
+      contentEl.innerHTML = `<p style="color:var(--error); padding: 40px; text-align: center;">Error loading markdown: ${err.message}</p>`;
+    }
   }
+
+  loadMarkdown();
 
   if (localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark-mode');
