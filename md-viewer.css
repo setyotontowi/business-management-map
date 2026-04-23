@@ -92,3 +92,8 @@ pre code { background: none; padding: 0; }
   opacity: 1;
   margin-bottom: 20px;
 }
+
+.gtranslate_wrapper {
+  display: flex !important;
+  align-items: center;
+}

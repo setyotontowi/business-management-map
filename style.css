@@ -243,3 +243,31 @@ ul, ul ul {
   border-color: #334155;
   color: #f1f5f9;
 }
+
+/* GTranslate Styles */
+.gtranslate_wrapper {
+  position: fixed;
+  top: 1.5rem;
+  right: 11rem;
+  z-index: 2000;
+  background: var(--node-bg);
+  border: 1px solid var(--node-border);
+  border-radius: 2rem;
+  padding: 2px 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+  display: flex !important;
+  align-items: center;
+}
+
+.gtranslate_wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 600px) {
+  .gtranslate_wrapper {
+    top: 4.5rem;
+    right: 1.5rem;
+  }
+}
